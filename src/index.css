@@ -109,6 +109,20 @@ animations work for a CSS only loading spinner */
 }
 
 
+/* Browser Scrollbar styles */
+*::-webkit-scrollbar {
+  width: 12px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #171717;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #525252;
+  border-radius: 6px;
+}
+
 
 
 /* 

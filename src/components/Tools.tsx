@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { ToolsLink } from '../toolbelt/api'
+import { toolsLink } from '../toolbelt/api'
 import LoadingSpinner from './LoadingSpinner'
 
 function ToolsStack() {
@@ -9,7 +9,7 @@ function ToolsStack() {
 
     useEffect(() => {
         const fetchData = async () => {
-            const response = await fetch(ToolsLink)
+            const response = await fetch(toolsLink)
             if ( response.ok ) {
                 const data = await response.json()
                 setData(data)
@@ -19,7 +19,7 @@ function ToolsStack() {
             }
         }
         fetchData()
-    }, [ToolsLink])
+    }, [toolsLink])
     
     const categories = [
         { name: 'Design Tools', parent: 3 },
@@ -42,7 +42,7 @@ return (
                    .filter((tool) => tool.parent === category.parent)
                    .map((tool, index) => (
                      <li
-                       className="flex justify-center items-center border border-solid rounded-bl-lg rounded-tr-lg w-40 p-2 m-2 single-tool"
+                       className="flex justify-center items-center border border-solid rounded-bl-lg rounded-tr-lg w-40 h-10 m-2 single-tool"
                        key={index}
                      >
                        {tool.name}
