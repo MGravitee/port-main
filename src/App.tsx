@@ -5,14 +5,17 @@ import './index.css'
 import Cursor from './components/Cursor'
 import Projects3 from './components/Projects copy 2'
 import Tabs from './components/Tabs'
-
+import ToolsCarousel from './components/Tools copy'
 function App() {
 
   return (
     <>
-        <ToolsStack />
+        {/* <ToolsStack /> */}
+        <ToolsCarousel />
         <Projects3 />
+        {/* <Tabs /> */}
         <BottomNav />
+
         <Cursor />
     </>
   )

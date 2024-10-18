@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react'
 import { projectsLink } from '../toolbelt/api'
 import LoadingSpinner from './LoadingSpinner'
-import Accordion from './Accordion'
-
+// import Accordion from './Accordion'
+import Accordion2 from './Accordion copy'
 
 function Projects3() {
 
@@ -28,7 +28,7 @@ return (
     <>
         {isLoaded ? 
             <>
-                <Accordion projects={restData} />
+                <Accordion2 projects={restData} />
             </>
 
 

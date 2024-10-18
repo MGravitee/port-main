@@ -7,9 +7,10 @@
 
 
 
-/* .tool-icon {
-  max-width: 36px;
-} */
+/* .single-svg{
+  object-fit: fill;
+
+}  */
 
 
 
@@ -162,6 +163,24 @@ animations work for a CSS only loading spinner */
   opacity: 1;
   cursor: none;
 }
+
+/* Colours for dev/design */
+
+
+.design-color {
+  color: #ff8f1f;
+  text-shadow: 3px 3px 3px #000000;
+}
+.dev-color {
+  color: #c636d9;
+  text-shadow: 3px 3px 3px #000000;
+}
+.other-color {
+  color: #8bfff9;
+  text-shadow: 3px 3px 3px #000000;
+}
+
+
 
 
 
