@@ -29,6 +29,8 @@ return (
         {isLoaded ? 
             <>
                 <Accordion2 projects={restData} />
+                <div id='scroll-down-anim'><p ><span></span>Scroll</p>
+                </div>
             </>
 
 

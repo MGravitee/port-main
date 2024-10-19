@@ -6,10 +6,12 @@ import Cursor from './components/Cursor'
 import Projects3 from './components/Projects copy 2'
 import Tabs from './components/Tabs'
 import ToolsCarousel from './components/Tools copy'
+import Hero from './components/Hero'
 function App() {
 
   return (
     <>
+        <Hero />
         {/* <ToolsStack /> */}
         <ToolsCarousel />
         <Projects3 />

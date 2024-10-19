@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { projectsLink } from "../toolbelt/api";
 import LoadingSpinner from "./LoadingSpinner";
+import { ArrowLeft, ArrowRight } from "../icons/Icons";
+
+
 
 interface TabsProps {
     analysisContent: string; // HTML content
@@ -90,7 +93,7 @@ interface Feature {
               activeTab === "development" ? "font-bold underline" : ""
             }`}
           >
-            Development Features
+            Dev. Features
           </button>
           <button
             onClick={() => handleTabChange("design")}

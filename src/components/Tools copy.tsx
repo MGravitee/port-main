@@ -49,11 +49,11 @@ return (
             pagination={true}
             navigation={true}
             modules={[EffectCards, Pagination, Navigation]}
-            className="mySwiper w-[400px] h-[650px]"
+            className="mySwiper w-[20.4rem] h-[36rem]"
            >
            {categories.map((category) => (
              <SwiperSlide className=' backdrop-blur border-2 border-solid rounded-bl-lg rounded-tr-lg'>
-                  <article className="flex flex-wrap m-8 tool-container" key={category.parent}>
+                  <article className="flex flex-wrap gap-1 tool-container" key={category.parent}>
                   <h2 className={`${switchColour(
                                 category.name)} w-full tool-category-title`}>{category.name}</h2>
                   <ul className="flex flex-wrap tool-list">

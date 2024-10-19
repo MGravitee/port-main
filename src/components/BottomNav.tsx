@@ -1,5 +1,6 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
+import { ThemeSwitch } from "../darkmode/DarkModeBtn";
 
 
 const BottomNav = () => {
@@ -21,6 +22,9 @@ const BottomNav = () => {
         <NavItem selected={selected === 3} id={3} setSelected={setSelected}>
           Contact
         </NavItem>
+        <li>
+          <ThemeSwitch />
+        </li>
       </ul>
     </nav>
   );
@@ -29,7 +33,7 @@ const BottomNav = () => {
 const NavItem = ({ children, selected, id, setSelected }) => {
   return (
     <motion.button
-      className="p-3 text-sm bg-slate-800 hover:bg-slate-700 rounded-md transition-colors relative"
+      className="p-3 text-sm hover:bg-slate-700 rounded-md transition-colors relative"
       onClick={() => setSelected(id)}
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
@@ -38,7 +42,7 @@ const NavItem = ({ children, selected, id, setSelected }) => {
       <AnimatePresence>
         {selected && (
           <motion.li
-            className="absolute inset-0 rounded-md bg-indigo-600 z-0"
+            className="absolute inset-0 rounded-md z-0"
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
             exit={{ scale: 0 }}
