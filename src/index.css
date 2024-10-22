@@ -3,6 +3,9 @@
 @tailwind utilities;
 
 
+#site-wrapper {
+  @apply relative mx-auto max-w-[118.75rem] overflow-hidden px-6  sm:px-12 md:px-24 lg:flex lg:px-0;
+}
 
 
 
@@ -16,8 +19,8 @@
 
 
 /* loading spinner that loads incase the API is slow/down
-all of the divs and pseudo selectors needed to make the CSS
-animations work for a CSS only loading spinner */
+all of the divs and pseudo selectors are needed to make the CSS
+animations work for the loading spinner */
 
 .lds-roller,
 .lds-roller div,
@@ -311,6 +314,30 @@ div.swiper-button-prev::after {
   color: #8bfff9;
   text-shadow: 3px 3px 3px #000000;
 }
+
+
+
+.fade-in-slide-up {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fade-in-slide-up 1s forwards ease-out;
+}
+
+@keyframes fade-in-slide-up {
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (min-width: 1024px) {
+  #right {
+    min-height: 100vh;
+  }
+}
+
+
+
 
 
 

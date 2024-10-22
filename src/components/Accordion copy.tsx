@@ -112,15 +112,15 @@ const Accordion2: React.FC<AccordionProps> = ({ projects }) => {
                                 <h4 className="font-semibold text-lg">
                                     Tools Used:
                                 </h4>
-                                <ul className="tools-used flex flex-wrap">
+                                <ul className="tools-used flex flex-wrap gap-2 ">
                                     {project.tools.map((tool, index) => (
                                         <li
                                             key={index}
-                                            className="flex justify-center text-sm items-center border border-solid rounded-bl-lg rounded-tr-lg w-36 h-10 m-2 single-tool"
+                                            className="flex gap-1 justify-center text-sm items-center border rounded-bl-lg rounded-tr-lg w-32 h-10 single-tool"
                                         >
                                             {tool[0]}
                                             <img
-                                                className="single-svg pl-2 w-8 h-8"
+                                                className="max-w-[24px] tool-icon"
                                                 src={tool[1]}
                                                 alt={`${tool[0]} icon`}
                                             />

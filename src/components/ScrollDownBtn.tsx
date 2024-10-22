@@ -8,7 +8,7 @@ const ScrollDownBtn: FC = () => {
         e.preventDefault();
 
         // Get the ref to the ProjectSection and scroll to it
-        const projectSection = document.getElementById("projects");
+        const projectSection = document.getElementById("projects-section");
 
         if (projectSection) {
             const sectionPosition = projectSection.getBoundingClientRect().top + window.scrollY - scrollOffset;

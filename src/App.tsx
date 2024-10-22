@@ -1,33 +1,18 @@
-import { useState } from 'react'
-import About from './components/About'
-import ToolsStack from './components/Tools'
-import Projects from './components/Projects'
-import BottomNav from './components/BottomNav'
-import './index.css'
-import Cursor from './components/Cursor'
-import Projects3 from './components/Projects copy 2'
-import Tabs from './components/Tabs'
-import ToolsCarousel from './components/Tools copy'
-import Hero from './components/Hero'
-import LoadingSpinner from './components/LoadingSpinner'
+import LeftSide from "./components/LeftSide"
+import RightSide from "./components/RightSide"
+import Cursor from "./components/Cursor"
+import BottomNav from "./components/BottomNav"
 
 function App() {
 
-  const [isLoaded, setLoadStatus] = useState(false)
-
-
   return (
     <>
-        <Hero />
-        {/* <ToolsStack /> */}
-        <About />
-        <ToolsCarousel />
-        <Projects3 />
-        {/* <Tabs /> */}
-        <BottomNav />
-
-        <Cursor />
-    </>
+      <div id='site-wrapper' className="site-wrapper">
+          <LeftSide />
+          <RightSide />
+          <Cursor />
+      </div>
+   </>
   )
 }
 

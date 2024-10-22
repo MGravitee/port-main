@@ -113,7 +113,7 @@ const Tabs: React.FC<TabsProps> = ({
 
   return (
     <div className="tabs-container">
-      <div className="tabs mb-4">
+      <div className="tabs border gap-2 mb-4 flex justify-center space-x-1 mt-8 ">
         <button
           onClick={() => handleTabChange("analysis")}
           className={`tab-button ${
@@ -124,7 +124,7 @@ const Tabs: React.FC<TabsProps> = ({
         </button>
         <button
           onClick={() => handleTabChange("development")}
-          className={`tab-button ml-4 ${
+          className={`tab-button ${
             activeTab === "development" ? "font-bold underline" : ""
           }`}
         >
@@ -132,7 +132,7 @@ const Tabs: React.FC<TabsProps> = ({
         </button>
         <button
           onClick={() => handleTabChange("design")}
-          className={`tab-button ml-4 ${
+          className={`tab-button ${
             activeTab === "design" ? "font-bold underline" : ""
           }`}
         >

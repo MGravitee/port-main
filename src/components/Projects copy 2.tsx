@@ -1,9 +1,8 @@
 import { useState, useEffect } from 'react'
 import { projectsLink } from '../toolbelt/api'
 import LoadingSpinner from './LoadingSpinner'
-// import Accordion from './Accordion'
 import Accordion2 from './Accordion copy'
-import { section } from 'framer-motion/client'
+
 
 function Projects3() {
 
@@ -28,10 +27,12 @@ console.log(restData)
 return (
     <>
         {isLoaded ? 
-            <section id='projects' className='projects'>
+
+
+            <section id='projects-section' className='projects-section'>
+
+                <h3>Featured Work:</h3>
                 <Accordion2 projects={restData} />
-                <div id='scroll-down-anim'><p ><span></span>Scroll</p>
-                </div>
             </section>
 
 
