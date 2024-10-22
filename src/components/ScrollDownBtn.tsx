@@ -8,7 +8,7 @@ const ScrollDownBtn: FC = () => {
         e.preventDefault();
 
         // Get the ref to the ProjectSection and scroll to it
-        const projectSection = document.getElementById("projects-section");
+        const projectSection = document.getElementById("work-section");
 
         if (projectSection) {
             const sectionPosition = projectSection.getBoundingClientRect().top + window.scrollY - scrollOffset;
@@ -25,6 +25,7 @@ const ScrollDownBtn: FC = () => {
             <span className="scroll-indicator"></span>
             <span className="scroll-indicator"></span>
             <span className="scroll-indicator"></span>
+            <p>Scroll Down</p>
         </button>
     )
 }

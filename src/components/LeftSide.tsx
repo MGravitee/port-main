@@ -1,5 +1,5 @@
 import Hero from "./Hero"
-
+import DeskNav from "./DeskNav"
 
 
 function LeftSide() {
@@ -15,7 +15,7 @@ function LeftSide() {
         >Skip to Content
         </a>
             <Hero />
-
+            <DeskNav />
 
 
         

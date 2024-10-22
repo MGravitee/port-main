@@ -1,10 +1,11 @@
 import { AnimatedText } from "../components/AnimatedText";
 import ScrollDownBtn from "./ScrollDownBtn";
 
+
 function Hero() {
   return (
         <header id="home" className="hero-section">
-          <h1 className="hero-heading text-4xl sm:text-6xl md:text-7xl lg:text-8xl">Matt Gravitee</h1>
+          <h1 className="hero-heading text-4xl sm:text-6xl md:text-7xl">Matt Gravitee</h1>
               <AnimatedText
                 el="h2"
                 text={[

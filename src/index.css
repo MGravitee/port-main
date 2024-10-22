@@ -2,10 +2,26 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  scroll-behavior: smooth;
+  /* cursor: none; */
+}
 
 #site-wrapper {
   @apply relative mx-auto max-w-[118.75rem] overflow-hidden px-6  sm:px-12 md:px-24 lg:flex lg:px-0;
+
+/* This is to add a top margin to all sections instead of sitting them individually */
+  section {
+    @apply mt-8
+  }
+
+  list-style: none;
+
+
 }
+
+
+
 
 
 
@@ -249,7 +265,7 @@ div.swiper-button-prev::after {
 
 /* Scroll down indicator */
 .scroll-indicator {
-  @apply block w-4 h-4 md:w-5 md:h-5 border-b-2 border-r-2 border-current transform rotate-45 -my-2.5 animate-scrollDown
+  @apply block w-4 h-4 md:w-5 md:h-5 border-b-2 border-r-2 border-current transform rotate-45 -my-2.5  ml-7 animate-scrollDown
 }
 
 .scroll-indicator:nth-child(2) {
@@ -293,6 +309,7 @@ div.swiper-button-prev::after {
     -webkit-mask-composite: xor;
   }
   
+
 
 
 

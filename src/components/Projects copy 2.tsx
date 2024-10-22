@@ -29,7 +29,7 @@ return (
         {isLoaded ? 
 
 
-            <section id='projects-section' className='projects-section'>
+            <section id='work-section' className='work-section'>
 
                 <h3>Featured Work:</h3>
                 <Accordion2 projects={restData} />
