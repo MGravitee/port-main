@@ -1,124 +1,153 @@
-import React, { useState, useEffect } from "react";
-import { projectsLink } from "../toolbelt/api";
-import LoadingSpinner from "./LoadingSpinner";
+import React, { useState } from "react";
 import { ArrowLeft, ArrowRight } from "../icons/Icons";
 
 
-
 interface TabsProps {
-    analysisContent: string; // HTML content
-    designFeatures: Feature[];
-    developmentFeatures: Feature[];
-  }
+  analysisContent: AnalysisContent; // image + HTML content to dangerously set
+  designFeatures: Feature[];
+  developmentFeatures: Feature[];
+}
 
-interface Feature {
-    title: string;
-    imageUrl: string;
-    description: string;
-  }
+export interface Feature {
+  title: string;
+  imageUrl: string;
+  description: string;
+}
 
+export interface AnalysisContent {
+  content: string; 
+  imageUrl: string; // actually a video URL (mp4)
+}
 
-  const Tabs: React.FC<TabsProps> = ({
-    analysisContent,
-    designFeatures,
-    developmentFeatures,
-  }) => {
-    const [activeTab, setActiveTab] = useState<string>("analysis");
-    const [currentPage, setCurrentPage] = useState<number>(0);
-  
-    const handleTabChange = (tab: string) => {
-      setActiveTab(tab);
-      setCurrentPage(0); // Reset to first page when switching tabs
-    };
-  
-    const handleNextPage = (features: Feature[]) => {
-      if (currentPage < features.length - 1) {
-        setCurrentPage(currentPage + 1);
-      }
-    };
-  
-    const handlePreviousPage = () => {
-      if (currentPage > 0) {
-        setCurrentPage(currentPage - 1);
-      }
-    };
-  
-    const renderFeatures = (features: Feature[]) => {
-      if (features.length === 0) return <p>No features available.</p>;
-  
-      const feature = features[currentPage];
-      return (
-        <div className="feature-content">
+const Tabs: React.FC<TabsProps> = ({
+  analysisContent,
+  designFeatures,
+  developmentFeatures,
+}) => {
+  const [activeTab, setActiveTab] = useState<string>("analysis");
+  const [currentPage, setCurrentPage] = useState<number>(0);
+
+  const handleTabChange = (tab: string) => {
+    setActiveTab(tab);
+    setCurrentPage(0); // Reset to first page when switching tabs
+  };
+
+  const handleNextPage = (features: Feature[]) => {
+    setCurrentPage((prevPage) => (prevPage + 1) % features.length); 
+    // goes to the next page, and loops back to 0 if it's the last page
+  };
+
+  const handlePreviousPage = (features: Feature[]) => {
+    setCurrentPage((prevPage) =>
+      prevPage === 0 ? features.length - 1 : prevPage - 1
+    );
+    // back previous page, and loops back to the last if it's the first page
+  };
+
+  const handlePageClick = (index: number) => {
+    setCurrentPage(index);
+  };
+
+  const renderAnalysis = (analysisData: { content: string; imageUrl: string }) => {
+    return (
+      <div className="analysis-content">
+        {/* outputting the video */}
+        <video key={analysisData.imageUrl} className="w-full h-auto rounded-lg mb-4 max-w-[600px]" autoPlay loop muted>
+          <source src={analysisData.imageUrl} type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+
+        {/* rendering the WYSIWYG field, SO DANGEROUS */}
+        <div
+          className="dangerouslySetHtmlContent"
+          dangerouslySetInnerHTML={{ __html: analysisData.content }}
+        />
+      </div>
+    );
+  };
+
+  const renderFeatures = (features: Feature[]) => {
+    if (features.length === 0) return <p>No features available.</p>;
+
+    const feature = features[currentPage];
+    return (
+      <article className="feature-content">
         <video key={feature.imageUrl} className="w-full h-auto rounded-lg mb-4 max-w-[600px]" autoPlay loop muted>
           <source src={feature.imageUrl} type="video/mp4" />
           Your browser does not support the video tag.
         </video>
-          <h4 className="font-semibold mb-2">{feature.title}</h4>
-          <p>{feature.description}</p>
-  
-          <div className="pagination-buttons mt-4">
-            <button
-              onClick={handlePreviousPage}
-              disabled={currentPage === 0}
-              className="px-4 py-2 bg-gray-200 rounded mr-2"
-            >
-              Previous
-            </button>
-            <button
-              onClick={() => handleNextPage(features)}
-              disabled={currentPage === features.length - 1}
-              className="px-4 py-2 bg-gray-200 rounded"
-            >
-              Next
-            </button>
+        <h4 className="font-semibold mb-2">{feature.title}</h4>
+        <p>{feature.description}</p>
+
+        <div className="pagination-buttons mt-4 flex items-center justify-center space-x-2">
+          <button
+            onClick={() => handlePreviousPage(features)}
+            className= "prev-page-btn"
+          >
+           <ArrowLeft size={40} />
+          </button>
+
+          {/* Pagination Dots */}
+          <div className="flex space-x-1">
+            {features.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => handlePageClick(index)}
+                className={`h-3 w-3 rounded-full ${
+                  index === currentPage ? "bg-pink-500" : "bg-current"
+                }`}
+              />
+            ))}
           </div>
-        </div>
-      );
-    };
-  
-    return (
-      <div className="tabs-container">
-        <div className="tabs mb-4">
+
           <button
-            onClick={() => handleTabChange("analysis")}
-            className={`tab-button ${
-              activeTab === "analysis" ? "font-bold underline" : ""
-            }`}
+            onClick={() => handleNextPage(features)}
+            className= "next-page-btn"
           >
-            Analysis
-          </button>
-          <button
-            onClick={() => handleTabChange("development")}
-            className={`tab-button ml-4 ${
-              activeTab === "development" ? "font-bold underline" : ""
-            }`}
-          >
-            Dev. Features
-          </button>
-          <button
-            onClick={() => handleTabChange("design")}
-            className={`tab-button ml-4 ${
-              activeTab === "design" ? "font-bold underline" : ""
-            }`}
-          >
-            Design Insights
+            <ArrowRight size={40} />
           </button>
         </div>
-  
-        {/* Conditionally Render Content Based on Active Tab */}
-        <div className="tab-content">
-          {activeTab === "analysis" && (
-            <div
-              className="analysis-content"
-              dangerouslySetInnerHTML={{ __html: analysisContent }}
-            />
-          )}
-          {activeTab === "development" &&
-            renderFeatures(developmentFeatures)}
-          {activeTab === "design" && renderFeatures(designFeatures)}
-        </div>
-      </div>
+      </article>
     );
   };
-  
-  export default Tabs;
+
+  return (
+    <div className="tabs-container">
+      <div className="tabs mb-4">
+        <button
+          onClick={() => handleTabChange("analysis")}
+          className={`tab-button ${
+            activeTab === "analysis" ? "font-bold underline" : ""
+          }`}
+        >
+          Analysis
+        </button>
+        <button
+          onClick={() => handleTabChange("development")}
+          className={`tab-button ml-4 ${
+            activeTab === "development" ? "font-bold underline" : ""
+          }`}
+        >
+          Dev. Features
+        </button>
+        <button
+          onClick={() => handleTabChange("design")}
+          className={`tab-button ml-4 ${
+            activeTab === "design" ? "font-bold underline" : ""
+          }`}
+        >
+          Design Insights
+        </button>
+      </div>
+
+      {/* Conditionally Render Content Based on Active Tab */}
+      <div className="tab-content">
+        {activeTab === "analysis" && renderAnalysis(analysisContent)}
+        {activeTab === "development" && renderFeatures(developmentFeatures)}
+        {activeTab === "design" && renderFeatures(designFeatures)}
+      </div>
+    </div>
+  );
+};
+
+export default Tabs;

@@ -1,24 +1,24 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 import Tabs from "./Tabs";
-
+import { GitHubIcon, GlobeIcon } from "../icons/Icons";
+import { Feature } from "./Tabs";
+import GlowingOutline from "./GlowingOutline";
 interface Tool {
     name: string;
     iconUrl: string;
 }
 
-interface Feature {
-    title: string;
-    imageUrl: string;
-    description: string;
-}
 interface Project {
     id: string;
     acf: {
         project_title: string;
         project_featured_image: string;
         project_overview: string;
-        analysis_heading: string;
+        project_live_link: string;
+        project_github_link:string;
         analysis_content: string;
+        analysis_image: string;
         design_feature_1: Feature;
         design_feature_2: Feature;
         design_feature_3: Feature;
@@ -31,6 +31,7 @@ interface AccordionProps {
     projects: Project[];
 }
 
+
 const Accordion2: React.FC<AccordionProps> = ({ projects }) => {
     const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
@@ -38,38 +39,83 @@ const Accordion2: React.FC<AccordionProps> = ({ projects }) => {
         setActiveIndex(activeIndex === index ? null : index);
     };
 
+    // Variants for the animation of open/close accordion content w/framer motion
+    const accordionVariants = {
+        open: { height: "auto", opacity: 1 },
+        collapsed: { height: 0, opacity: 0 },
+    };
+
+    // need for open/close indicator animation
+    const arrowVariants = {
+        open: { rotate: 180 },
+        closed: { rotate: 0 },
+    };
+
+
+
+
     return (
         <div className="accordion">
             {projects.map((project, index) => (
-                <div key={project.id} className="accordion-item mb-4">
+                <div key={project.id} className="accordion-item max-w-xl mb-4">
                     <button
                         aria-expanded={activeIndex === index}
                         aria-controls={`content-${index}`}
                         id={`accordion-title-${index}`}
-                        className="accordion-title text-left w-full p-4 text-lg font-medium rounded-lg transition-colors"
+                        className=" relative flex justify-between accordion-title text-left border-1 w-full p-4 text-lg font-medium rounded-bl-lg rounded-tr-lg transition-colors inset-0 z-10"
                         onClick={() => toggleAccordion(index)}
-                    >
-                        {project.acf.project_title}
+                    >{project.acf.project_title}
+                            {/* Animated arrow */}
+                            <motion.span
+                            animate={{ rotate: activeIndex === index ? 180 : 0 }} // Rotate the arrow
+                            transition={{ duration: 0.3 }}
+                        >
+                            <svg
+                            className="w-5 h-5 text-gray-500"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg"
+                            >
+                            <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth="2"
+                                d="M19 9l-7 7-7-7"
+                            ></path>
+                            </svg>
+                        </motion.span>
+
+
+                        <GlowingOutline />
                     </button>
-                    <div
+
+                    <motion.div
                         id={`content-${index}`}
                         role="region"
                         aria-labelledby={`accordion-title-${index}`}
-                        className={`accordion-content p-4 mt-2 border-l-2 border-gray-300 ${
-                            activeIndex === index ? "block" : "hidden"
-                        }`}
+                        initial={false}
+                        animate={activeIndex === index ? "open" : "collapsed"}
+                        variants={accordionVariants}
+                        transition={{ duration: 0.3, ease: "easeInOut" }}
+                        className="accordion-content p-4 mt-2 border border-current  overflow-hidden "
                     >
-                        <div className="project-details">
-                            {/* displaying overview and tools used */}
+                        <article className="project-details relative">
+                            {/* displaying overview, links and tools used */}
+                            <h3>Overview:</h3>
                             <p>{project.acf.project_overview}</p>
+                            <nav className="flex justify-center gap-3">
+                                <a href={project.acf.project_live_link}>Live Site <GlobeIcon /> </a>
+                                <a href={project.acf.project_github_link}>GitHub <GitHubIcon /> </a>
+                            </nav>
                             <div className="tools-list mt-4">
                                 <h4 className="font-semibold text-lg">
                                     Tools Used:
                                 </h4>
                                 <ul className="tools-used flex flex-wrap">
-                                    {project.tools.map((tool, idx) => (
+                                    {project.tools.map((tool, index) => (
                                         <li
-                                            key={idx}
+                                            key={index}
                                             className="flex justify-center text-sm items-center border border-solid rounded-bl-lg rounded-tr-lg w-36 h-10 m-2 single-tool"
                                         >
                                             {tool[0]}
@@ -82,9 +128,13 @@ const Accordion2: React.FC<AccordionProps> = ({ projects }) => {
                                     ))}
                                 </ul>
                             </div>
-                            {/* trying to get features loaded into pages*/}
+
+                            {/* Tabs component with analysis, design, and development features */}
                             <Tabs
-                                analysisContent={project.acf.analysis_content}
+                                analysisContent={{
+                                    content: project.acf.analysis_content,
+                                    imageUrl: project.acf.analysis_image,
+                                }}
                                 designFeatures={[
                                     {
                                         title: project.acf.design_feature_1
@@ -135,13 +185,14 @@ const Accordion2: React.FC<AccordionProps> = ({ projects }) => {
                                             project.acf.dev_feature_2
                                                 .dev_feature_2_image,
                                         description:
-                                            project.acf
-                                                .dev_feature_2_content,
+                                            project.acf.dev_feature_2_content,
                                     },
                                 ]}
                             />
-                        </div>
-                    </div>
+                          
+
+                        </article>
+                    </motion.div>
                 </div>
             ))}
         </div>

@@ -5,7 +5,7 @@ import switchColour from '../toolbelt/headingColours';
 
 // Import Swiper modules
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { EffectCards, EffectCoverflow, Navigation, Pagination } from 'swiper/modules';
+import { EffectCards, Navigation, Pagination } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/effect-cards';
 import 'swiper/css/pagination';
@@ -45,28 +45,32 @@ return (
            <>
            <Swiper 
             effect={'cards'}
+            loop={true}
+
             grabCursor={true}
-            pagination={true}
+            pagination={{
+              clickable: true,
+            }}
             navigation={true}
             modules={[EffectCards, Pagination, Navigation]}
             className="mySwiper w-[20.4rem] h-[36rem]"
            >
            {categories.map((category) => (
-             <SwiperSlide className=' backdrop-blur border-2 border-solid rounded-bl-lg rounded-tr-lg'>
-                  <article className="flex flex-wrap gap-1 tool-container" key={category.parent}>
+             <SwiperSlide className=' backdrop-blur border-2 border-solid rounded-bl-lg rounded-tr-lg border-current' key={category.parent}>
+                  <article className="tool-container" key={category.parent}>
                   <h2 className={`${switchColour(
-                                category.name)} w-full tool-category-title`}>{category.name}</h2>
-                  <ul className="flex flex-wrap tool-list">
+                                category.name)} m-3 tool-category-title`}>{category.name}</h2>
+                  <ul className=" m-6  flex gap-2 flex-wrap tool-list">
                     {toolData
                       .filter((tool) => tool.parent === category.parent)
                       .map((tool, index) => (
                         <li
-                          className="flex justify-center text-sm items-center border border-solid rounded-bl-lg rounded-tr-lg w-36 h-10 m-2 single-tool"
+                          className="flex gap-1 justify-center text-sm items-center border rounded-bl-lg rounded-tr-lg w-32 h-10 single-tool"
                           key={index}
                         >
                           {tool.name}
                           <img
-                            className="pl-2 max-w-[32px] tool-icon"
+                            className="max-w-[24px] tool-icon"
                             src={tool.acf.icon}
                             alt={`${tool.name} icon`}
                           />

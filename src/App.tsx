@@ -1,3 +1,5 @@
+import { useState } from 'react'
+import About from './components/About'
 import ToolsStack from './components/Tools'
 import Projects from './components/Projects'
 import BottomNav from './components/BottomNav'
@@ -7,12 +9,18 @@ import Projects3 from './components/Projects copy 2'
 import Tabs from './components/Tabs'
 import ToolsCarousel from './components/Tools copy'
 import Hero from './components/Hero'
+import LoadingSpinner from './components/LoadingSpinner'
+
 function App() {
+
+  const [isLoaded, setLoadStatus] = useState(false)
+
 
   return (
     <>
         <Hero />
         {/* <ToolsStack /> */}
+        <About />
         <ToolsCarousel />
         <Projects3 />
         {/* <Tabs /> */}
