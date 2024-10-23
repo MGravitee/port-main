@@ -29,7 +29,7 @@ const Tabs: React.FC<TabsProps> = ({
 
   const handleTabChange = (tab: string) => {
     setActiveTab(tab);
-    setCurrentPage(0); // Reset to first page when switching tabs
+    setCurrentPage(0); // resets to first page when switching tabs
   };
 
   const handleNextPage = (features: Feature[]) => {
@@ -87,7 +87,7 @@ const Tabs: React.FC<TabsProps> = ({
            <ArrowLeft size={40} />
           </button>
 
-          {/* Pagination Dots */}
+          {/* dots for pagination */}
           <div className="flex space-x-1">
             {features.map((_, index) => (
               <button

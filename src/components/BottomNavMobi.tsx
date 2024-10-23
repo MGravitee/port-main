@@ -4,7 +4,7 @@ import { ThemeSwitch } from "../darkmode/DarkModeBtn";
 
 const BottomNavMobi = () => {
   return (
-    <nav className="fixed left-[50%] h-fit bottom-8 flex w-fit -translate-x-[50%] items-center gap-6 rounded-lg border-[1px] border-current  p-2 text-sm z-[999999] lg:hidden">
+    <nav className="fixed left-[50%] h-fit bottom-8 flex w-fit -translate-x-[50%] items-center gap-6 border-[1px] border-current rounded-bl-lg rounded-tr-lg p-2 text-sm z-[999999] lg:hidden">
 
             <NavItem href="#home">
                 <HomeIcon className="nav-item" />

@@ -184,7 +184,8 @@ const Accordion2: React.FC<AccordionProps> = ({ projects }) => {
                                             project.acf.dev_feature_2
                                                 .dev_feature_2_image,
                                         description:
-                                            project.acf.dev_feature_2_content,
+                                            project.acf.dev_feature_2
+                                            .dev_feature_2_content,
                                     },
                                 ]}
                             />
