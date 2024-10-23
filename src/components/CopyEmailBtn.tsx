@@ -43,19 +43,19 @@ const CopyEmailBtn: React.FC = () => {
     const CHARS = "!@#$%^&*():{};|,.<>/?";
     const EMAIL = "mgravitee@gmail.com";
 
-    // Function to copy email and show "Email Copied"
+    // function that copies email and show "Email Copied"
     const handleCopy = () => {
         navigator.clipboard.writeText(EMAIL).then(() => {
             setCopied(true);
             setText("Email Copied");
             setTimeout(() => {
                 setCopied(false);
-                setText(TARGET_TEXT); // resetting back to default state after seconds
+                setText(TARGET_TEXT); // resetting back to default state after 5 seconds
             }, 5000);
         });
     };
 
-    // Function to scramble the button text on hover
+    // function to scramble the button text on hover
     const scramble = () => {
         let pos = 0;
 
@@ -82,11 +82,11 @@ const CopyEmailBtn: React.FC = () => {
         }, SHUFFLE_TIME);
     };
 
-    // Function to stop scrambling
+    // function to stop scrambling
     const stopScramble = () => {
         clearInterval(intervalRef.current || undefined);
         if (!copied) {
-            setText(TARGET_TEXT); // Reset to original only if email hasn't been copied
+            setText(TARGET_TEXT); // reset to original only if email hasn't been copied
         }
     };
 
@@ -94,10 +94,10 @@ const CopyEmailBtn: React.FC = () => {
         <motion.button
             whileHover={{ scale: 1.025 }}
             whileTap={{ scale: 0.975 }}
-            onMouseEnter={!copied ? scramble : undefined} // Scramble only if not copied
+            onMouseEnter={!copied ? scramble : undefined} // scramble only if not copied
             onMouseLeave={!copied ? stopScramble : undefined}
-            onClick={handleCopy} // Copy email on click
-            className="group relative overflow-hidden rounded-bl-lg rounded-tr-lg border-[1px] border-neutral-500 bg-neutral-700 px-4 py-2 font-mono font-medium uppercase text-neutral-300 transition-colors hover:text-indigo-300"
+            onClick={handleCopy} // copy email on click
+            className="group relative overflow-hidden rounded-bl-lg rounded-tr-lg border-[1px] border-neutral-500 bg-neutral-700 px-4 py-2 font-mono font-medium uppercase text-neutral-300 transition-colors hover:text-orange-600"
         >
             <div className="relative z-10 flex items-center gap-2">
                 <span>{text}</span>
@@ -111,7 +111,7 @@ const CopyEmailBtn: React.FC = () => {
                     duration: 1,
                     ease: "linear",
                 }}
-                className="duration-300 absolute inset-0 z-0 scale-125 bg-gradient-to-t from-indigo-400/0 from-40% via-indigo-400/100 to-indigo-400/0 to-60% opacity-0 transition-opacity group-hover:opacity-100"
+                className="duration-300 absolute inset-0 z-0 scale-125 bg-gradient-to-t from-indigo-400/0 from-40% via-orange-600/100 to-orange-600/0 to-60% opacity-0 transition-opacity group-hover:opacity-100"
             />
         </motion.button>
     );

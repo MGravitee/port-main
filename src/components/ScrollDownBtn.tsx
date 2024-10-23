@@ -21,7 +21,7 @@ const ScrollDownBtn: FC = () => {
     }
 
     return (
-        <button className="p-3 absolute bottom-[170px] md:bottom-[80px] right-0 lg:hidden" aria-label="Scroll down" onClick={ handleClick }>
+        <button className="p-3 absolute bottom-[170px] md:bottom-[80px] left-[50%] -translate-x-[50%] lg:hidden" aria-label="Scroll down" onClick={ handleClick }>
             <span className="scroll-indicator"></span>
             <span className="scroll-indicator"></span>
             <span className="scroll-indicator"></span>

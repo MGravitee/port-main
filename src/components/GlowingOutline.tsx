@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 
 import {
     motion,
@@ -20,7 +20,7 @@ function GlowingOutline() {
         });
     }, []);
 
-    const backgroundImage = useMotionTemplate`conic-gradient(from ${turn}turn, #a78bfa00 75%, #a78bfa 100%)`;
+    const backgroundImage = useMotionTemplate`conic-gradient(from ${turn}turn, #c636d900 75%, #c636d9 100%)`;
 
     //IMPORTANT, don't forget to set position relative on whatever you want this glowing outline to work on
     return (
