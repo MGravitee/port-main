@@ -26,6 +26,9 @@ return (
     <>
         {isLoaded ? 
             <>
+                <h3>Featured Work:</h3>
+
+
                 {restData.map(project =>
                         <article key={project.id} className='project-single'>
                             <h3>{project.acf.project_title}

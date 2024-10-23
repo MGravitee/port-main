@@ -27,6 +27,9 @@ return (
     <>
         {isLoaded ? 
             <> 
+
+                <h3>Featured Work:</h3>
+
                 <Accordion variant='splitted'>
                 {restData.map(project =>
                         <AccordionItem key={project.id} aria-label="Accordion 1" className='project-single' 
