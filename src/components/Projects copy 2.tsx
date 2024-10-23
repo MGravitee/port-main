@@ -3,7 +3,6 @@ import { projectsLink } from '../toolbelt/api'
 import LoadingSpinner from './LoadingSpinner'
 import Accordion2 from './Accordion copy'
 
-
 function Projects3() {
 
     const [restData, setData] = useState(null)

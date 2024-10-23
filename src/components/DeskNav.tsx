@@ -12,9 +12,9 @@ import {
 
   const DeskNav = () => {
     return (
-      <div className="grid h-screen place-content-center">
+      
         <SideStaggerNavigation />
-      </div>
+      
     );
   };
   
@@ -76,7 +76,7 @@ import {
     title,
   }: {
     mouseY: MotionValue;
-    title: string | undefined;
+    title: string | JSX.Element;
     isHovered: boolean;
   }) => {
     const ref = useRef<HTMLLIElement>(null);
@@ -197,7 +197,7 @@ import {
         </a>
       );
     }
-    if (title === ) {
+    if (title === <ThemeSwitch />) {
       return (
         <a href="#contact-section">
           <motion.li

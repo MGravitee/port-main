@@ -4,6 +4,7 @@ import Tabs from "./Tabs";
 import { GitHubIcon, GlobeIcon } from "../icons/Icons";
 import { Feature } from "./Tabs";
 import GlowingOutline from "./GlowingOutline";
+
 interface Tool {
     name: string;
     iconUrl: string;
@@ -58,37 +59,35 @@ const Accordion2: React.FC<AccordionProps> = ({ projects }) => {
         <div className="accordion">
             {projects.map((project, index) => (
                 <div key={project.id} className="accordion-item max-w-xl mb-4">
-                    <button
-                        aria-expanded={activeIndex === index}
-                        aria-controls={`content-${index}`}
-                        id={`accordion-title-${index}`}
-                        className=" relative flex justify-between accordion-title text-left border-1 w-full p-4 text-lg font-medium rounded-bl-lg rounded-tr-lg transition-colors inset-0 z-10"
-                        onClick={() => toggleAccordion(index)}
-                    >{project.acf.project_title}
-                            {/* Animated arrow */}
-                            <motion.span
-                            animate={{ rotate: activeIndex === index ? 180 : 0 }} // Rotate the arrow
-                            transition={{ duration: 0.3 }}
-                        >
-                            <svg
-                            className="w-5 h-5 text-gray-500"
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24"
-                            xmlns="http://www.w3.org/2000/svg"
+                        <button
+                            aria-expanded={activeIndex === index}
+                            aria-controls={`content-${index}`}
+                            id={`accordion-title-${index}`}
+                            className=" relative flex justify-between accordion-title text-left border-1 w-full p-4 text-lg font-medium rounded-bl-lg rounded-tr-lg transition-colors inset-0 z-10"
+                            onClick={() => toggleAccordion(index)}
+                        >{project.acf.project_title}
+                                {/* Animated arrow */}
+                                <motion.span
+                                animate={{ rotate: activeIndex === index ? 180 : 0 }} // Rotate the arrow
+                                transition={{ duration: 0.3 }}
                             >
-                            <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth="2"
-                                d="M19 9l-7 7-7-7"
-                            ></path>
-                            </svg>
-                        </motion.span>
-
-
-                        <GlowingOutline />
-                    </button>
+                                <svg
+                                className="w-5 h-5 text-gray-500"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                                xmlns="http://www.w3.org/2000/svg"
+                                >
+                                <path
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    strokeWidth="2"
+                                    d="M19 9l-7 7-7-7"
+                                ></path>
+                                </svg>
+                            </motion.span>
+                          <GlowingOutline />
+                        </button>
 
                     <motion.div
                         id={`content-${index}`}

@@ -1,6 +1,7 @@
 import About from "./About"
 import Projects3 from "./Projects copy 2"
 import ToolsCarousel from "./Tools copy"
+import BottomNavMobi from "./BottomNavMobi"
 
 
 function RightSide() {
@@ -13,6 +14,7 @@ function RightSide() {
         <Projects3 />
         <About />
         <ToolsCarousel />
+        <BottomNavMobi />
 
 
 
