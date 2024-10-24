@@ -1,8 +1,8 @@
 import About from "./About"
 import Projects3 from "./Projects copy 2"
 import ToolsCarousel from "./Tools copy"
+import FooterMobi from "./FooterMobi"
 import BottomNavMobi from "./BottomNavMobi"
-import Contact from "./Contact"
 
 function RightSide() {
   return (
@@ -14,7 +14,7 @@ function RightSide() {
         <Projects3 />
         <About />
         <ToolsCarousel />
-        <Contact />
+        <FooterMobi />
         <BottomNavMobi />
 
 

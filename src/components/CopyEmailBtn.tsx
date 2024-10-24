@@ -5,47 +5,27 @@ import { optionsLink } from "../toolbelt/api";
 // Email to be copied
 const TARGET_TEXT = "Copy Email";
 
-const CopyEmailBtn: React.FC = () => {
+
+//thank you Gabbie for helping me hunt down how to properly pass props via components in typescript, my hero
+    interface Props {
+      email:string;
+    }
+
+const CopyEmailBtn: React.FC<Props> = ({email}) => {
     const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
     const [text, setText] = useState(TARGET_TEXT);
     const [copied, setCopied] = useState(false);
-    const [contactData, setData] = useState(null);
-    const [isLoaded, setLoadStatus] = useState(false);
+    
 
-    interface contactData {
-        email_link: string;
-        github_link: string;
-        linkedin_link: string;
-    }
-
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const response = await fetch(optionsLink);
-                if (!response.ok) {
-                    throw new Error("contactData fetch failed");
-                }
-                const data = await response.json();
-                setData(data);
-            } catch (error) {
-                console.error(error);
-            }
-            fetchData();
-        };
-    }, [optionsLink]);
-
-    console.log(contactData);
-
-    //values for animation
-
+      //values for animation
     const CYCLES_PER_LETTER = 2;
     const SHUFFLE_TIME = 50;
     const CHARS = "!@#$%^&*():{};|,.<>/?";
-    const EMAIL = "mgravitee@gmail.com";
+    
 
     // function that copies email and show "Email Copied"
     const handleCopy = () => {
-        navigator.clipboard.writeText(EMAIL).then(() => {
+        navigator.clipboard.writeText(email).then(() => {
             setCopied(true);
             setText("Email Copied");
             setTimeout(() => {

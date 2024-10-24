@@ -31,7 +31,7 @@ export default {
               600: "#F182F6",
               700: "#FCADF9",
               800: "#FDD5F9",
-              900: "#FEECFE",
+              900: "#c636d9",
               DEFAULT: "#DD62ED",
               foreground: "#fafafa ",
             },
