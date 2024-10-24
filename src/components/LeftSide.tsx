@@ -1,6 +1,9 @@
 import Hero from "./Hero"
 import DeskNav from "./DeskNav"
 import BottomNavDesk from "./BottomNavDesk"
+import DeskFooter from "./DeskFooter"
+
+
 
 function LeftSide() {
   return (
@@ -17,6 +20,7 @@ function LeftSide() {
             <Hero />
             <DeskNav />
             <BottomNavDesk />
+            <DeskFooter />
 
 
 

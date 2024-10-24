@@ -77,7 +77,7 @@ const CopyEmailBtn: React.FC<Props> = ({email}) => {
             onMouseEnter={!copied ? scramble : undefined} // scramble only if not copied
             onMouseLeave={!copied ? stopScramble : undefined}
             onClick={handleCopy} // copy email on click
-            className="group relative overflow-hidden rounded-bl-lg rounded-tr-lg border-[1px] border-neutral-500 bg-neutral-700 px-4 py-2 font-mono font-medium uppercase text-neutral-300 transition-colors hover:text-orange-600"
+            className="group relative overflow-hidden rounded-bl-lg rounded-tr-lg border-2 border-neutral-500 bg-inherit px-4 py-2 font-mono font-medium uppercase text-current transition-colors hover:text-orange-600"
         >
             <div className="relative z-10 flex items-center gap-2">
                 <span>{text}</span>

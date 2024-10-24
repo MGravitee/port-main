@@ -4,6 +4,7 @@ import RightSide from "./components/RightSide"
 import Cursor from "./components/Cursor"
 import { restBase } from "./toolbelt/api"
 import LoadingSpinner from "./components/LoadingSpinner"
+import { div } from "framer-motion/client"
 
 function App() {
 
@@ -29,15 +30,25 @@ console.log(restData)
 
 
 
-  return (
-    <>
-      <div id='site-wrapper' className="site-wrapper">
-          <LeftSide />
-          <RightSide />
-          <Cursor />
-      </div>
-   </>
-  )
+return (
+  <>
+      {isLoaded ? 
+
+          <div id='site-wrapper' className="site-wrapper">
+              <LeftSide />
+              <RightSide />
+              <Cursor />
+          </div>
+
+
+                   : 
+                     <div className="h-screen flex items-center justify-center">
+                      <LoadingSpinner />
+                    </div>
+          }          
+                  
+  </>
+)
 }
 
 export default App

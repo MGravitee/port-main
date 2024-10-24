@@ -46,29 +46,23 @@ const Accordion2: React.FC<AccordionProps> = ({ projects }) => {
         collapsed: { height: 0, opacity: 0 },
     };
 
-    // need for open/close indicator animation
-    const arrowVariants = {
-        open: { rotate: 180 },
-        closed: { rotate: 0 },
-    };
-
 
 
 
     return (
         <div className="accordion">
             {projects.map((project, index) => (
-                <div key={project.id} className="accordion-item max-w-xl mb-4">
+                <div key={project.id} className="accordion-item max-w mb-4 focus:ring-2">
                         <button
                             aria-expanded={activeIndex === index}
                             aria-controls={`content-${index}`}
                             id={`accordion-title-${index}`}
-                            className=" relative flex justify-between accordion-title text-left border-1 w-full p-4 text-lg font-medium rounded-bl-lg rounded-tr-lg transition-colors inset-0 z-10"
+                            className=" relative flex justify-between accordion-title text-left w-full p-4 text-lg font-medium border rounded-bl-lg rounded-tr-lg transition-colors inset-0 z-10"
                             onClick={() => toggleAccordion(index)}
                         >{project.acf.project_title}
-                                {/* Animated arrow */}
+                                {/* arrow for open/close */}
                                 <motion.span
-                                animate={{ rotate: activeIndex === index ? 180 : 0 }} // Rotate the arrow
+                                animate={{ rotate: activeIndex === index ? 180 : 0 }} // rotating the arrow on open/close
                                 transition={{ duration: 0.3 }}
                             >
                                 <svg
@@ -97,11 +91,11 @@ const Accordion2: React.FC<AccordionProps> = ({ projects }) => {
                         animate={activeIndex === index ? "open" : "collapsed"}
                         variants={accordionVariants}
                         transition={{ duration: 0.3, ease: "easeInOut" }}
-                        className="accordion-content p-4 mt-2 border border-current  overflow-hidden "
+                        className="accordion-content p-4 mt-2 border border-current rounded-bl-lg  border-t-0 overflow-hidden "
                     >
                         <article className="project-details relative">
                             {/* displaying overview, links and tools used */}
-                            <h3>Overview:</h3>
+                            <h3 className=" mb-4 text-lg lg:text-xl font-medium">Overview:</h3>
                             <p>{project.acf.project_overview}</p>
                             <nav className="flex justify-center gap-3">
                                 <a href={project.acf.project_live_link}>Live Site <GlobeIcon /> </a>
