@@ -4,20 +4,18 @@ import Tabs from "./Tabs";
 import { GitHubIcon, GlobeIcon } from "../icons/Icons";
 import { Feature } from "./Tabs";
 import GlowingOutline from "./GlowingOutline";
+import comingsoon from "/assets/comingsoon.webp";
 
-interface Tool {
-    name: string;
-    iconUrl: string;
-}
+type Tool = [string, string];
 
-interface Project {
+export interface Project {
     id: string;
     acf: {
         project_title: string;
         project_featured_image: string;
         project_overview: string;
         project_live_link: string;
-        project_github_link:string;
+        project_github_link: string;
         analysis_content: string;
         analysis_image: string;
         design_feature_1: Feature;
@@ -32,7 +30,6 @@ interface AccordionProps {
     projects: Project[];
 }
 
-
 const Accordion2: React.FC<AccordionProps> = ({ projects }) => {
     const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
@@ -46,48 +43,45 @@ const Accordion2: React.FC<AccordionProps> = ({ projects }) => {
         collapsed: { height: 0, opacity: 0 },
     };
 
-    // need for open/close indicator animation
-    const arrowVariants = {
-        open: { rotate: 180 },
-        closed: { rotate: 0 },
-    };
-
-
-
-
     return (
         <div className="accordion">
             {projects.map((project, index) => (
-                <div key={project.id} className="accordion-item max-w-xl mb-4">
-                        <button
-                            aria-expanded={activeIndex === index}
-                            aria-controls={`content-${index}`}
-                            id={`accordion-title-${index}`}
-                            className=" relative flex justify-between accordion-title text-left border-1 w-full p-4 text-lg font-medium rounded-bl-lg rounded-tr-lg transition-colors inset-0 z-10"
-                            onClick={() => toggleAccordion(index)}
-                        >{project.acf.project_title}
-                                {/* Animated arrow */}
-                                <motion.span
-                                animate={{ rotate: activeIndex === index ? 180 : 0 }} // Rotate the arrow
-                                transition={{ duration: 0.3 }}
-                            >
-                                <svg
+                <div
+                    key={project.id}
+                    className="accordion-item max-w mb-4 focus:ring-2"
+                >
+                    <button
+                        aria-expanded={activeIndex === index}
+                        aria-controls={`content-${index}`}
+                        id={`accordion-title-${index}`}
+                        className=" relative flex justify-between accordion-title text-left w-full p-4 text-lg font-medium border rounded-bl-lg rounded-tr-lg transition-colors inset-0 z-10"
+                        onClick={() => toggleAccordion(index)}
+                    >
+                        {project.acf.project_title}
+                        {/* arrow for open/close */}
+                        <motion.span
+                            animate={{
+                                rotate: activeIndex === index ? 180 : 0,
+                            }} // rotating the arrow on open/close
+                            transition={{ duration: 0.3 }}
+                        >
+                            <svg
                                 className="w-5 h-5 text-gray-500"
                                 fill="none"
                                 stroke="currentColor"
                                 viewBox="0 0 24 24"
                                 xmlns="http://www.w3.org/2000/svg"
-                                >
+                            >
                                 <path
                                     strokeLinecap="round"
                                     strokeLinejoin="round"
                                     strokeWidth="2"
                                     d="M19 9l-7 7-7-7"
                                 ></path>
-                                </svg>
-                            </motion.span>
-                          <GlowingOutline />
-                        </button>
+                            </svg>
+                        </motion.span>
+                        <GlowingOutline />
+                    </button>
 
                     <motion.div
                         id={`content-${index}`}
@@ -97,15 +91,21 @@ const Accordion2: React.FC<AccordionProps> = ({ projects }) => {
                         animate={activeIndex === index ? "open" : "collapsed"}
                         variants={accordionVariants}
                         transition={{ duration: 0.3, ease: "easeInOut" }}
-                        className="accordion-content p-4 mt-2 border border-current  overflow-hidden "
+                        className="accordion-content p-4 mt-2 border border-current rounded-bl-lg  border-t-0 overflow-hidden "
                     >
                         <article className="project-details relative">
                             {/* displaying overview, links and tools used */}
-                            <h3>Overview:</h3>
+                            <h3 className=" mb-4 text-lg lg:text-xl font-medium">
+                                Overview:
+                            </h3>
                             <p>{project.acf.project_overview}</p>
                             <nav className="flex justify-center gap-3">
-                                <a href={project.acf.project_live_link}>Live Site <GlobeIcon /> </a>
-                                <a href={project.acf.project_github_link}>GitHub <GitHubIcon /> </a>
+                                <a href={project.acf.project_live_link}>
+                                    Live Site <GlobeIcon />{" "}
+                                </a>
+                                <a href={project.acf.project_github_link}>
+                                    GitHub <GitHubIcon />{" "}
+                                </a>
                             </nav>
                             <div className="tools-list mt-4">
                                 <h4 className="font-semibold text-lg">
@@ -137,59 +137,47 @@ const Accordion2: React.FC<AccordionProps> = ({ projects }) => {
                                 designFeatures={[
                                     {
                                         title: project.acf.design_feature_1
-                                            .design_feature_1_title,
-                                        imageUrl:
+                                            .title,
+                                        image: project.acf.design_feature_1
+                                            .image,
+                                        content:
                                             project.acf.design_feature_1
-                                                .design_feature_1_image,
-                                        description:
-                                            project.acf.design_feature_1
-                                                .design_feature_1_content,
+                                                .content,
                                     },
                                     {
                                         title: project.acf.design_feature_2
-                                            .design_feature_2_title,
-                                        imageUrl:
+                                            .title,
+                                        image: project.acf.design_feature_2
+                                            .image,
+                                        content:
                                             project.acf.design_feature_2
-                                                .design_feature_2_image,
-                                        description:
-                                            project.acf.design_feature_2
-                                                .design_feature_2_content,
+                                                .content,
                                     },
                                     {
                                         title: project.acf.design_feature_3
-                                            .design_feature_3_title,
-                                        imageUrl:
+                                            .title,
+                                        image: project.acf.design_feature_3
+                                            .image,
+                                        content:
                                             project.acf.design_feature_3
-                                                .design_feature_3_image,
-                                        description:
-                                            project.acf.design_feature_3
-                                                .design_feature_3_content,
+                                                .content,
                                     },
                                 ]}
                                 developmentFeatures={[
                                     {
-                                        title: project.acf.dev_feature_1
-                                            .dev_feature_1_title,
-                                        imageUrl:
-                                            project.acf.dev_feature_1
-                                                .dev_feature_1_image,
-                                        description:
-                                            project.acf.dev_feature_1
-                                                .dev_feature_1_content,
+                                        title: project.acf.dev_feature_1.title,
+                                        image: project.acf.dev_feature_1.image,
+                                        content:
+                                            project.acf.dev_feature_1.content,
                                     },
                                     {
-                                        title: project.acf.dev_feature_2
-                                            .dev_feature_2_title,
-                                        imageUrl:
-                                            project.acf.dev_feature_2
-                                                .dev_feature_2_image,
-                                        description:
-                                            project.acf.dev_feature_2_content,
+                                        title: project.acf.dev_feature_2.title,
+                                        image: project.acf.dev_feature_2.image,
+                                        content:
+                                            project.acf.dev_feature_2.content,
                                     },
                                 ]}
                             />
-                          
-
                         </article>
                     </motion.div>
                 </div>

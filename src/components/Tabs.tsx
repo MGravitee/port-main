@@ -10,9 +10,10 @@ interface TabsProps {
 
 export interface Feature {
   title: string;
-  imageUrl: string;
-  description: string;
-}
+  image: string;
+  content: string;
+};
+
 
 export interface AnalysisContent {
   content: string; 
@@ -29,7 +30,7 @@ const Tabs: React.FC<TabsProps> = ({
 
   const handleTabChange = (tab: string) => {
     setActiveTab(tab);
-    setCurrentPage(0); // Reset to first page when switching tabs
+    setCurrentPage(0); // resets to first page when switching tabs
   };
 
   const handleNextPage = (features: Feature[]) => {
@@ -51,17 +52,19 @@ const Tabs: React.FC<TabsProps> = ({
   const renderAnalysis = (analysisData: { content: string; imageUrl: string }) => {
     return (
       <div className="analysis-content">
-        {/* outputting the video */}
-        <video key={analysisData.imageUrl} className="w-full h-auto rounded-lg mb-4 max-w-[600px]" autoPlay loop muted>
-          <source src={analysisData.imageUrl} type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-
-        {/* rendering the WYSIWYG field, SO DANGEROUS */}
-        <div
-          className="dangerouslySetHtmlContent"
-          dangerouslySetInnerHTML={{ __html: analysisData.content }}
-        />
+          <div className="video-wrapper flex justify-center">
+            {/* outputting the video */}
+            <video key={analysisData.imageUrl} className="w-full h-auto rounded-lg mb-4 max-w-[500px] place-content-center" autoPlay loop muted>
+              <source src={analysisData.imageUrl} type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+          {/* rendering the WYSIWYG field, SO DANGEROUS */}
+          <div
+            className="dangerouslySetHtmlContent max-w-[500px] flex flex-col justify-center" 
+            dangerouslySetInnerHTML={{ __html: analysisData.content }}
+          />
+          
       </div>
     );
   };
@@ -72,14 +75,16 @@ const Tabs: React.FC<TabsProps> = ({
     const feature = features[currentPage];
     return (
       <article className="feature-content">
-        <video key={feature.imageUrl} className="w-full h-auto rounded-lg mb-4 max-w-[600px]" autoPlay loop muted>
-          <source src={feature.imageUrl} type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
+        <div className="video-wrapper flex justify-center">
+          <video key={feature.image} className="w-full h-auto rounded-lg mb-4 max-w-[600px]" autoPlay loop muted>
+            <source src={feature.image} type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
         <h4 className="font-semibold mb-2">{feature.title}</h4>
-        <p>{feature.description}</p>
+        <p>{feature.content}</p>
 
-        <div className="pagination-buttons mt-4 flex items-center justify-center space-x-2">
+        <div className="pagination-buttons mt-4 flex items-center justify-center space-x-12">
           <button
             onClick={() => handlePreviousPage(features)}
             className= "prev-page-btn"
@@ -87,14 +92,14 @@ const Tabs: React.FC<TabsProps> = ({
            <ArrowLeft size={40} />
           </button>
 
-          {/* Pagination Dots */}
+          {/* dots for pagination */}
           <div className="flex space-x-1">
             {features.map((_, index) => (
               <button
                 key={index}
                 onClick={() => handlePageClick(index)}
                 className={`h-3 w-3 rounded-full ${
-                  index === currentPage ? "bg-pink-500" : "bg-current"
+                  index === currentPage ? "bg-pink-400" : "bg-current"
                 }`}
               />
             ))}
@@ -113,7 +118,7 @@ const Tabs: React.FC<TabsProps> = ({
 
   return (
     <div className="tabs-container">
-      <div className="tabs border gap-2 mb-4 flex justify-center space-x-1 mt-8 ">
+      <div className="tabs border h-12 gap-2 mb-4 flex justify-center md:space-x-12 mt-8 ">
         <button
           onClick={() => handleTabChange("analysis")}
           className={`tab-button ${
