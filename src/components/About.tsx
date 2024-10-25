@@ -34,8 +34,8 @@ function About() {
         <>
             {isLoaded && !!restData ? ( //learned about the !! for converting to boolean for an even more explicit check.pretty cool
                 <>
-                    <section id="about-section" className="about-section xl:hidden">
-                        <h2>Get to know me</h2>
+                    <section id="about-section" className="about-section">
+                        <h2 className="text-lg lg:text-3xl font-medium mb-4">Get to know me</h2>
                         <p>{restData.acf.about_content_1}</p>
                         <p>{restData.acf.about_content_2}</p>
                     </section>

@@ -56,9 +56,9 @@ const Tabs: React.FC<TabsProps> = ({
         <div className="analysis-content">
             <div className="media-wrapper flex justify-center">
                 {isVideo ? (
-                    <video
+                    <video 
                         key={analysisData.imageUrl}
-                        className="w-full h-auto rounded-lg mb-4 max-w-[500px]"
+                        className="w-full h-auto rounded-lg mb-4 max-w-[500px] aspect-video"
                         autoPlay
                         loop
                         muted
@@ -70,12 +70,12 @@ const Tabs: React.FC<TabsProps> = ({
                     <img
                         src={analysisData.imageUrl}
                         alt="Analysis media"
-                        className="w-full h-auto rounded-lg mb-4 max-w-[500px]"
+                        className="w-full h-auto rounded-lg mb-4 max-w-[500px] aspect-video"
                     />
                 )}
             </div>
             <div
-                className="dangerouslySetHtmlContent max-w-[500px] flex flex-col justify-center"
+                className="dangerouslySetHtmlContent mb-2 max-w-[600px] flex flex-col justify-center"
                 dangerouslySetInnerHTML={{
                     __html: analysisData.content || "Coming Soon...",
                 }}
@@ -88,6 +88,8 @@ const renderFeatures = (features: Feature[]) => {
   if (features.length === 0) return <p>No features available.</p>;
 
   const feature = features[currentPage];
+
+  //for checking if media being returned is a video or img
   const isVideo = typeof feature.image === "string" && feature.image.endsWith(".mp4");
 
   return (
@@ -96,7 +98,7 @@ const renderFeatures = (features: Feature[]) => {
               {isVideo ? (
                   <video
                       key={feature.image}
-                      className="w-full h-auto rounded-lg mb-4 max-w-[600px]"
+                      className="w-full h-auto rounded-lg mb-4 max-w-[500px]"
                       autoPlay
                       loop
                       muted
@@ -109,7 +111,7 @@ const renderFeatures = (features: Feature[]) => {
                       <img
                           src={feature.image}
                           alt={feature.title || "Feature image"}
-                          className="w-full h-auto rounded-lg mb-4 max-w-[600px]"
+                          className="w-full h-auto rounded-lg mb-4 max-w-[500px]"
                       />
                   ) : (
                       <p>No media available</p>
@@ -119,7 +121,7 @@ const renderFeatures = (features: Feature[]) => {
           <h4 className="font-semibold mb-2">
               {feature.title || "Coming Soon"}
           </h4>
-          <p>{feature.content || "Content will be available soon."}</p>
+          <p className="mb-2">{feature.content || "Content will be available soon."}</p>
 
           <div className="pagination-buttons mt-4 flex items-center justify-center space-x-12">
               <button

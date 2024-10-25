@@ -56,13 +56,13 @@ const NavItem = ({
       whileHover={{ scale: 1.05}}
       whileFocus={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
-      className="p-3 text-md w-12 border-current hover:bg-gray-300 flex justify-center rounded-md text-center content-center transition-colors relative"
+      className="p-3 text-md w-12 border-current flex justify-center rounded-md text-center content-center transition-colors relative"
     >
       <li className="relative z-10">{children}</li>
       <AnimatePresence>
         {selected && (
           <motion.li
-            className="absolute inset-0 rounded-md bg-indigo-600 z-0"
+            className="absolute inset-0 rounded-md z-0"
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
             exit={{ scale: 0 }}
