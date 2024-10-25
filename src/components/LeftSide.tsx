@@ -1,10 +1,9 @@
 import Hero from "./Hero";
 import DeskNav from "./DeskNav";
 import BottomNavDesk from "./BottomNavDesk";
-import DeskFooter from "./DeskFooter";
+import { DeskFooter } from "./Footer";
 import DotGrid2 from "./GridAnimationGridCols";
 import DotGrid from "./GridAnimation2";
-
 
 function LeftSide() {
     return (

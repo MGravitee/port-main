@@ -8,8 +8,6 @@ import {
 } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 
-import { ThemeSwitch } from "../darkmode/DarkModeBtn";
-
 const DeskNav = () => {
     return <SideStaggerNavigation />;
 };
