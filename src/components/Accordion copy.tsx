@@ -30,6 +30,7 @@ interface AccordionProps {
     projects: Project[];
 }
 
+
 const Accordion2: React.FC<AccordionProps> = ({ projects }) => {
     const [activeIndex, setActiveIndex] = useState<number | null>(null);
 

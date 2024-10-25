@@ -49,73 +49,106 @@ const Tabs: React.FC<TabsProps> = ({
     setCurrentPage(index);
   };
 
-  const renderAnalysis = (analysisData: { content: string; imageUrl: string }) => {
+  const renderAnalysis = (analysisData: { content: string; imageUrl: string | undefined }) => {
+    const isVideo = typeof analysisData.imageUrl === "string" && analysisData.imageUrl.endsWith(".mp4"); // checking if the data coming in is a video or img
+
     return (
-      <div className="analysis-content">
-          <div className="video-wrapper flex justify-center">
-            {/* outputting the video */}
-            <video key={analysisData.imageUrl} className="w-full h-auto rounded-lg mb-4 max-w-[500px] place-content-center" autoPlay loop muted>
-              <source src={analysisData.imageUrl} type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
-          </div>
-          {/* rendering the WYSIWYG field, SO DANGEROUS */}
-          <div
-            className="dangerouslySetHtmlContent max-w-[500px] flex flex-col justify-center" 
-            dangerouslySetInnerHTML={{ __html: analysisData.content }}
-          />
-          
-      </div>
+        <div className="analysis-content">
+            <div className="media-wrapper flex justify-center">
+                {isVideo ? (
+                    <video
+                        key={analysisData.imageUrl}
+                        className="w-full h-auto rounded-lg mb-4 max-w-[500px]"
+                        autoPlay
+                        loop
+                        muted
+                    >
+                        <source src={analysisData.imageUrl} type="video/mp4" />
+                        Your browser does not support the video tag.
+                    </video>
+                ) : (
+                    <img
+                        src={analysisData.imageUrl}
+                        alt="Analysis media"
+                        className="w-full h-auto rounded-lg mb-4 max-w-[500px]"
+                    />
+                )}
+            </div>
+            <div
+                className="dangerouslySetHtmlContent max-w-[500px] flex flex-col justify-center"
+                dangerouslySetInnerHTML={{
+                    __html: analysisData.content || "Coming Soon...",
+                }}
+            />
+        </div>
     );
-  };
+};
 
-  const renderFeatures = (features: Feature[]) => {
-    if (features.length === 0) return <p>No features available.</p>;
+const renderFeatures = (features: Feature[]) => {
+  if (features.length === 0) return <p>No features available.</p>;
 
-    const feature = features[currentPage];
-    return (
+  const feature = features[currentPage];
+  const isVideo = typeof feature.image === "string" && feature.image.endsWith(".mp4");
+
+  return (
       <article className="feature-content">
-        <div className="video-wrapper flex justify-center">
-          <video key={feature.image} className="w-full h-auto rounded-lg mb-4 max-w-[600px]" autoPlay loop muted>
-            <source src={feature.image} type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
-        </div>
-        <h4 className="font-semibold mb-2">{feature.title}</h4>
-        <p>{feature.content}</p>
-
-        <div className="pagination-buttons mt-4 flex items-center justify-center space-x-12">
-          <button
-            onClick={() => handlePreviousPage(features)}
-            className= "prev-page-btn"
-          >
-           <ArrowLeft size={40} />
-          </button>
-
-          {/* dots for pagination */}
-          <div className="flex space-x-1">
-            {features.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => handlePageClick(index)}
-                className={`h-3 w-3 rounded-full ${
-                  index === currentPage ? "bg-pink-400" : "bg-current"
-                }`}
-              />
-            ))}
+          <div className="media-wrapper flex justify-center">
+              {isVideo ? (
+                  <video
+                      key={feature.image}
+                      className="w-full h-auto rounded-lg mb-4 max-w-[600px]"
+                      autoPlay
+                      loop
+                      muted
+                  >
+                      <source src={feature.image} type="video/mp4" />
+                      Your browser does not support the video tag.
+                  </video>
+              ) : (
+                  feature.image ? (
+                      <img
+                          src={feature.image}
+                          alt={feature.title || "Feature image"}
+                          className="w-full h-auto rounded-lg mb-4 max-w-[600px]"
+                      />
+                  ) : (
+                      <p>No media available</p>
+                  )
+              )}
           </div>
+          <h4 className="font-semibold mb-2">
+              {feature.title || "Coming Soon"}
+          </h4>
+          <p>{feature.content || "Content will be available soon."}</p>
 
-          <button
-            onClick={() => handleNextPage(features)}
-            className= "next-page-btn"
-          >
-            <ArrowRight size={40} />
-          </button>
-        </div>
+          <div className="pagination-buttons mt-4 flex items-center justify-center space-x-12">
+              <button
+                  onClick={() => handlePreviousPage(features)}
+                  className="prev-page-btn"
+              >
+                  <ArrowLeft size={40} />
+              </button>
+              <div className="flex space-x-1">
+                  {features.map((_, index) => (
+                      <button
+                          key={index}
+                          onClick={() => handlePageClick(index)}
+                          className={`h-3 w-3 rounded-full ${
+                              index === currentPage ? "bg-pink-400" : "bg-current"
+                          }`}
+                      />
+                  ))}
+              </div>
+              <button
+                  onClick={() => handleNextPage(features)}
+                  className="next-page-btn"
+              >
+                  <ArrowRight size={40} />
+              </button>
+          </div>
       </article>
-    );
-  };
-
+  );
+};
   return (
     <div className="tabs-container">
       <div className="tabs border h-12 gap-2 mb-4 flex justify-center md:space-x-12 mt-8 ">

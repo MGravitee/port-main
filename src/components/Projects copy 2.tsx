@@ -15,26 +15,33 @@ function Projects3() {
                 setData(data);
                 setLoadStatus(true);
             } else {
-                setLoadStatus(false);
+                setLoadStatus(true); // setting load state to true to avoid infinite spinner (although if they're seeing this then restData has already loaded on main check)
+                setData([]); // setting restData state to an empty array to trigger the "no projects" message incase projects come back empty
             }
         };
         fetchData();
-        //putting log inside use effect to make sure that it's actually runs when the data is changing
-        console.log(restData);
     }, [projectsLink]);
-    
-    console.log(restData);
 
+    console.log({restData});
+    
     return (
         <>
-            {isLoaded && restData ? (
-                <section id="work-section" className="work-section">
-                    <h3>Featured Work:</h3>
-
-                    <Accordion2 projects={restData} />
-                </section>
+            {isLoaded ? (
+                restData && restData.length > 0 ? (
+                    <section id="work-section" className="work-section">
+                        <h3>Featured Work:</h3>
+                        <Accordion2 projects={restData} />
+                    </section>
+                ) : (
+                    <section id="work-section" className="work-section">
+                        <h3>Featured Work:</h3>
+                        <p>No projects to show.</p>
+                    </section>
+                )
             ) : (
-                <LoadingSpinner />
+                <div className="h-screen flex items-center justify-center">
+                    <LoadingSpinner />
+                </div>
             )}
         </>
     );
