@@ -4,6 +4,7 @@ import Tabs from "./Tabs";
 import { GitHubIcon, GlobeIcon } from "../icons/Icons";
 import { Feature } from "./Tabs";
 import GlowingOutline from "./GlowingOutline";
+import comingsoon from "/assets/comingsoon.webp";
 
 type Tool = [string, string];
 
@@ -136,55 +137,44 @@ const Accordion2: React.FC<AccordionProps> = ({ projects }) => {
                                 designFeatures={[
                                     {
                                         title: project.acf.design_feature_1
-                                            .design_feature_1_title,
-                                        imageUrl:
+                                            .title,
+                                        image: project.acf.design_feature_1
+                                            .image,
+                                        content:
                                             project.acf.design_feature_1
-                                                .design_feature_1_image,
-                                        description:
-                                            project.acf.design_feature_1
-                                                .design_feature_1_content,
+                                                .content,
                                     },
                                     {
                                         title: project.acf.design_feature_2
-                                            .design_feature_2_title,
-                                        imageUrl:
+                                            .title,
+                                        image: project.acf.design_feature_2
+                                            .image,
+                                        content:
                                             project.acf.design_feature_2
-                                                .design_feature_2_image,
-                                        description:
-                                            project.acf.design_feature_2
-                                                .design_feature_2_content,
+                                                .content,
                                     },
                                     {
                                         title: project.acf.design_feature_3
-                                            .design_feature_3_title,
-                                        imageUrl:
+                                            .title,
+                                        image: project.acf.design_feature_3
+                                            .image,
+                                        content:
                                             project.acf.design_feature_3
-                                                .design_feature_3_image,
-                                        description:
-                                            project.acf.design_feature_3
-                                                .design_feature_3_content,
+                                                .content,
                                     },
                                 ]}
                                 developmentFeatures={[
                                     {
-                                        title: project.acf.dev_feature_1
-                                            .dev_feature_1_title,
-                                        imageUrl:
-                                            project.acf.dev_feature_1
-                                                .dev_feature_1_image,
-                                        description:
-                                            project.acf.dev_feature_1
-                                                .dev_feature_1_content,
+                                        title: project.acf.dev_feature_1.title,
+                                        image: project.acf.dev_feature_1.image,
+                                        content:
+                                            project.acf.dev_feature_1.content,
                                     },
                                     {
-                                        title: project.acf.dev_feature_2
-                                            .dev_feature_2_title,
-                                        imageUrl:
-                                            project.acf.dev_feature_2
-                                                .dev_feature_2_image,
-                                        description:
-                                            project.acf.dev_feature_2
-                                                .dev_feature_2_content,
+                                        title: project.acf.dev_feature_2.title,
+                                        image: project.acf.dev_feature_2.image,
+                                        content:
+                                            project.acf.dev_feature_2.content,
                                     },
                                 ]}
                             />

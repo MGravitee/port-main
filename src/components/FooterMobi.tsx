@@ -11,9 +11,11 @@ function FooterMobi() {
         linkedin_link: string;
     }
 
-    const [contactData, setData] = useState({});
+    const [restData, setData] = useState<contactData | null>(null);
     const [isLoaded, setLoadStatus] = useState(false);
 
+    
+    
     useEffect(() => {
         const fetchData = async () => {
             const response = await fetch(optionsLink);
@@ -28,30 +30,29 @@ function FooterMobi() {
         fetchData();
     }, [optionsLink]);
 
-    console.log(contactData);
+    console.log(restData);
 
     return (
         <>
-            {isLoaded ? (
+            {isLoaded && !!restData ? (
                 <footer
                     id="contact-section"
-                    className="mb-28 flex flex-col justify-center gap-5 lg:hidden"
+                    className=" flex flex-col justify-center gap-5 lg:hidden"
                 >
                     <div className="contact-heading">
                         <h2 className="contact-title">Get in Touch</h2>
                     </div>
                     <div className="social-links flex justify-around">
-                        <a href={contactData.linkedin_link} target="_blank">
+                        <a href={restData.linkedin_link} target="_blank">
                             <LinkedInIcon size={40} className="hover;" />
                         </a>
-                        {/* {console.log(contactData.email_link)} */}
-                        <CopyEmailBtn email={contactData.email_link} />
-                        <a href={contactData.github_link} target="_blank">
+                        <CopyEmailBtn email={restData.email_link} />
+                        <a href={restData.github_link} target="_blank">
                             <GitHubIcon size={40} />
                         </a>
                     </div>
                     <div className="copyright-text">
-                        <p className="footer-txt text-center">
+                        <p className="footer-txt text-center mt-28">
                             © Matt Garvey 2024 | All Rights Reserved
                         </p>
                     </div>

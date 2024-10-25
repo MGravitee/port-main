@@ -27,7 +27,7 @@ function Projects3() {
 
     return (
         <>
-            {isLoaded && !!restData ? (
+            {isLoaded && restData ? (
                 <section id="work-section" className="work-section">
                     <h3>Featured Work:</h3>
 

@@ -10,9 +10,10 @@ interface TabsProps {
 
 export interface Feature {
   title: string;
-  imageUrl: string;
-  description: string;
-}
+  image: string;
+  content: string;
+};
+
 
 export interface AnalysisContent {
   content: string; 
@@ -75,13 +76,13 @@ const Tabs: React.FC<TabsProps> = ({
     return (
       <article className="feature-content">
         <div className="video-wrapper flex justify-center">
-          <video key={feature.imageUrl} className="w-full h-auto rounded-lg mb-4 max-w-[600px]" autoPlay loop muted>
-            <source src={feature.imageUrl} type="video/mp4" />
+          <video key={feature.image} className="w-full h-auto rounded-lg mb-4 max-w-[600px]" autoPlay loop muted>
+            <source src={feature.image} type="video/mp4" />
             Your browser does not support the video tag.
           </video>
         </div>
         <h4 className="font-semibold mb-2">{feature.title}</h4>
-        <p>{feature.description}</p>
+        <p>{feature.content}</p>
 
         <div className="pagination-buttons mt-4 flex items-center justify-center space-x-12">
           <button

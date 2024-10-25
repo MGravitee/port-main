@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "react";
+import anime from "animejs/lib/anime.es.js"
 import { useAnimation, useInView, motion } from "framer-motion";
 
 const WaterDropHero = () => {

@@ -57,7 +57,7 @@ function ToolsCarousel() {
                     >
                         {categories.map((category) => (
                             <SwiperSlide
-                                className=" backdrop-blur border-2 border-solid rounded-bl-lg rounded-tr-lg border-current"
+                                className=" backdrop-blur backdrop-brightness-75 border-2 border-solid rounded-bl-lg rounded-tr-lg border-current"
                                 key={category.parent}
                             >
                                 <article
@@ -80,7 +80,7 @@ function ToolsCarousel() {
                                             )
                                             .map((tool, index) => (
                                                 <li
-                                                    className="flex gap-1 md:text-medium justify-center text-sm items-center border-solid border-inherit rounded-bl-lg rounded-tr-lg w-32 h-10 md:w-36 single-tool"
+                                                    className="flex gap-1 md:text-medium text-white justify-center text-sm items-center border-solid border-inherit rounded-bl-lg rounded-tr-lg w-32 h-10 md:w-36 single-tool"
                                                     key={index}
                                                 >
                                                     {tool.name}

@@ -15,7 +15,7 @@ function GlowingOutline() {
     useEffect(() => {
         animate(turn, 1, {
             ease: "linear",
-            duration: 5,
+            duration: 3,
             repeat: Infinity,
         });
     }, []);
@@ -28,7 +28,7 @@ function GlowingOutline() {
             style={{
                 backgroundImage,
             }}
-            className="mask-with-browser-support absolute -inset-[3px] rounded-bl-lg rounded-tr-lg border border-transparent bg-origin-border"
+            className="mask-with-browser-support absolute inset-[3px] rounded-bl-lg rounded-tr-lg border border-transparent bg-origin-border"
         />
     );
 }
