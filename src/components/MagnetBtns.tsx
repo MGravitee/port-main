@@ -60,7 +60,8 @@ export const MagnetButtonGit: React.FC<Props> = ({ link }) => {
             aria-label="Navigates to my LinkedIn profile"
             role="link"
         >
-            <GitHubIcon size={40} />
+            <GitHubIcon size={40} className="ml-1.5 mb-2"/>
+            GitHub
 
             <div className="pointer-events-none absolute inset-0 z-0 scale-0 rounded-full bg-white border-2 border-black transition-transform duration-700 ease-out group-hover:scale-100" />
 
@@ -151,7 +152,8 @@ export const MagnetButtonLnkd: React.FC<Props> = ({ link }) => {
             aria-label="Navigates to my LinkedIn profile"
             role="link"
         >
-            <LinkedInIcon size={40} />
+            <LinkedInIcon size={40} className="ml-2 mb-2" />
+            LinkedIn
 
             <div className="pointer-events-none absolute inset-0 z-0 scale-0 rounded-full bg-white border-2 border-black transition-transform duration-700 ease-out group-hover:scale-100" />
 

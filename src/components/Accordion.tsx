@@ -48,13 +48,13 @@ const Accordion2: React.FC<AccordionProps> = ({ projects }) => {
             {projects.map((project, index) => (
                 <div
                     key={project.id}
-                    className="accordion-item max-w mb-4 focus:ring-2"
+                    className="accordion-item max-w mb-4"
                 >
                     <button
                         aria-expanded={activeIndex === index}
                         aria-controls={`content-${index}`}
                         id={`accordion-title-${index}`}
-                        className=" relative flex justify-between accordion-title text-left w-full p-4 text-lg font-medium border rounded-bl-lg rounded-tr-lg transition-colors inset-0 z-10"
+                        className=" relative flex justify-between accordion-title text-left w-full p-4 text-lg font-medium border border-current rounded-bl-lg rounded-tr-lg transition-colors inset-0 z-10"
                         onClick={() => toggleAccordion(index)}
                     >
                         {project.acf.project_title}
@@ -99,12 +99,13 @@ const Accordion2: React.FC<AccordionProps> = ({ projects }) => {
                                 Overview:
                             </h3>
                             <p>{project.acf.project_overview}</p>
-                            <nav className="flex justify-center gap-3">
+                            <nav className="flex justify-center gap-10
+                            mt-6">
                                 <a href={project.acf.project_live_link}>
-                                    Live Site <GlobeIcon />{" "}
+                                    <GlobeIcon size={32} className="mb-2 ml-3.5"/>Live Site
                                 </a>
                                 <a href={project.acf.project_github_link}>
-                                    GitHub <GitHubIcon />{" "}
+                                    <GitHubIcon size={32} className="mb-2 ml-2.5"/>GitHub 
                                 </a>
                             </nav>
                             <div className="tools-list mt-4">

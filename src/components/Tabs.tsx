@@ -98,7 +98,7 @@ const renderFeatures = (features: Feature[]) => {
               {isVideo ? (
                   <video
                       key={feature.image}
-                      className="w-full h-auto rounded-lg mb-4 max-w-[500px]"
+                      className="w-full h-auto rounded-lg max-w-[500px]"
                       autoPlay
                       loop
                       muted

@@ -35,13 +35,15 @@ export function DeskFooter() {
     return (
         <>
             {isLoaded && !!restData ? (
-                <footer id="contact-section" className="mb-14 hidden lg:flex flex-col justify-center gap-5  ">
+                <footer id="contact-section" className="mb-14 hidden lg:flex flex-col gap-5  ">
                     
-                    <div className="social-links flex flex-col justify-center">
+                    <div className="social-links flex flex-col w-fit absolute top-40 left-[60%] -translate-x-[50%]">
                         <MagnetButtonLnkd link={restData.linkedin_link} />
                         <MagnetButtonGit link={restData.github_link} />
                     </div>
+                    <div className="email-container">
                         <CopyEmailBtn email={restData.email_link}/>
+                    </div>
                     <div className="copyright-text">
                         <p className="footer-txt text-center text-sm md:text-medium">
                         © Matt Garvey 2024 | All Rights Reserved</p>
