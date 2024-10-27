@@ -35,7 +35,7 @@ export function DeskFooter() {
     return (
         <>
             {isLoaded && !!restData ? (
-                <footer id="contact-section" className="mb-14 hidden lg:flex flex-col gap-5  ">
+                <footer id="contact-section" className="mb-14 hidden lg:flex flex-col gap-5 z-10 ">
                     
                     <div className="social-links flex flex-col w-fit absolute top-40 left-[60%] -translate-x-[50%]">
                         <MagnetButtonLnkd link={restData.linkedin_link} />

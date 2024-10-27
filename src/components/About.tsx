@@ -8,11 +8,10 @@ type aboutData = {
         about_content_2: string;
         things_i_enjoy: string;
     };
-}
+};
 function About() {
     const [restData, setData] = useState<aboutData | null>(null);
     const [isLoaded, setLoadStatus] = useState(false);
-
 
     useEffect(() => {
         const fetchData = async () => {
@@ -32,10 +31,12 @@ function About() {
 
     return (
         <>
-            {isLoaded && !!restData ? ( //learned about the !! for converting to boolean for an even more explicit check.pretty cool
+            {isLoaded && !!restData ? ( //learned about the !! for converting to boolean for an even more explicit check, pretty cool
                 <>
                     <section id="about-section" className="about-section">
-                        <h2 className="text-lg lg:text-3xl font-medium mb-4">Get to know me</h2>
+                        <h2 className="text-lg lg:text-3xl font-medium mb-4">
+                            Get to know me
+                        </h2>
                         <p>{restData.acf.about_content_1}</p>
                         <p>{restData.acf.about_content_2}</p>
                     </section>

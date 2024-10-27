@@ -4,6 +4,7 @@ import Tabs from "./Tabs";
 import { GitHubIcon, GlobeIcon } from "../icons/Icons";
 import { Feature } from "./Tabs";
 import GlowingOutline from "./GlowingOutline";
+import ScrollingLink from "./ScrollingLink";
 
 type Tool = [string, string];
 
@@ -54,7 +55,7 @@ const Accordion2: React.FC<AccordionProps> = ({ projects }) => {
                         aria-expanded={activeIndex === index}
                         aria-controls={`content-${index}`}
                         id={`accordion-title-${index}`}
-                        className=" relative flex justify-between accordion-title text-left w-full p-4 text-lg font-medium border border-current rounded-bl-lg rounded-tr-lg transition-colors inset-0 z-10"
+                        className=" relative flex justify-between items-center accordion-title text-left w-full p-4 text-lg font-medium border border-current rounded-bl-lg rounded-tr-lg transition-colors "
                         onClick={() => toggleAccordion(index)}
                     >
                         {project.acf.project_title}
@@ -66,7 +67,7 @@ const Accordion2: React.FC<AccordionProps> = ({ projects }) => {
                             transition={{ duration: 0.3 }}
                         >
                             <svg
-                                className="w-5 h-5 text-gray-500"
+                                className="w-5 h-5"
                                 fill="none"
                                 stroke="currentColor"
                                 viewBox="0 0 24 24"
@@ -80,7 +81,7 @@ const Accordion2: React.FC<AccordionProps> = ({ projects }) => {
                                 ></path>
                             </svg>
                         </motion.span>
-                        <GlowingOutline />
+                        
                     </button>
 
                     <motion.div
@@ -99,24 +100,22 @@ const Accordion2: React.FC<AccordionProps> = ({ projects }) => {
                                 Overview:
                             </h3>
                             <p>{project.acf.project_overview}</p>
-                            <nav className="flex justify-center gap-10
+                            <nav className="flex justify-center gap-2
                             mt-6">
-                                <a href={project.acf.project_live_link}>
-                                    <GlobeIcon size={32} className="mb-2 ml-3.5"/>Live Site
-                                </a>
-                                <a href={project.acf.project_github_link}>
-                                    <GitHubIcon size={32} className="mb-2 ml-2.5"/>GitHub 
-                                </a>
+                                <ScrollingLink link={project.acf.project_live_link}><GlobeIcon className='inline' size={24}/> Live Site</ScrollingLink>
+                              
+                                <ScrollingLink link={project.acf.project_github_link}><GitHubIcon className='inline' size={24}/> GitHub</ScrollingLink>
+                              
                             </nav>
                             <div className="tools-list mt-4">
                                 <h4 className="font-semibold text-lg">
                                     Tools Used:
                                 </h4>
-                                <ul className="tools-used flex flex-wrap gap-2 ">
+                                <ul className="tools-used flex justify-center flex-wrap gap-2 ">
                                     {project.tools.map((tool, index) => (
                                         <li
                                             key={index}
-                                            className="flex gap-1 justify-center text-sm items-center border rounded-bl-lg rounded-tr-lg w-32 h-10 single-tool"
+                                            className="flex gap-1 justify-center text-sm items-center rounded-bl-lg rounded-tr-lg w-32 h-10 single-tool relative"
                                         >
                                             {tool[0]}
                                             <img
@@ -124,7 +123,9 @@ const Accordion2: React.FC<AccordionProps> = ({ projects }) => {
                                                 src={tool[1]}
                                                 alt={`${tool[0]} icon`}
                                             />
+                                            <GlowingOutline />
                                         </li>
+                                        
                                     ))}
                                 </ul>
                             </div>
