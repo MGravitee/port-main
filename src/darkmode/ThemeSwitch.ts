@@ -32,6 +32,7 @@ export const themeSwitch = (defaultTheme?: Theme) => {
       ThemeProps.dark,
     );
     document.documentElement.classList.add(theme);
+
     setTheme(theme);
   };
 

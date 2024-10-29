@@ -8,8 +8,6 @@ import {
 } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 
-import { ThemeSwitch } from "../darkmode/DarkModeBtn";
-
 const DeskNav = () => {
     return <SideStaggerNavigation />;
 };
@@ -19,10 +17,9 @@ const NUM_LINES = 22;
 // Position key will place the title on the Nth
 // line of the sidebar
 const navItems = [
-    { position: 4, title: "Home" },
     { position: 8, title: "Work" },
     { position: 12, title: "About" },
-    { position: 16, title: "Contact" },
+    { position: 16, title: "TotD" },
 ];
 
 const SideStaggerNavigation = () => {
@@ -82,7 +79,7 @@ const LinkLine = ({
     title,
 }: {
     mouseY: MotionValue;
-    title: string | JSX.Element;
+    title: string;
     isHovered: boolean;
 }) => {
     const ref = useRef<HTMLLIElement>(null);
@@ -109,9 +106,11 @@ const LinkLine = ({
 
     if (title === "Home") {
         return (
-            <a href="#home">
-                <motion.li
-                    ref={ref}
+            <li 
+            ref={ref}>
+                <motion.a
+                    href="#home"
+                    
                     className="group relative bg-current transition-colors hover:bg-neutral-500"
                     style={{ width: linkWidth, height: 2 }}
                 >
@@ -127,66 +126,69 @@ const LinkLine = ({
                             </motion.span>
                         )}
                     </AnimatePresence>
-                </motion.li>
-            </a>
+                </motion.a>
+            </li>
         );
     }
     if (title === "Work") {
         return (
-            <a href="#work-section">
+            
                 <motion.li
                     ref={ref}
                     className="group relative bg-current transition-colors hover:bg-neutral-500"
                     style={{ width: linkWidth, height: 2 }}
                 >
-                    <AnimatePresence>
-                        {isHovered && (
-                            <motion.span
-                                initial={{ opacity: 0 }}
-                                animate={{ opacity: 1 }}
-                                exit={{ opacity: 0 }}
-                                className="absolute left-0 top-0 z-10 w-full pt-2 font-bold uppercase text-current transition-colors group-hover:text-neutral-500"
-                            >
-                                {title}
-                            </motion.span>
-                        )}
-                    </AnimatePresence>
+                    <a href="#work-section">
+                        <AnimatePresence>
+                            {isHovered && (
+                                <motion.span
+                                    initial={{ opacity: 0 }}
+                                    animate={{ opacity: 1 }}
+                                    exit={{ opacity: 0 }}
+                                    className="absolute left-0 top-0 z-10 w-full pt-2 font-bold uppercase text-current transition-colors group-hover:text-neutral-500"
+                                >
+                                    {title}
+                                </motion.span>
+                            )}
+                        </AnimatePresence>
+                    </a>
                 </motion.li>
-            </a>
+            
         );
     }
     if (title === "About") {
         return (
-            <a href="#about-section">
-                <motion.li
-                    ref={ref}
-                    className="group relative bg-current transition-colors hover:bg-neutral-500"
-                    style={{ width: linkWidth, height: 2 }}
-                >
-                    <AnimatePresence>
-                        {isHovered && (
-                            <motion.span
-                                initial={{ opacity: 0 }}
-                                animate={{ opacity: 1 }}
-                                exit={{ opacity: 0 }}
-                                className="absolute left-0 top-0 z-10 w-full pt-2 font-bold uppercase text-current transition-colors group-hover:text-neutral-500"
-                            >
-                                {title}
-                            </motion.span>
-                        )}
-                    </AnimatePresence>
-                </motion.li>
-            </a>
+            <motion.li
+                ref={ref}
+                className="group relative bg-current transition-colors hover:bg-neutral-500"
+                style={{ width: linkWidth, height: 2 }}
+            >
+                    <a href="#about-section">
+                        <AnimatePresence>
+                            {isHovered && (
+                                <motion.span
+                                    initial={{ opacity: 0 }}
+                                    animate={{ opacity: 1 }}
+                                    exit={{ opacity: 0 }}
+                                    className="absolute left-0 top-0 z-10 w-full pt-2 font-bold uppercase text-current transition-colors group-hover:text-neutral-500"
+                                >
+                                    {title}
+                                </motion.span>
+                            )}
+                        </AnimatePresence>
+                    </a>
+            </motion.li>
         );
     }
-    if (title === "Contact") {
+    if (title === "TotD") {
         return (
-            <a href="#contact-section">
+            
                 <motion.li
                     ref={ref}
                     className="group relative bg-current transition-colors hover:bg-neutral-500"
                     style={{ width: linkWidth, height: 2 }}
                 >
+                    <a href="#tools-section">
                     <AnimatePresence>
                         {isHovered && (
                             <motion.span
@@ -199,8 +201,8 @@ const LinkLine = ({
                             </motion.span>
                         )}
                     </AnimatePresence>
+                    </a>
                 </motion.li>
-            </a>
         );
     } else {
         return (

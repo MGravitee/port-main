@@ -1,17 +1,17 @@
 import About from "./About"
-import Projects3 from "./Projects copy 2"
-import ToolsCarousel from "./Tools copy"
-import FooterMobi from "./FooterMobi"
+import Projects from "./Projects"
+import ToolsCarousel from "./Tools"
+import { FooterMobi } from "./Footer"
 import BottomNavMobi from "./BottomNavMobi"
 
 function RightSide() {
   return (
         
     <main
-    id="right no-scroll-bar fade-in-slide-up"
-    className="overflow-hidden lg:ml-auto lg:w-1/2 lg:border-l-4 lg:border-current lg:px-16 xl:px-32">
+    id="right fade-in-slide-up"
+    className="overflow-hidden lg:ml-auto lg:w-1/2 lg:border-l-4 lg:border-current lg:px-16 2xl:px-32">
 
-        <Projects3 />
+        <Projects />
         <About />
         <ToolsCarousel />
         <FooterMobi />

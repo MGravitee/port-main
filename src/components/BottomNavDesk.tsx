@@ -8,7 +8,7 @@ const BottomNavDesk = () => {
 
   return (
   
-    <nav className=" hidden lg:flex flex-col fixed left-20 bottom-56 w-fit -translate-x-[50%] ">
+    <nav className=" hidden lg:flex flex-col fixed left-20 bottom-56 w-fit -translate-x-[50%] z-10 ">
         <ul className="h-fit w-fit p-4 md:flex lg:flex-col justify-around items-center gap-4">
             <NavItem selected={selected === 0} id={0} setSelected={setSelected} href="#home">
                 <HomeIcon className="nav-item ml-2.5" />

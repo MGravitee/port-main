@@ -1,27 +1,23 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef, useState } from "react";
 import { motion } from "framer-motion";
-import { optionsLink } from "../toolbelt/api";
 
 // Email to be copied
 const TARGET_TEXT = "Copy Email";
 
-
 //thank you Gabbie for helping me hunt down how to properly pass props via components in typescript, my hero
-    interface Props {
-      email:string;
-    }
+interface Props {
+    email: string;
+}
 
-const CopyEmailBtn: React.FC<Props> = ({email}) => {
+const CopyEmailBtn: React.FC<Props> = ({ email }) => {
     const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
     const [text, setText] = useState(TARGET_TEXT);
     const [copied, setCopied] = useState(false);
-    
 
-      //values for animation
+    //values for animation
     const CYCLES_PER_LETTER = 2;
     const SHUFFLE_TIME = 50;
     const CHARS = "!@#$%^&*():{};|,.<>/?";
-    
 
     // function that copies email and show "Email Copied"
     const handleCopy = () => {
@@ -76,8 +72,10 @@ const CopyEmailBtn: React.FC<Props> = ({email}) => {
             whileTap={{ scale: 0.975 }}
             onMouseEnter={!copied ? scramble : undefined} // scramble only if not copied
             onMouseLeave={!copied ? stopScramble : undefined}
+            onFocus={!copied ? scramble : undefined}
+            onBlur={!copied ? stopScramble : undefined}
             onClick={handleCopy} // copy email on click
-            className="group relative overflow-hidden rounded-bl-lg rounded-tr-lg border-2 border-neutral-500 bg-inherit px-4 py-2 font-mono font-medium uppercase text-current transition-colors hover:text-orange-600"
+            className="group relative overflow-hidden rounded-bl-lg rounded-tr-lg border-2 w-fit border-neutral-500 bg-inherit px-4 py-2 font-mono font-medium uppercase text-current transition-colors hover:text-orange-600"
         >
             <div className="relative z-10 flex items-center gap-2">
                 <span>{text}</span>

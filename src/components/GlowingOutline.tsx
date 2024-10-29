@@ -28,7 +28,7 @@ function GlowingOutline() {
             style={{
                 backgroundImage,
             }}
-            className="mask-with-browser-support absolute inset-[3px] rounded-bl-lg rounded-tr-lg border border-transparent bg-origin-border"
+            className="mask-with-browser-support absolute inset-[1px] rounded-bl-lg rounded-tr-lg border border-transparent bg-origin-border"
         />
     );
 }

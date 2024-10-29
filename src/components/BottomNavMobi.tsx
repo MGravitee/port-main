@@ -8,7 +8,8 @@ const BottomNavDesk = () => {
 
   return (
   
-    <nav className="fixed h-20 bottom-8 flex w-[310px]  md:w-[400px] justify-center left-[50%] -translate-x-[50%] items-center gap-4 border-[1px] border-current rounded-bl-lg rounded-tr-lg p-2 text-sm z-[999999] lg:hidden backdrop-blur">
+    <nav className="fixed h-20 bottom-8 flex w-[310px]  md:w-[400px] justify-center left-[50%] -translate-x-[50%] bg- items-center gap-4 border-[1px] border-current rounded-bl-lg rounded-tr-lg p-2 text-sm z-[99] lg:hidden bg-transparent
+     text-white backdrop-blur-2xl backdrop-brightness-50 ">
         <ul className="h-fit w-[310px] p-4 md:w-[400px] flex justify-around items-center gap-2">
             <NavItem selected={selected === 0} id={0} setSelected={setSelected} href="#home">
                 <HomeIcon className="nav-item ml-2" />
@@ -56,13 +57,13 @@ const NavItem = ({
       whileHover={{ scale: 1.05}}
       whileFocus={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
-      className="p-3 text-md w-12 border-current hover:bg-gray-300 flex justify-center rounded-md text-center content-center transition-colors relative"
+      className="p-3 text-md w-12 border-current flex justify-center rounded-md text-center content-center transition-colors relative"
     >
       <li className="relative z-10">{children}</li>
       <AnimatePresence>
         {selected && (
           <motion.li
-            className="absolute inset-0 rounded-md bg-indigo-600 z-0"
+            className="absolute inset-0 rounded-md z-0"
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
             exit={{ scale: 0 }}
