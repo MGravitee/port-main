@@ -87,6 +87,7 @@ const Accordion2: React.FC<AccordionProps> = ({ projects }) => {
                         id={`content-${index}`}
                         role="region"
                         aria-labelledby={`accordion-title-${index}`}
+                        aria-hidden={activeIndex !== index}
                         initial={false}
                         animate={activeIndex === index ? "open" : "collapsed"}
                         variants={accordionVariants}

@@ -5,7 +5,6 @@ import Cursor from "./components/Cursor";
 import { restBase } from "./toolbelt/api";
 import LoadingSpinner from "./components/LoadingSpinner";
 import comingSoonImg from "./assets/comingsoon-lrg.webp";
-import ParticlesTest from "./components/Particles";
 
 function App() {
     const [restData, setData] = useState(null);
