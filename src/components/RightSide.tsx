@@ -9,7 +9,7 @@ function RightSide() {
         
     <main
     id="right fade-in-slide-up"
-    className="overflow-hidden lg:ml-auto lg:w-1/2 lg:border-l-4 lg:border-current lg:px-16 xl:px-32">
+    className="overflow-hidden lg:ml-auto lg:w-1/2 lg:border-l-4 lg:border-current lg:px-16 2xl:px-32">
 
         <Projects />
         <About />

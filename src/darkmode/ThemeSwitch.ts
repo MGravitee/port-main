@@ -32,6 +32,8 @@ export const themeSwitch = (defaultTheme?: Theme) => {
       ThemeProps.dark,
     );
     document.documentElement.classList.add(theme);
+
+    document.getElementsByClassName(tsparticles).add(theme);
     setTheme(theme);
   };
 

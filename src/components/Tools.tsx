@@ -53,7 +53,7 @@ function ToolsCarousel() {
     return (
         <>
             {isLoaded && restData ? (
-                <section id="tech-stack" className="tech-stack">
+                <section id="tools-section" className="tools-section">
                     <h2 className="text-lg lg:text-3xl font-medium mb-4">
                         Some Tricks of the Trade:
                     </h2>

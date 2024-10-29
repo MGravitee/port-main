@@ -54,7 +54,7 @@ function App() {
                 // <div id="tsparticles">
                 <div
                     id="site-wrapper"
-                    className={`${darkMode.value ? "dark" : ""} text-foreground bg-background site-wrapper`}
+                    className= "site-wrapper"
                 >
                     <LeftSide />
                     <RightSide />

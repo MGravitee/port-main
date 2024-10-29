@@ -11,17 +11,18 @@ function LeftSide() {
             className="fade-in-slide-up h-screen w-full lg:fixed lg:w-1/2 lg:px-16 xl:px-32"
         >
             <section className="relative mt-20 h-full justify-between lg:flex lg:flex-col lg:gap-2">
-                <a
-                    aria-label="Skip to content"
-                    className="sr-only"
-                    href="#work-section"
-                >
-                    Skip to Content
-                </a>
+                
                 <Hero />
+                    {/* Skip to Content Link */}
+                        <a
+                            href="#work-section"
+                            className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:right-4 focus:z-99999999 focus:text-white focus:bg-blue-600 focus:p-2 focus:rounded"
+                        >
+                            Skip to Main Content
+                        </a>
                 <DeskNav />
                 <BottomNavDesk />
-                <DeskFooter />
+                <DeskFooter />  
                 <ParticlesTest />
             </section>
         </div>

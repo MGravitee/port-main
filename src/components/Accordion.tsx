@@ -3,7 +3,6 @@ import { motion } from "framer-motion";
 import Tabs from "./Tabs";
 import { GitHubIcon, GlobeIcon } from "../icons/Icons";
 import { Feature } from "./Tabs";
-import GlowingOutline from "./GlowingOutline";
 import ScrollingLink from "./ScrollingLink";
 
 type Tool = [string, string];
@@ -64,7 +63,7 @@ const Accordion2: React.FC<AccordionProps> = ({ projects }) => {
                             animate={{
                                 rotate: activeIndex === index ? 180 : 0,
                             }} // rotating the arrow on open/close
-                            transition={{ duration: 0.3 }}
+                            transition={{ duration: 0.5 }}
                         >
                             <svg
                                 className="w-5 h-5"
@@ -91,7 +90,7 @@ const Accordion2: React.FC<AccordionProps> = ({ projects }) => {
                         initial={false}
                         animate={activeIndex === index ? "open" : "collapsed"}
                         variants={accordionVariants}
-                        transition={{ duration: 0.3, ease: "easeInOut" }}
+                        transition={{ duration: 0.5, ease: "easeInOut" }}
                         className="accordion-content p-4 mt-2 border border-current rounded-bl-lg  border-t-0 overflow-hidden "
                     >
                         <article className="project-details relative">
@@ -115,7 +114,7 @@ const Accordion2: React.FC<AccordionProps> = ({ projects }) => {
                                     {project.tools.map((tool, index) => (
                                         <li
                                             key={index}
-                                            className="flex gap-1 justify-center text-sm items-center rounded-bl-lg rounded-tr-lg w-32 h-10 single-tool relative"
+                                            className="flex gap-1 md:text-medium justify-center text-sm items-center rounded-bl-lg rounded-tr-lg w-32 h-10 single-tool relative"
                                         >
                                             {tool[0]}
                                             <img
@@ -123,7 +122,6 @@ const Accordion2: React.FC<AccordionProps> = ({ projects }) => {
                                                 src={tool[1]}
                                                 alt={`${tool[0]} icon`}
                                             />
-                                            <GlowingOutline />
                                         </li>
                                         
                                     ))}

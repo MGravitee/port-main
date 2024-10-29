@@ -58,7 +58,7 @@ const ScrollingLink: React.FC<Props> = ({ link, children }) => {
           repeat: Infinity,
           repeatType: "loop",
         }}
-        className="absolute left-4 top-4 flex content-center"
+        className="absolute left-4 top-4 flex content-center justify-center align-middle"
       >
         {children} •
       </motion.span>
@@ -73,7 +73,7 @@ const ScrollingLink: React.FC<Props> = ({ link, children }) => {
           repeat: Infinity,
           repeatType: "loop",
         }}
-        className="absolute left-4 top-4 flex content-center"
+        className="absolute left-4 top-4 flex content-center justify-center align-middle"
       >
         {children} •
       </motion.span>
@@ -88,7 +88,7 @@ const ScrollingLink: React.FC<Props> = ({ link, children }) => {
           repeat: Infinity,
           repeatType: "loop",
         }}
-        className="absolute left-4 top-4 flex content-center"
+        className="absolute left-4 top-4 flex content-center justify-center align-middle"
       >
         {children} •
       </motion.span>
