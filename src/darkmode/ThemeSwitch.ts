@@ -33,7 +33,6 @@ export const themeSwitch = (defaultTheme?: Theme) => {
     );
     document.documentElement.classList.add(theme);
 
-    document.getElementsByClassName(tsparticles).add(theme);
     setTheme(theme);
   };
 

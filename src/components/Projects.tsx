@@ -29,12 +29,12 @@ function Projects() {
             {isLoaded ? (
                 restData && restData.length > 0 ? (
                     <section id="work-section" className="work-section">
-                        <h2 className="text-lg lg:text-3xl font-medium mb-4">Featured Work:</h2>
+                        <h2 className="text-lg lg:text-3xl font-medium mb-8">Featured Work:</h2>
                         <Accordion2 projects={restData} />
                     </section>
                 ) : (
                     <section id="work-section" className="work-section">
-                        <h2 className="text-lg lg:text-3xl font-medium mb-4">Featured Work:</h2>
+                        <h2 className="text-lg lg:text-3xl font-medium mb-8">Featured Work:</h2>
                         <p>No projects to show.</p>
                     </section>
                 )

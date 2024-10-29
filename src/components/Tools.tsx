@@ -12,7 +12,6 @@ import "swiper/css/effect-cards";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 
-
 interface Tool {
   acf: {
       icon: string;
@@ -21,9 +20,6 @@ interface Tool {
   name: string;
   parent: number;
 }
-
-
-
 
 function ToolsCarousel() {
     const [restData, setData] = useState<Tool[] | null>(null);
@@ -54,7 +50,7 @@ function ToolsCarousel() {
         <>
             {isLoaded && restData ? (
                 <section id="tools-section" className="tools-section">
-                    <h2 className="text-lg lg:text-3xl font-medium mb-4">
+                    <h2 className="text-lg lg:text-3xl font-medium mb-8">
                         Some Tricks of the Trade:
                     </h2>
 
