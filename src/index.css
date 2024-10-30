@@ -8,18 +8,40 @@ html {
     scroll-behavior: smooth;
     /* background-color: inherit;
     color: inherit; */
-    /* cursor: none; */
+    cursor: none;
 }
 
-/* ---- tsparticles container ---- */
-#tsparticles {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: 50% 50%;
+
+/* Classes added for Accessibility ------------------------------------------------- */
+
+.accessibility-class:focus {
+        outline: 3px solid #007acc; /* Example color for focus outline */
+        outline-offset: 2px;
+        z-index: 9999;
 }
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        cursor: default;
+        scroll-behavior: auto;
+    }
+
+    .no-motion {
+        animation: none !important; /* disable animations */
+        transition: none !important; /* disable transitions */
+    }
+
+    #tsparticles {
+        display: none !important;
+    }
+
+    .no-motion-2 {
+        display: none !important;
+    }
+
+}
+
 
 #site-wrapper {
     @apply relative mx-auto max-w-[118.75rem] overflow-hidden px-2  sm:px-12 md:px-24 lg:flex lg:px-0;
@@ -37,12 +59,18 @@ html {
         "Open Sans",
         "Helvetica Neue",
         sans-serif;
+
     /* This is to add a top margin to all sections instead of sitting them individually */
     section {
         @apply mt-8;
     }
 
     list-style: none;
+
+    main {
+        font-size: clamp(1rem, 0.36vi + 0.93rem, 1.10rem);
+     }
+    
 }
 
 /* styles for dangerously set HTML from API */
@@ -162,6 +190,8 @@ animations work for the loading spinner */
         transform: rotate(360deg);
     }
 }
+
+
 
 /* Browser Scrollbar styles */
 *::-webkit-scrollbar {
@@ -301,6 +331,8 @@ div.swiper-button-prev::after {
     text-shadow: 3px 3px 3px #000000;
 }
 
+/* left + right section animation  */
+
 .fade-in-slide-up {
     opacity: 0;
     transform: translateY(20px);
@@ -314,12 +346,22 @@ div.swiper-button-prev::after {
     }
 }
 
+/* for splitscreen display */
+
 @media (min-width: 1024px) {
     #right {
         min-height: 100vh;
     }
 }
 
- main {
-    font-size: clamp(1rem, 0.36vi + 0.93rem, 1.10rem);
- }
+
+ /* ---- tsparticles container  ---- */
+
+#tsparticles {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50% 50%;
+}

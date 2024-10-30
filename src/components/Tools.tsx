@@ -71,7 +71,7 @@ function ToolsCarousel() {
                                 key={category.parent}
                             >
                                 <article
-                                    className=" border-current tool-container"
+                                    className=" backdrop-blur backdrop-brightness-75 border-current tool-container"
                                     key={category.parent}
                                 >
                                     <h3

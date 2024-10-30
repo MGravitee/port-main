@@ -134,7 +134,7 @@ const LinkLine = ({
             <li ref={ref}>
                 <motion.a
                     href="#home"
-                    className="group relative bg-current transition-colors hover:bg-neutral-500"
+                    className="group relative bg-current transition-colors hover:bg-neutral-500 accessibility-class"
                     style={{ width: linkWidth, height: 2 }}
                 >
                     <AnimatePresence>
@@ -143,7 +143,7 @@ const LinkLine = ({
                                 initial={{ opacity: 0 }}
                                 animate={{ opacity: 1 }}
                                 exit={{ opacity: 0 }}
-                                className="absolute left-0 top-0 z-10 w-full pt-2 font-bold uppercase text-current transition-colors group-hover:text-neutral-500"
+                                className="absolute left-0 top-0 z-10 w-full pt-2 font-bold uppercase text-current transition-colors group-hover:text-neutral-500 accessibility-class"
                             >
                                 {title}
                             </motion.span>
@@ -157,7 +157,7 @@ const LinkLine = ({
         return (
             <motion.li
                 ref={ref}
-                className="group relative bg-current transition-colors hover:bg-neutral-500"
+                className="group relative bg-current transition-colors hover:bg-neutral-500 accessibility-class"
                 style={{ width: linkWidth, height: 2 }}
             >
                 <a href="#work-section">
@@ -167,7 +167,7 @@ const LinkLine = ({
                                 initial={{ opacity: 0 }}
                                 animate={{ opacity: 1 }}
                                 exit={{ opacity: 0 }}
-                                className="absolute left-0 top-0 z-10 w-full pt-2 font-bold uppercase text-current transition-colors group-hover:text-neutral-500"
+                                className="absolute left-0 top-0 z-10 w-full pt-2 font-bold uppercase text-current transition-colors group-hover:text-neutral-500 accessibility-class"
                             >
                                 {title}
                             </motion.span>
@@ -181,7 +181,7 @@ const LinkLine = ({
         return (
             <motion.li
                 ref={ref}
-                className="group relative bg-current transition-colors hover:bg-neutral-500"
+                className="group relative bg-current transition-colors hover:bg-neutral-500 accessibility-class"
                 style={{ width: linkWidth, height: 2 }}
             >
                 <a href="#about-section">
@@ -191,7 +191,7 @@ const LinkLine = ({
                                 initial={{ opacity: 0 }}
                                 animate={{ opacity: 1 }}
                                 exit={{ opacity: 0 }}
-                                className="absolute left-0 top-0 z-10 w-full pt-2 font-bold uppercase text-current transition-colors group-hover:text-neutral-500"
+                                className="absolute left-0 top-0 z-10 w-full pt-2 font-bold uppercase text-current transition-colors group-hover:text-neutral-500 accessibility-class"
                             >
                                 {title}
                             </motion.span>
@@ -205,7 +205,7 @@ const LinkLine = ({
         return (
             <motion.li
                 ref={ref}
-                className="group relative bg-current transition-colors hover:bg-neutral-500"
+                className="group relative bg-current transition-colors hover:bg-neutral-500 accessibility-class"
                 style={{ width: linkWidth, height: 2 }}
             >
                 <a href="#tools-section">
@@ -215,7 +215,7 @@ const LinkLine = ({
                                 initial={{ opacity: 0 }}
                                 animate={{ opacity: 1 }}
                                 exit={{ opacity: 0 }}
-                                className="absolute left-0 top-0 z-10 w-full pt-2 font-bold uppercase text-current transition-colors group-hover:text-neutral-500"
+                                className="absolute left-0 top-0 z-10 w-full pt-2 font-bold uppercase text-current transition-colors group-hover:text-neutral-500 accessibility-class"
                             >
                                 {title}
                             </motion.span>

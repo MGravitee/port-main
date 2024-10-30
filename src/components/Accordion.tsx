@@ -92,7 +92,7 @@ const Accordion2: React.FC<AccordionProps> = ({ projects }) => {
                         animate={activeIndex === index ? "open" : "collapsed"}
                         variants={accordionVariants}
                         transition={{ duration: 0.5, ease: "easeInOut" }}
-                        className="accordion-content p-4 mt-2 border border-current rounded-bl-lg  border-t-0 overflow-hidden "
+                        className="accordion-content p-4 mt-2 border border-current rounded-bl-lg  border-t-0 overflow-hidden"
                     >
                         <article className="project-details relative">
                             {/* displaying overview, links and tools used */}

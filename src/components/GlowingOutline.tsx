@@ -1,15 +1,17 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 
 import {
     motion,
     animate,
     useMotionTemplate,
     useMotionValue,
+    useReducedMotion,
 } from "framer-motion";
 
 function GlowingOutline() {
     //animation code for glowing outline
 
+    const shouldReduceMotion = useReducedMotion();
     const turn = useMotionValue(0);
 
     useEffect(() => {
@@ -24,13 +26,16 @@ function GlowingOutline() {
 
     //IMPORTANT, don't forget to set position relative on whatever you want this glowing outline to work on
     return (
-        <motion.div
-            style={{
-                backgroundImage,
-            }}
-            className="mask-with-browser-support absolute inset-[1px] rounded-bl-lg rounded-tr-lg border border-transparent bg-origin-border"
-        />
-    );
+        !shouldReduceMotion ? (
+            <>
+                <motion.div
+                    style={{
+                        backgroundImage,
+                    }}
+                    className="mask-with-browser-support absolute inset-[1px] rounded-bl-lg rounded-tr-lg border border-transparent bg-origin-border"
+                />
+            </> ) : <div></div>
+            );
 }
 
 export default GlowingOutline;

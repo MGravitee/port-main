@@ -75,9 +75,9 @@ const CopyEmailBtn: React.FC<Props> = ({ email }) => {
             onFocus={!copied ? scramble : undefined}
             onBlur={!copied ? stopScramble : undefined}
             onClick={handleCopy} // copy email on click
-            className="group relative overflow-hidden rounded-bl-lg rounded-tr-lg border-2 w-fit border-neutral-500 bg-inherit px-4 py-2 font-mono font-medium uppercase text-current transition-colors hover:text-orange-600"
+            className="group relative overflow-hidden rounded-bl-lg rounded-tr-lg border-2 w-fit border-neutral-500 bg-inherit px-4 py-2 font-mono font-medium uppercase text-current transition-colors hover:text-orange-600 no-motion"
         >
-            <div className="relative z-10 flex items-center gap-2">
+            <div className="relative z-10 flex items-center gap-2 no-motion">
                 <span>{text}</span>
             </div>
             <motion.span
@@ -89,7 +89,7 @@ const CopyEmailBtn: React.FC<Props> = ({ email }) => {
                     duration: 1,
                     ease: "linear",
                 }}
-                className="duration-300 absolute inset-0 z-0 scale-125 bg-gradient-to-t from-indigo-400/0 from-40% via-orange-600/100 to-orange-600/0 to-60% opacity-0 transition-opacity group-hover:opacity-100"
+                className="duration-300 absolute inset-0 z-0 scale-125 bg-gradient-to-t from-indigo-400/0 from-40% via-orange-600/100 to-orange-600/0 to-60% opacity-0 transition-opacity group-hover:opacity-100 no-motion"
             />
         </motion.button>
     );
