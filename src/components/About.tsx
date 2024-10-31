@@ -38,7 +38,7 @@ function About() {
 
     return (
         <>
-            {isLoaded && !!restData ? (
+            {isLoaded && restData ? (
                 <>
                     <section id="about-section" className="about-section">
                         <h2 className="text-lg lg:text-3xl font-medium mb-8">
@@ -46,8 +46,10 @@ function About() {
                         </h2>
                         <p>{restData.acf.about_content_1}</p>
                     </section>
-                    {/* Pass restData to VerticalAccordion */}
-                    <VerticalAccordion items={restData.acf.things_i_enjoy} />
+                    <section className="mt-8">
+                        <h2 className="text-lg lg:text-2xl font-medium mb-8">Some Things I Enjoy: </h2>
+                        <ScrollingThings things={restData.acf.things_i_enjoy} />
+                    </section>
                 </>
             ) : (
                 <LoadingSpinner />
@@ -56,104 +58,54 @@ function About() {
     );
 }
 
-interface VerticalAccordionProps {
-    items: ThingsIEnjoy[];
-}
-
-const VerticalAccordion = ({ items }: VerticalAccordionProps) => {
-    const [open, setOpen] = useState<number | null>(null);
-
+// Updated ScrollingThings component
+const ScrollingThings = ({ things }: { things: ThingsIEnjoy[] }) => {
     return (
-        <section className="p-4">
-            <div className="flex flex-col lg:flex-row h-fit lg:h-[600px] w-full max-w-6xl mx-auto shadow overflow-hidden">
-                {items.map((item, index) => (
-                    <Panel
-                        key={index}
-                        open={open}
-                        setOpen={setOpen}
-                        id={index}
-                        title={item.title}
-                        imgSrc={item.image}
-                        description={item.content}
-                    />
-                ))}
-            </div>
-        </section>
+        <div className="p-4 overflow-x-hidden relative">
+            <div className="absolute top-0 bottom-0 left-0 w-24 z-10 bg-gradient-to-r from-slate-900 to-transparent" />
+                <div className="flex items-center mb-4">
+                    {/* Pass things to ThingsList */}
+                    <ThingsList list={things} duration={Infinity} />
+                </div>
+            <div className="absolute top-0 bottom-0 right-0 w-24 z-10 bg-gradient-to-l from-slate-900 to-transparent" />
+        </div>
     );
 };
 
-interface PanelProps {
-    open: number | null;
-    setOpen: Dispatch<SetStateAction<number | null>>;
-    id: number;
-    title: string;
-    imgSrc: string;
-    description: string;
-}
+//really getting better at typescript interfaces and typing
 
-const Panel = ({ open, setOpen, id, title, imgSrc, description }: PanelProps) => {
-    const { width } = useWindowSize();
-    const isOpen = open === id;
-
+const ThingsList = ({
+    list,
+    reverse = false,
+    duration = 50,
+}: {
+    list: ThingsIEnjoy[]; 
+    reverse?: boolean;
+    duration?: number;
+}) => {
     return (
-        <>
-            <button
-                className="bg-inherit hover: transition-colors p-3 border-r-[1px] border-b-[1px] border-current flex flex-row-reverse lg:flex-col justify-end items-center gap-4 relative group"
-                onClick={() => setOpen(id)}
-            >
-                <span className="hidden xl:block text-xl rotate-180" style={{ writingMode: "vertical-lr" }}>
-                    {title}
-                </span>
-                <span className="block xl:hidden text-xl">{title}</span>
-                <div className="w-6 lg:w-full aspect-square bg-indigo-600 text-white grid place-items-center"></div>
-                <span className="w-4 h-4 bg- group-hover:bg-slate-50 transition-colors border-r-[1px] border-b-[1px] lg:border-b-0 lg:border-t-[1px] border-current rotate-45 absolute bottom-0 lg:bottom-[50%] right-[50%] lg:right-0 translate-y-[50%] translate-x-[50%] z-20" />
-            </button>
-
-            <AnimatePresence>
-                {isOpen && (
-                    <motion.div
-                        key={`panel-${id}`}
-                        variants={width && width > 1024 ? panelVariants : panelVariantsSm}
-                        initial="closed"
-                        animate="open"
-                        exit="closed"
-                        style={{
-                            backgroundImage: `url(${imgSrc})`,
-                            backgroundPosition: "center",
-                            backgroundSize: "cover",
-                        }}
-                        className="w-full h-full overflow-hidden relative bg-black flex items-end"
+        <motion.div
+            initial={{ translateX: reverse ? "-100%" : "0%" }}
+            animate={{ translateX: reverse ? "0%" : "-100%" }}
+            transition={{ duration, repeat: Infinity, ease: "linear" }}
+            className="flex gap-4 px-2 border rounded-lg"
+        >
+            {list.map((t, index) => {
+                return (
+                    <article
+                        key={index} // Use index as key
+                        className="shrink-0 w-[500px] grid grid-cols-[7rem,_1fr] rounded-lg overflow-hidden relative"
                     >
-                        <motion.div
-                            variants={descriptionVariants}
-                            initial="closed"
-                            animate="open"
-                            exit="closed"
-                            className="px-4 py-2 bg-black/40 backdrop-blur-xl text-sm text-white"
-                        >
-                            <p>{description}</p>
-                        </motion.div>
-                    </motion.div>
-                )}
-            </AnimatePresence>
-        </>
+                        <img src={t.image} className="w-full h-44 object-cover" />
+                        <div className="bg-s bg-black/40 backdrop-blur-xl p-4">
+                            <span className="block font-semibold text-lg text-white mb-1">{t.title}</span>
+                            <span className="block text-sm text-white">{t.content}</span>
+                        </div>
+                    </article>
+                );
+            })}
+        </motion.div>
     );
-};
-
-// Animation variants
-const panelVariants = {
-    open: { width: "100%", height: "100%" },
-    closed: { width: "0%", height: "100%" },
-};
-
-const panelVariantsSm = {
-    open: { width: "100%", height: "25rem" },
-    closed: { width: "100%", height: "0px" },
-};
-
-const descriptionVariants = {
-    open: { opacity: 1, y: "0%", transition: { delay: 0.125 } },
-    closed: { opacity: 0, y: "100%" },
 };
 
 export default About;

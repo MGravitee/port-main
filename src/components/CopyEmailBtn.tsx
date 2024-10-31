@@ -1,6 +1,9 @@
 import React, { useRef, useState } from "react";
 import { motion } from "framer-motion";
 
+//thank you for the guys at hover.dev for inspiration for this component. 
+
+
 // Email to be copied
 const TARGET_TEXT = "Copy Email";
 
@@ -75,7 +78,7 @@ const CopyEmailBtn: React.FC<Props> = ({ email }) => {
             onFocus={!copied ? scramble : undefined}
             onBlur={!copied ? stopScramble : undefined}
             onClick={handleCopy} // copy email on click
-            className="group relative overflow-hidden rounded-bl-lg rounded-tr-lg border-2 w-fit border-neutral-500 bg-inherit px-4 py-2 font-mono font-medium uppercase text-current transition-colors hover:text-orange-600 no-motion"
+            className="group relative overflow-hidden rounded-bl-lg rounded-tr-lg border-2 w-fit border-neutral-500 bg-inherit px-4 py-2 font-mono font-medium uppercase text-current transition-colors hover:text-[#ff8f1f] no-motion"
         >
             <div className="relative z-10 flex items-center gap-2 no-motion">
                 <span>{text}</span>
