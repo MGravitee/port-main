@@ -47,7 +47,7 @@ function About() {
                         <p>{restData.acf.about_content_1}</p>
                     </section>
                     <section className="mt-8">
-                        <h2 className="text-lg lg:text-2xl font-medium mb-8">Some Things I Enjoy: </h2>
+                        <h2 className="text-lg lg:text-3xl font-medium mb-8">Some Things I Enjoy: </h2>
                         <ScrollingThings things={restData.acf.things_i_enjoy} />
                     </section>
                 </>
@@ -62,24 +62,27 @@ function About() {
 const ScrollingThings = ({ things }: { things: ThingsIEnjoy[] }) => {
     return (
         <div className="p-4 overflow-x-hidden relative">
-            <div className="absolute top-0 bottom-0 left-0 w-24 z-10 bg-gradient-to-r from-slate-900 to-transparent" />
-                <div className="flex items-center mb-4">
-                    {/* Pass things to ThingsList */}
-                    <ThingsList list={things} duration={Infinity} />
-                </div>
-            <div className="absolute top-0 bottom-0 right-0 w-24 z-10 bg-gradient-to-l from-slate-900 to-transparent" />
+            <div className="absolute top-0 bottom-0 left-0 w-24 z-10 rounded" />
+            <div className="flex items-center mb-4">
+                {/* Pass things to ThingsList */}
+                <ThingsList list={things} duration={125} />
+                <ThingsList list={things} duration={125} />
+                <ThingsList list={things} duration={125} />
+                <ThingsList list={things} duration={125} />
+                <ThingsList list={things} duration={125} />
+            </div>
+            <div className="absolute top-0 bottom-0 right-0 w-24 z-10 rounded" />
         </div>
     );
 };
 
-//really getting better at typescript interfaces and typing
-
+// im getting better at typing and making interfaces in typescript, thank god
 const ThingsList = ({
     list,
     reverse = false,
     duration = 50,
 }: {
-    list: ThingsIEnjoy[]; 
+    list: ThingsIEnjoy[]; // Update to use ThingsIEnjoy[]
     reverse?: boolean;
     duration?: number;
 }) => {
@@ -88,7 +91,7 @@ const ThingsList = ({
             initial={{ translateX: reverse ? "-100%" : "0%" }}
             animate={{ translateX: reverse ? "0%" : "-100%" }}
             transition={{ duration, repeat: Infinity, ease: "linear" }}
-            className="flex gap-4 px-2 border rounded-lg"
+            className="flex gap-4 px-2"
         >
             {list.map((t, index) => {
                 return (
@@ -96,10 +99,10 @@ const ThingsList = ({
                         key={index} // Use index as key
                         className="shrink-0 w-[500px] grid grid-cols-[7rem,_1fr] rounded-lg overflow-hidden relative"
                     >
-                        <img src={t.image} className="w-full h-44 object-cover" />
-                        <div className="bg-s bg-black/40 backdrop-blur-xl p-4">
-                            <span className="block font-semibold text-lg text-white mb-1">{t.title}</span>
-                            <span className="block text-sm text-white">{t.content}</span>
+                        <img src={t.image} className="w-full h-full object-cover" />
+                        <div className="bg-slate-900 text-slate-50 p-4">
+                            <span className="block font-semibold text-lg mb-1"><h3>{t.title}</h3></span>
+                            <span className="block text-sm text-slate-300"><p>{t.content}</p></span>
                         </div>
                     </article>
                 );

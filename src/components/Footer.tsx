@@ -35,16 +35,16 @@ export function DeskFooter() {
         <>
             {isLoaded && !!restData ? (
                 <footer
-                    id="contact-section"
+                    
                     className="mb-14 hidden lg:flex flex-col gap-5 z-10 "
                 >
-                    <div className="social-links flex flex-col w-fit absolute bottom-[20rem] left-[60%] -translate-x-[50%]">
+                    <div className="social-links flex flex-col w-fit absolute bottom-[24rem] left-[65%] -translate-x-[50%]">
                         <MagnetButtonLnkd link={restData.linkedin_link} />
                     </div>
-                    <div className="social-links flex flex-col w-fit absolute bottom-40 left-[40%] -translate-x-[50%]">
+                    <div className="social-links flex flex-col w-fit absolute bottom-[14rem] left-[45%] -translate-x-[50%]">
                         <MagnetButtonGit link={restData.github_link} />
                     </div>
-                    <div className="email-container absolute bottom-[5rem] left-[40%] -translate-x-[50%] ">
+                    <div className="email-container absolute bottom-[8rem] left-[20%] -translate-x-[50%] ">
                         <CopyEmailBtn email={restData.email_link} />
                     </div>
                     <div className="copyright-text">

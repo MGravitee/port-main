@@ -3,6 +3,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ArrowLeft, ArrowRight } from "../icons/Icons";
 
 //Why oh why did I not just use a library for this.... oh my god react functional components in my sleep.
+//Honestly making this tabs component with pagination and everything was incredibly hard, I had alot of
+//help from stack overflow and some chatGPT action when I couldn't get it.
 
 interface TabsProps {
     analysisContent: AnalysisContent; // image + HTML content to dangerously set
@@ -90,11 +92,11 @@ const Tabs: React.FC<TabsProps> = React.memo(
                     transition={{ duration: 0.3 }}
                     exit="exit"
                 >
-                    <div className="media-wrapper flex justify-center">
+                    <div className="media-wrapper flex justify-center w-full">
                         {isVideo ? (
                             <video
                                 key={analysisData.imageUrl}
-                                className="w-full h-auto rounded-bl-lg rounded-tr-lg max-w-[41rem] aspect-video"
+                                className="w-full h-auto rounded-bl-lg rounded-tr-lg aspect-video"
                                 autoPlay
                                 loop
                                 muted
@@ -183,7 +185,7 @@ const Tabs: React.FC<TabsProps> = React.memo(
                             </p>
                         </motion.article>
                     </AnimatePresence>
-                    <div className="pagination-buttons mt-4 flex items-center justify-center gap-8">
+                    <div className="pagination-buttons mt-4 lg:mt-12 flex items-center justify-center gap-8">
                         <button
                             onClick={() => handlePreviousPage(features)}
                             className="prev-page-btn"
@@ -251,7 +253,7 @@ const Tabs: React.FC<TabsProps> = React.memo(
                         aria-controls="design-panel"
                         id="design-tab"
                     >
-                        UX / UI
+                        UX + UI
                     </button>
                 </div>
 

@@ -17,15 +17,7 @@ function RightSide() {
         <FooterMobi />
         <BottomNavMobi />
 
-
-
-
-
-
-
     </main>
-
-    
 
   )
 }
