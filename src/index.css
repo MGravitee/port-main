@@ -16,9 +16,8 @@ html {
 
 /* Classes added for Accessibility ------------------------------------------------- */
 
-.accessibility-class:focus {
-        outline: 3px solid #007acc; /* Example color for focus outline */
-        outline-offset: 2px;
+.accessibility-class:focus-visible {
+        outline: #007acc solid 3px; /* Example color for focus outline */
         z-index: 9999;
 }
 
@@ -271,7 +270,7 @@ div.swiper-button-prev::after {
 
 /* Scroll down indicator */
 .scroll-indicator {
-    @apply block w-4 h-4 md:w-5 md:h-5 border-b-2 border-r-2 border-current transform rotate-45 -my-2.5  ml-7 animate-scrollDown;
+    @apply block w-4 h-4 md:w-5 md:h-5 border-b-2 border-r-2 border-current transform rotate-45 -my-2.5  ml-9 animate-scrollDown;
 }
 
 .scroll-indicator:nth-child(2) {
@@ -304,7 +303,7 @@ div.swiper-button-prev::after {
     margin: 0 auto;
 }
 
-/* To get the glowy effect I want for the border of the accordion, I need to have these classes set for cross-browser support
+/* To get the glowy effect I want for the border of the tools outline, I need to have these classes set for cross-browser support
  thank you @hover.dev for the help  */
 
 .mask-with-browser-support {

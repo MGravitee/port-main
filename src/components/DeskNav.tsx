@@ -134,7 +134,7 @@ const LinkLine = ({
             <li ref={ref}>
                 <motion.a
                     href="#home"
-                    className="group relative bg-current transition-colors hover:bg-neutral-500 accessibility-class"
+                    className="group relative bg-current transition-colors hover:bg-neutral-500 accessibility-class accessibility-class"
                     style={{ width: linkWidth, height: 2 }}
                 >
                     <AnimatePresence>
@@ -148,7 +148,7 @@ const LinkLine = ({
                                 {title}
                             </motion.span>
                         )}
-                    </AnimatePresence>
+                    </AnimatePresence>  
                 </motion.a>
             </li>
         );

@@ -3,6 +3,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ArrowLeft, ArrowRight } from "../icons/Icons";
 
 //Why oh why did I not just use a library for this.... oh my god react functional components in my sleep.
+//Honestly making this tabs component with pagination and everything was incredibly hard, I had alot of
+//help from stack overflow and some chatGPT action when I couldn't get it.
 
 interface TabsProps {
     analysisContent: AnalysisContent; // image + HTML content to dangerously set
@@ -251,7 +253,7 @@ const Tabs: React.FC<TabsProps> = React.memo(
                         aria-controls="design-panel"
                         id="design-tab"
                     >
-                        UX / UI
+                        UX + UI
                     </button>
                 </div>
 
