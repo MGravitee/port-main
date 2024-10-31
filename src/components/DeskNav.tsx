@@ -24,34 +24,16 @@ const navItems = [
 
 const SideStaggerNavigation = () => {
     const [isHovered, setIsHovered] = useState(false);
-    const [focusedIndex, setFocusedIndex] = useState<number | null>(null);
     const mouseY = useMotionValue(Infinity);
-
-    const handleKeyDown = (e: React.KeyboardEvent) => {
-        if (e.key === "ArrowDown") {
-            setFocusedIndex((prevIndex) => 
-                prevIndex === null ? 0 : Math.min(navItems.length - 1, prevIndex + 1)
-            );
-            e.preventDefault();
-        } else if (e.key === "ArrowUp") {
-            setFocusedIndex((prevIndex) => 
-                prevIndex === null ? navItems.length - 1 : Math.max(0, prevIndex - 1)
-            );
-            e.preventDefault();
-        } else if (e.key === "Enter" && focusedIndex !== null) {
-            const href = navItems[focusedIndex].href;
-            if (href) {
-                window.location.hash = href; // Use anchor scrolling
-            }
-        }
-    }
-
+    
 
 
     return (
         <motion.nav
-            //these effect the focus/hover on the side nav
-            
+        aria-label="Side navigation"
+        role="navigation"
+        
+        //these effect the focus/hover on the side nav
             onMouseMove={(e) => {
                 mouseY.set(e.clientY);
                 setIsHovered(true);

@@ -47,7 +47,7 @@ function About() {
                         <p>{restData.acf.about_content_1}</p>
                     </section>
                     <section className="mt-8">
-                        <h2 className="text-lg lg:text-2xl font-medium mb-8">Some Things I Enjoy: </h2>
+                        <h2 className="text-lg lg:text-3xl font-medium mb-8">Some Things I Enjoy: </h2>
                         <ScrollingThings things={restData.acf.things_i_enjoy} />
                     </section>
                 </>
