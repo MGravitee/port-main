@@ -6,7 +6,6 @@ import CopyEmailBtn from "./CopyEmailBtn";
 import { MagnetButtonLnkd, MagnetButtonGit } from "./MagnetBtns";
 
 export function DeskFooter() {
-
     interface contactData {
         email_link: string;
         github_link: string;
@@ -35,18 +34,23 @@ export function DeskFooter() {
     return (
         <>
             {isLoaded && !!restData ? (
-                <footer id="contact-section" className="mb-14 hidden lg:flex flex-col gap-5 z-10 ">
-                    
-                    <div className="social-links flex flex-col w-fit absolute top-40 left-[60%] -translate-x-[50%]">
+                <footer
+                    id="contact-section"
+                    className="mb-14 hidden lg:flex flex-col gap-5 z-10 "
+                >
+                    <div className="social-links flex flex-col w-fit absolute bottom-[20rem] left-[60%] -translate-x-[50%]">
                         <MagnetButtonLnkd link={restData.linkedin_link} />
+                    </div>
+                    <div className="social-links flex flex-col w-fit absolute bottom-40 left-[40%] -translate-x-[50%]">
                         <MagnetButtonGit link={restData.github_link} />
                     </div>
-                    <div className="email-container">
-                        <CopyEmailBtn email={restData.email_link}/>
+                    <div className="email-container absolute bottom-[5rem] left-[40%] -translate-x-[50%] ">
+                        <CopyEmailBtn email={restData.email_link} />
                     </div>
                     <div className="copyright-text">
                         <p className="footer-txt text-center text-sm md:text-medium">
-                        © Matt Garvey 2024 | All Rights Reserved</p>
+                            © Matt Garvey 2024 | All Rights Reserved
+                        </p>
                     </div>
                 </footer>
             ) : (
@@ -56,9 +60,7 @@ export function DeskFooter() {
     );
 }
 
-
 export function FooterMobi() {
-
     interface contactData {
         email_link: string;
         github_link: string;
@@ -90,7 +92,7 @@ export function FooterMobi() {
                     className=" flex flex-col justify-center gap-5 lg:hidden"
                 >
                     <div className="contact-heading">
-                        <h2 className="contact-title">Get in Touch</h2>
+                        <h2 className="contact-title text-lg lg:text-3xl font-medium mb-8">Get in Touch</h2>
                     </div>
                     <div className="social-links flex justify-around">
                         <a href={restData.linkedin_link} target="_blank">
@@ -102,7 +104,7 @@ export function FooterMobi() {
                         </a>
                     </div>
                     <div className="copyright-text">
-                        <p className="footer-txt text-center mt-28">
+                        <p className="footer-txt text-center mt-28 mb-2">
                             © Matt Garvey 2024 | All Rights Reserved
                         </p>
                     </div>

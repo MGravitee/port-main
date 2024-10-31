@@ -1,6 +1,6 @@
 import { FC } from "react";
 
-const scrollOffset:number = 60;
+const scrollOffset:number = 20;
 
 const ScrollDownBtn: FC = () => {
 
@@ -15,17 +15,16 @@ const ScrollDownBtn: FC = () => {
 
             window.scrollTo({
                 top: sectionPosition,
-                behavior: "smooth"
             });
         }
     }
 
     return (
         <button className="p-3 absolute bottom-[12rem] left-[50%] -translate-x-[50%] lg:hidden z-10"  aria-label="Scroll down" onClick={ handleClick }>
-            <span className="scroll-indicator"></span>
-            <span className="scroll-indicator"></span>
-            <span className="scroll-indicator"></span>
-            <p className="scroll-text">Scroll Down</p>
+            <span className="scroll-indicator no-motion"></span>
+            <span className="scroll-indicator no-motion"></span>
+            <span className="scroll-indicator no-motion"></span>
+            <p className="scroll-text mt-7">Scroll Down</p>
         </button>
     )
 }

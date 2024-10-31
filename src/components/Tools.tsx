@@ -67,11 +67,11 @@ function ToolsCarousel() {
                     >
                         {categories.map((category) => (
                             <SwiperSlide
-                                className=" backdrop-blur backdrop-brightness-75 border-2 border-solid rounded-bl-lg rounded-tr-lg border-current"
+                                className="backdrop-blur backdrop-brightness-75 border-2 border-solid rounded-bl-lg rounded-tr-lg border-current"
                                 key={category.parent}
                             >
                                 <article
-                                    className=" border-current tool-container"
+                                    className="border-current tool-container"
                                     key={category.parent}
                                 >
                                     <h3

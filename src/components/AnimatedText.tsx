@@ -1,6 +1,6 @@
 // super big props to https://www.frontend.fyi/v/staggered-text-animations-with-framer-motion for having the tutorial on how to do this
 
-import { motion, useInView, useAnimation, Variant } from "framer-motion";
+import { motion, useInView, useAnimation, Variant, useReducedMotion } from "framer-motion";
 import { useEffect, useRef } from "react";
 
 type AnimatedTextProps = {
@@ -43,6 +43,10 @@ type AnimatedTextProps = {
     const ref = useRef(null);
     const isInView = useInView(ref, { amount: 0.5, once });
   
+    //for reduced animation
+
+    const shouldReduceMotion = useReducedMotion();
+
     useEffect(() => {
       let timeout :number
       const show = () => {
@@ -65,37 +69,41 @@ type AnimatedTextProps = {
     }, [isInView]);
   
     return (
-      <Wrapper className={className}>
-        <span className="sr-only">{textArray.join(" ")}</span>
-        <motion.span
-          ref={ref}
-          initial="hidden"
-          animate={controls}
-          variants={{
-            visible: { transition: { staggerChildren: 0.1 } },
-            hidden: {},
-          }}
-          aria-hidden
-        >
-          {textArray.map((line, lineIndex) => (
-            <span className="block" key={`${line}-${lineIndex}`}>
-              {line.split(" ").map((word, wordIndex) => (
-                <span className="inline-block" key={`${word}-${wordIndex}`}>
-                  {word.split("").map((char, charIndex) => (
-                    <motion.span
-                      key={`${char}-${charIndex}`}
-                      className="inline-block"
-                      variants={animation}
-                    >
-                      {char}
-                    </motion.span>
-                  ))}
-                  <span className="inline-block">&nbsp;</span>
-                </span>
-              ))}
-            </span>
-          ))}
-        </motion.span>
-      </Wrapper>
-    );
+            !shouldReduceMotion ? (
+               
+               <>
+               <Wrapper className={className}>
+                  <span className="sr-only">{textArray.join(" ")}</span>
+                  <motion.span
+                    ref={ref}
+                    initial="hidden"
+                    animate={controls}
+                    variants={{
+                      visible: { transition: { staggerChildren: 0.1 } },
+                      hidden: {},
+                    }}
+                    aria-hidden
+                  >
+                    {textArray.map((line, lineIndex) => (
+                      <span className="block" key={`${line}-${lineIndex}`}>
+                        {line.split(" ").map((word, wordIndex) => (
+                          <span className="inline-block" key={`${word}-${wordIndex}`}>
+                            {word.split("").map((char, charIndex) => (
+                              <motion.span
+                                key={`${char}-${charIndex}`}
+                                className="inline-block"
+                                variants={animation}
+                              >
+                                {char}
+                              </motion.span>
+                            ))}
+                            <span className="inline-block">&nbsp;</span>
+                          </span>
+                        ))}
+                      </span>
+                    ))}
+                  </motion.span>
+                </Wrapper>
+                </> ) : <h2 className="text-2xl sm:text-3xl md:text-4xl">{text}</h2>
+    );        
   };

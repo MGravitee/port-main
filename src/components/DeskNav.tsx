@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from "react";
 import {
     AnimatePresence,
     MotionValue,
@@ -6,7 +7,6 @@ import {
     useSpring,
     useTransform,
 } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
 
 const DeskNav = () => {
     return <SideStaggerNavigation />;
@@ -24,13 +24,34 @@ const navItems = [
 
 const SideStaggerNavigation = () => {
     const [isHovered, setIsHovered] = useState(false);
-
+    const [focusedIndex, setFocusedIndex] = useState<number | null>(null);
     const mouseY = useMotionValue(Infinity);
+
+    const handleKeyDown = (e: React.KeyboardEvent) => {
+        if (e.key === "ArrowDown") {
+            setFocusedIndex((prevIndex) => 
+                prevIndex === null ? 0 : Math.min(navItems.length - 1, prevIndex + 1)
+            );
+            e.preventDefault();
+        } else if (e.key === "ArrowUp") {
+            setFocusedIndex((prevIndex) => 
+                prevIndex === null ? navItems.length - 1 : Math.max(0, prevIndex - 1)
+            );
+            e.preventDefault();
+        } else if (e.key === "Enter" && focusedIndex !== null) {
+            const href = navItems[focusedIndex].href;
+            if (href) {
+                window.location.hash = href; // Use anchor scrolling
+            }
+        }
+    }
+
+
 
     return (
         <motion.nav
             //these effect the focus/hover on the side nav
-
+            
             onMouseMove={(e) => {
                 mouseY.set(e.clientY);
                 setIsHovered(true);
@@ -45,7 +66,7 @@ const SideStaggerNavigation = () => {
             onBlur={() => {
                 setIsHovered(false);
             }}
-            className="fixed hidden lg:flex right-0 top-0 h-screen flex-col items-end justify-between py-4 pl-8"
+            className="fixed hidden lg:flex right-0 top-0 h-screen flex-col items-end justify-between py-4 pl-8 cursor-none"
         >
             <ul className="fixed hidden lg:flex right-0 top-0 h-screen flex-col items-end justify-between py-4 pl-8">
                 {Array.from(Array(NUM_LINES).keys()).map((i) => {
@@ -57,6 +78,7 @@ const SideStaggerNavigation = () => {
                         <LinkLine
                             title={linkContent?.title}
                             isHovered={isHovered}
+                            isFocused={isHovered}
                             mouseY={mouseY}
                             key={i}
                         />
@@ -67,6 +89,7 @@ const SideStaggerNavigation = () => {
     );
 };
 
+//framer motion spring options
 const SPRING_OPTIONS = {
     mass: 1,
     stiffness: 200,
@@ -79,12 +102,13 @@ const LinkLine = ({
     title,
 }: {
     mouseY: MotionValue;
-    title: string;
+    title: string | undefined;
     isHovered: boolean;
+    isFocused: boolean;
 }) => {
     const ref = useRef<HTMLLIElement>(null);
     const distance = useTransform(mouseY, (val) => {
-        const bounds = ref.current?.getBoundingClientRect();
+    const bounds = ref.current?.getBoundingClientRect();
 
         return val - (bounds?.y || 0) - (bounds?.height || 0) / 2;
     });
@@ -96,6 +120,7 @@ const LinkLine = ({
     // Styles for link lines
     const linkWidth = useSpring(25, SPRING_OPTIONS);
 
+    //adjusts the size of link lines depending on hover
     useEffect(() => {
         if (isHovered) {
             linkWidth.set(120);
@@ -106,12 +131,10 @@ const LinkLine = ({
 
     if (title === "Home") {
         return (
-            <li 
-            ref={ref}>
+            <li ref={ref}>
                 <motion.a
                     href="#home"
-                    
-                    className="group relative bg-current transition-colors hover:bg-neutral-500"
+                    className="group relative bg-current transition-colors hover:bg-neutral-500 accessibility-class"
                     style={{ width: linkWidth, height: 2 }}
                 >
                     <AnimatePresence>
@@ -120,7 +143,7 @@ const LinkLine = ({
                                 initial={{ opacity: 0 }}
                                 animate={{ opacity: 1 }}
                                 exit={{ opacity: 0 }}
-                                className="absolute left-0 top-0 z-10 w-full pt-2 font-bold uppercase text-current transition-colors group-hover:text-neutral-500"
+                                className="absolute left-0 top-0 z-10 w-full pt-2 font-bold uppercase text-current transition-colors group-hover:text-neutral-500 accessibility-class"
                             >
                                 {title}
                             </motion.span>
@@ -132,77 +155,74 @@ const LinkLine = ({
     }
     if (title === "Work") {
         return (
-            
-                <motion.li
-                    ref={ref}
-                    className="group relative bg-current transition-colors hover:bg-neutral-500"
-                    style={{ width: linkWidth, height: 2 }}
-                >
-                    <a href="#work-section">
-                        <AnimatePresence>
-                            {isHovered && (
-                                <motion.span
-                                    initial={{ opacity: 0 }}
-                                    animate={{ opacity: 1 }}
-                                    exit={{ opacity: 0 }}
-                                    className="absolute left-0 top-0 z-10 w-full pt-2 font-bold uppercase text-current transition-colors group-hover:text-neutral-500"
-                                >
-                                    {title}
-                                </motion.span>
-                            )}
-                        </AnimatePresence>
-                    </a>
-                </motion.li>
-            
-        );
-    }
-    if (title === "About") {
-        return (
             <motion.li
                 ref={ref}
-                className="group relative bg-current transition-colors hover:bg-neutral-500"
+                className="group relative bg-current transition-colors hover:bg-neutral-500 accessibility-class"
                 style={{ width: linkWidth, height: 2 }}
             >
-                    <a href="#about-section">
-                        <AnimatePresence>
-                            {isHovered && (
-                                <motion.span
-                                    initial={{ opacity: 0 }}
-                                    animate={{ opacity: 1 }}
-                                    exit={{ opacity: 0 }}
-                                    className="absolute left-0 top-0 z-10 w-full pt-2 font-bold uppercase text-current transition-colors group-hover:text-neutral-500"
-                                >
-                                    {title}
-                                </motion.span>
-                            )}
-                        </AnimatePresence>
-                    </a>
-            </motion.li>
-        );
-    }
-    if (title === "TotD") {
-        return (
-            
-                <motion.li
-                    ref={ref}
-                    className="group relative bg-current transition-colors hover:bg-neutral-500"
-                    style={{ width: linkWidth, height: 2 }}
-                >
-                    <a href="#tools-section">
+                <a href="#work-section">
                     <AnimatePresence>
                         {isHovered && (
                             <motion.span
                                 initial={{ opacity: 0 }}
                                 animate={{ opacity: 1 }}
                                 exit={{ opacity: 0 }}
-                                className="absolute left-0 top-0 z-10 w-full pt-2 font-bold uppercase text-current transition-colors group-hover:text-neutral-500"
+                                className="absolute left-0 top-0 z-10 w-full pt-2 font-bold uppercase text-current transition-colors group-hover:text-neutral-500 accessibility-class"
                             >
                                 {title}
                             </motion.span>
                         )}
                     </AnimatePresence>
-                    </a>
-                </motion.li>
+                </a>
+            </motion.li>
+        );
+    }
+    if (title === "About") {
+        return (
+            <motion.li
+                ref={ref}
+                className="group relative bg-current transition-colors hover:bg-neutral-500 accessibility-class"
+                style={{ width: linkWidth, height: 2 }}
+            >
+                <a href="#about-section">
+                    <AnimatePresence>
+                        {isHovered && (
+                            <motion.span
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                exit={{ opacity: 0 }}
+                                className="absolute left-0 top-0 z-10 w-full pt-2 font-bold uppercase text-current transition-colors group-hover:text-neutral-500 accessibility-class"
+                            >
+                                {title}
+                            </motion.span>
+                        )}
+                    </AnimatePresence>
+                </a>
+            </motion.li>
+        );
+    }
+    if (title === "TotD") {
+        return (
+            <motion.li
+                ref={ref}
+                className="group relative bg-current transition-colors hover:bg-neutral-500 accessibility-class"
+                style={{ width: linkWidth, height: 2 }}
+            >
+                <a href="#tools-section">
+                    <AnimatePresence>
+                        {isHovered && (
+                            <motion.span
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                exit={{ opacity: 0 }}
+                                className="absolute left-0 top-0 z-10 w-full pt-2 font-bold uppercase text-current transition-colors group-hover:text-neutral-500 accessibility-class"
+                            >
+                                {title}
+                            </motion.span>
+                        )}
+                    </AnimatePresence>
+                </a>
+            </motion.li>
         );
     } else {
         return (

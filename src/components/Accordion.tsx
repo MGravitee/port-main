@@ -87,11 +87,13 @@ const Accordion2: React.FC<AccordionProps> = ({ projects }) => {
                         id={`content-${index}`}
                         role="region"
                         aria-labelledby={`accordion-title-${index}`}
+                        aria-hidden={activeIndex !== index}
+                        data-inert={activeIndex !== index ? true : undefined} //learning so much about accessibiity, this is to make sure children aren't focusable if accordion is closed
                         initial={false}
                         animate={activeIndex === index ? "open" : "collapsed"}
                         variants={accordionVariants}
                         transition={{ duration: 0.5, ease: "easeInOut" }}
-                        className="accordion-content p-4 mt-2 border border-current rounded-bl-lg  border-t-0 overflow-hidden "
+                        className="accordion-content p-4 mt-2 border border-current rounded-bl-lg  border-t-0 overflow-hidden"
                     >
                         <article className="project-details relative">
                             {/* displaying overview, links and tools used */}

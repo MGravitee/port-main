@@ -3,12 +3,12 @@ import { Dispatch, SetStateAction, useState } from "react";
 import { HomeIcon, ContactIcon, WorkIcon, AboutIcon } from "../icons/Icons";
 import { ThemeSwitch } from "../darkmode/DarkModeBtn";
 
-const BottomNavDesk = () => {
+const BottomNavMobi = () => {
   const [selected, setSelected] = useState(0);
 
   return (
   
-    <nav className="fixed h-20 bottom-8 flex w-[310px]  md:w-[400px] justify-center left-[50%] -translate-x-[50%] bg- items-center gap-4 border-[1px] border-current rounded-bl-lg rounded-tr-lg p-2 text-sm z-[99] lg:hidden bg-transparent
+    <nav className="fixed h-20 bottom-[3rem] flex w-[310px]  md:w-[400px] justify-center left-[50%] -translate-x-[50%] items-center gap-4 border-[1px] border-current rounded-bl-lg rounded-tr-lg p-2 text-sm z-[99] lg:hidden bg-transparent
      text-white backdrop-blur-2xl backdrop-brightness-50 ">
         <ul className="h-fit w-[310px] p-4 md:w-[400px] flex justify-around items-center gap-2">
             <NavItem selected={selected === 0} id={0} setSelected={setSelected} href="#home">
@@ -27,7 +27,7 @@ const BottomNavDesk = () => {
                 <ContactIcon className="nav-item ml-3.5" />
                 Contact
             </NavItem>
-            <NavItem selected={selected === 4} id={4} setSelected={setSelected} href="#">
+            <NavItem selected={selected === 4} id={4} setSelected={setSelected} href="#current">
                 <ThemeSwitch />
             </NavItem>
         </ul>
@@ -51,27 +51,26 @@ const NavItem = ({
 
 }) => {
   return (
-    <motion.a
-      href={href} // Use href for anchor links
+    <motion.li
       onClick={() => setSelected(id)}
       whileHover={{ scale: 1.05}}
       whileFocus={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
       className="p-3 text-md w-12 border-current flex justify-center rounded-md text-center content-center transition-colors relative"
     >
-      <li className="relative z-10">{children}</li>
+      <a  href={href} className="relative z-10">{children}</a>
       <AnimatePresence>
         {selected && (
-          <motion.li
+          <motion.a
             className="absolute inset-0 rounded-md z-0"
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
             exit={{ scale: 0 }}
-          ></motion.li>
+          ></motion.a>
         )}
       </AnimatePresence>
-    </motion.a>
+    </motion.li>
   );
 };
 
-export default BottomNavDesk;
+export default BottomNavMobi;

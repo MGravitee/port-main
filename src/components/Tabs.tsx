@@ -187,6 +187,7 @@ const Tabs: React.FC<TabsProps> = React.memo(
                         <button
                             onClick={() => handlePreviousPage(features)}
                             className="prev-page-btn"
+                            aria-label="Previous feature"
                         >
                             <ArrowLeft size={40} />
                         </button>
@@ -206,6 +207,7 @@ const Tabs: React.FC<TabsProps> = React.memo(
                         <button
                             onClick={() => handleNextPage(features)}
                             className="next-page-btn"
+                            aria-label="Next feature"
                         >
                             <ArrowRight size={40} />
                         </button>
@@ -216,22 +218,38 @@ const Tabs: React.FC<TabsProps> = React.memo(
 
         return (
             <div className="tabs-container">
-                <div className="tabs border h-16 rounded-bl-lg rounded-tr-lg gap-2 mb-4 flex justify-center md:gap-6 mt-8 ">
+                <div
+                    className="tabs border h-16 rounded-bl-lg rounded-tr-lg gap-2 mb-4 flex justify-center md:gap-6 mt-8"
+                    role="tablist"
+                    aria-label="Feature Tabs"
+                >
                     <button
                         onClick={() => handleTabChange("analysis")}
-                        className={`tab-button ${activeTab === "analysis" ? " relative font-bold underline active-tab rounded-bl-lg border rounded-tr-lg p-3" : " rounded-bl-lg rounded-tr-lg p-3"}`}
+                        className={`tab-button ${activeTab === "analysis" ? " relative font-bold underline active-tab rounded-bl-lg border rounded-tr-lg p-2" : " rounded-bl-lg rounded-tr-lg p-2"}`}
+                        role="tab"
+                        aria-selected={activeTab === "analysis"}
+                        aria-controls="analysis-panel"
+                        id="analysis-tab"
                     >
                         Analysis
                     </button>
                     <button
                         onClick={() => handleTabChange("development")}
-                        className={`tab-button ${activeTab === "development" ? "relative font-bold underline active-tab rounded-bl-lg  border rounded-tr-lg p-3" : "rounded-bl-lg rounded-tr-lg p-3"}`}
+                        className={`tab-button ${activeTab === "development" ? "relative font-bold underline active-tab rounded-bl-lg  border rounded-tr-lg p-2" : "rounded-bl-lg rounded-tr-lg p-2"}`}
+                        role="tab"
+                        aria-selected={activeTab === "development"}
+                        aria-controls="development-panel"
+                        id="development-tab"
                     >
                         Development
                     </button>
                     <button
                         onClick={() => handleTabChange("design")}
-                        className={`tab-button ${activeTab === "design" ? "relative font-bold underline active-tab rounded-bl-lg border rounded-tr-lg p-3" : "rounded-bl-lg rounded-tr-lg p-3"}`}
+                        className={`tab-button ${activeTab === "design" ? "relative font-bold underline active-tab rounded-bl-lg border rounded-tr-lg p-2" : "rounded-bl-lg rounded-tr-lg p-2"}`}
+                        role="tab"
+                        aria-selected={activeTab === "design"}
+                        aria-controls="design-panel"
+                        id="design-tab"
                     >
                         UX / UI
                     </button>
@@ -242,6 +260,10 @@ const Tabs: React.FC<TabsProps> = React.memo(
                         <motion.article
                             key="analysis-tab"
                             variants={tabVariants}
+                            role="tabpanel"
+                            aria-labelledby="analysis-tab"
+                            id="analysis-panel"
+                            tabIndex={0}
                         >
                             {renderAnalysis(analysisContent)}
                         </motion.article>
@@ -250,12 +272,23 @@ const Tabs: React.FC<TabsProps> = React.memo(
                         <motion.article
                             key="development-tab"
                             variants={tabVariants}
+                            role="tabpanel"
+                            aria-labelledby="development-tab"
+                            id="development-panel"
+                            tabIndex={0}
                         >
                             {renderFeatures(developmentFeatures)}
                         </motion.article>
                     )}
                     {activeTab === "design" && (
-                        <motion.article key="design-tab" variants={tabVariants}>
+                        <motion.article
+                            key="design-tab"
+                            variants={tabVariants}
+                            role="tabpanel"
+                            aria-labelledby="design-tab"
+                            id="design-panel"
+                            tabIndex={0}
+                        >
                             {renderFeatures(designFeatures)}
                         </motion.article>
                     )}
