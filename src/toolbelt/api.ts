@@ -6,7 +6,7 @@ export const optionsLink= 'https://mattgravitee.com/dfdksfjhkdsjfh/wp-json/optio
 
 //about info
 
-export const aboutLink = 'https://mattgravitee.com/dfdksfjhkdsjfh//wp-json/wp/v2/pages/196?';
+export const aboutLink = 'https://mattgravitee.com/dfdksfjhkdsjfh//wp-json/wp/v2/pages/196?&acf_format=standard&18=19';
 
 //project posts info
 
