@@ -7,6 +7,10 @@
 html {
     scroll-behavior: smooth;
     cursor: none;
+    /* for some reason setting cursor-none on html wasn't enough to do it */
+    button, a {
+        cursor: none;
+    }
 }
 
 
@@ -216,12 +220,12 @@ animations work for the loading spinner */
     top: 0;
     left: 0;
     transform: translate(-50%, -50%);
-    background-color: currentColor; /* neutral-300 */
+    background-color: currentColor;
     z-index: 30;
     pointer-events: none;
 }
 
-.halo {
+.circle {
     z-index: 999999999;
     height: 1rem;
     width: 1.25rem;
@@ -233,11 +237,11 @@ animations work for the loading spinner */
     border: 2px solid currentColor;
     opacity: 0;
     transition: all 600ms ease-out;
-    z-index: 20;
+    z-index: 9999999999;
     pointer-events: none;
 }
 
-.halo.hovered {
+.circle.hovered {
     height: 2.5rem;
     width: 2.5rem;
     opacity: 1;
@@ -325,7 +329,7 @@ div.swiper-button-prev::after {
     text-shadow: 3px 3px 3px #000000;
 }
 .other-color {
-    color: #8bfff9;
+    color: #fafafa;
     text-shadow: 3px 3px 3px #000000;
 }
 

@@ -225,7 +225,7 @@ const Tabs: React.FC<TabsProps> = React.memo(
                 >
                     <button
                         onClick={() => handleTabChange("analysis")}
-                        className={`tab-button ${activeTab === "analysis" ? " relative font-bold underline active-tab rounded-bl-lg border rounded-tr-lg p-3" : " rounded-bl-lg rounded-tr-lg p-3"}`}
+                        className={`tab-button ${activeTab === "analysis" ? " relative font-bold underline active-tab rounded-bl-lg border rounded-tr-lg p-2" : " rounded-bl-lg rounded-tr-lg p-2"}`}
                         role="tab"
                         aria-selected={activeTab === "analysis"}
                         aria-controls="analysis-panel"
@@ -235,7 +235,7 @@ const Tabs: React.FC<TabsProps> = React.memo(
                     </button>
                     <button
                         onClick={() => handleTabChange("development")}
-                        className={`tab-button ${activeTab === "development" ? "relative font-bold underline active-tab rounded-bl-lg  border rounded-tr-lg p-3" : "rounded-bl-lg rounded-tr-lg p-3"}`}
+                        className={`tab-button ${activeTab === "development" ? "relative font-bold underline active-tab rounded-bl-lg  border rounded-tr-lg p-2" : "rounded-bl-lg rounded-tr-lg p-2"}`}
                         role="tab"
                         aria-selected={activeTab === "development"}
                         aria-controls="development-panel"
@@ -245,7 +245,7 @@ const Tabs: React.FC<TabsProps> = React.memo(
                     </button>
                     <button
                         onClick={() => handleTabChange("design")}
-                        className={`tab-button ${activeTab === "design" ? "relative font-bold underline active-tab rounded-bl-lg border rounded-tr-lg p-3" : "rounded-bl-lg rounded-tr-lg p-3"}`}
+                        className={`tab-button ${activeTab === "design" ? "relative font-bold underline active-tab rounded-bl-lg border rounded-tr-lg p-2" : "rounded-bl-lg rounded-tr-lg p-2"}`}
                         role="tab"
                         aria-selected={activeTab === "design"}
                         aria-controls="design-panel"

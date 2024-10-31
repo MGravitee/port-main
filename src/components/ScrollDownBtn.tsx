@@ -1,6 +1,6 @@
 import { FC } from "react";
 
-const scrollOffset:number = 60;
+const scrollOffset:number = 20;
 
 const ScrollDownBtn: FC = () => {
 
@@ -15,7 +15,6 @@ const ScrollDownBtn: FC = () => {
 
             window.scrollTo({
                 top: sectionPosition,
-                behavior: "smooth"
             });
         }
     }

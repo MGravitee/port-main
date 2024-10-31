@@ -145,7 +145,7 @@ export const MagnetButtonLnkd: React.FC<Props> = ({ link }) => {
             onMouseLeave={handleMouseLeave}
             style={{ transform }}
             transition={{ type: "spring", stiffness: 200, damping: 20 }}
-            className="group relative grid h-[220px] w-[220px] place-content-center rounded-full  transition-colors duration-700 ease-out"
+            className="group relative grid h-[220px] w-[220px] place-content-center rounded-full transition-colors duration-700 ease-out"
             href={link} // setting link here
             target="_blank"
             rel="noopener noreferrer"

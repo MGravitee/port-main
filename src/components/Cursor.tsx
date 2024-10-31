@@ -92,7 +92,7 @@ const Cursor: FC = () => {
                         }} 
                     />
                     <motion.div 
-                        className={ `halo z-50 ${isHovered ? "hovered" : ""} no-motion-2` }  
+                        className={ `circle z-50 ${isHovered ? "hovered" : ""} no-motion-2` }  
                         style={{
                             translateX: haloPosition.x,
                             translateY: haloPosition.y,

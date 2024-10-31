@@ -63,15 +63,15 @@ function ToolsCarousel() {
                         }}
                         navigation={true}
                         modules={[EffectCards, Pagination, Navigation]}
-                        className="mySwiper w-[19rem] h-[36rem] md:w-[25rem] md:h-[33rem] mb-12 backdrop-blur backdrop-brightness-75"
+                        className="mySwiper w-[19rem] h-[36rem] md:w-[25rem] md:h-[33rem] mb-12"
                     >
                         {categories.map((category) => (
                             <SwiperSlide
-                                className=" backdrop-blur backdrop-brightness-75 border-2 border-solid rounded-bl-lg rounded-tr-lg border-current"
+                                className="backdrop-blur backdrop-brightness-75 border-2 border-solid rounded-bl-lg rounded-tr-lg border-current"
                                 key={category.parent}
                             >
                                 <article
-                                    className=" backdrop-blur backdrop-brightness-75 border-current tool-container"
+                                    className="border-current tool-container"
                                     key={category.parent}
                                 >
                                     <h3

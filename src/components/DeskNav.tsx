@@ -51,7 +51,7 @@ const SideStaggerNavigation = () => {
     return (
         <motion.nav
             //these effect the focus/hover on the side nav
-
+            
             onMouseMove={(e) => {
                 mouseY.set(e.clientY);
                 setIsHovered(true);
@@ -66,7 +66,7 @@ const SideStaggerNavigation = () => {
             onBlur={() => {
                 setIsHovered(false);
             }}
-            className="fixed hidden lg:flex right-0 top-0 h-screen flex-col items-end justify-between py-4 pl-8"
+            className="fixed hidden lg:flex right-0 top-0 h-screen flex-col items-end justify-between py-4 pl-8 cursor-none"
         >
             <ul className="fixed hidden lg:flex right-0 top-0 h-screen flex-col items-end justify-between py-4 pl-8">
                 {Array.from(Array(NUM_LINES).keys()).map((i) => {
