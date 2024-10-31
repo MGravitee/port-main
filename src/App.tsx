@@ -29,6 +29,12 @@ function App() {
         fetchData();
     }, []);
 
+    useEffect(() => {
+        if (restData) {
+            console.log("Data loaded:", restData);
+        }
+    }, [restData]);
+
     return (
         <>
             {/* This is checking to make sure API data is actually loading, otherwise loading spinner will run forever, not great */}
@@ -50,7 +56,6 @@ function App() {
                     </div>
                 </div>
             ) : isLoaded ? (
-                // <div id="tsparticles">
                 <div
                     id="site-wrapper"
                     className= "site-wrapper"
@@ -58,10 +63,8 @@ function App() {
                     <LeftSide />
                     <RightSide />
                     <Cursor />
-                    {/* <ParticlesTest /> */}
                 </div>
             ) : (
-                // </div>
                 <div className="h-screen flex items-center justify-center">
                     <LoadingSpinner />
                 </div>

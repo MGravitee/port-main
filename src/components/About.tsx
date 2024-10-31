@@ -1,8 +1,8 @@
-import { Dispatch, SetStateAction, useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import LoadingSpinner from "./LoadingSpinner";
 import { aboutLink } from "../toolbelt/api";
-import { AnimatePresence, motion } from "framer-motion";
-import { useWindowSize } from "../toolbelt/useWindowSize";
+import { motion } from "framer-motion";
+
 
 // Define types for API data
 interface AboutData {
