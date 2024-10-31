@@ -92,11 +92,11 @@ const Tabs: React.FC<TabsProps> = React.memo(
                     transition={{ duration: 0.3 }}
                     exit="exit"
                 >
-                    <div className="media-wrapper flex justify-center">
+                    <div className="media-wrapper flex justify-center w-full">
                         {isVideo ? (
                             <video
                                 key={analysisData.imageUrl}
-                                className="w-full h-auto rounded-bl-lg rounded-tr-lg max-w-[41rem] aspect-video"
+                                className="w-full h-auto rounded-bl-lg rounded-tr-lg aspect-video"
                                 autoPlay
                                 loop
                                 muted
@@ -185,7 +185,7 @@ const Tabs: React.FC<TabsProps> = React.memo(
                             </p>
                         </motion.article>
                     </AnimatePresence>
-                    <div className="pagination-buttons mt-4 flex items-center justify-center gap-8">
+                    <div className="pagination-buttons mt-4 lg:mt-12 flex items-center justify-center gap-8">
                         <button
                             onClick={() => handlePreviousPage(features)}
                             className="prev-page-btn"
