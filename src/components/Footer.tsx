@@ -95,11 +95,13 @@ export function FooterMobi() {
                         <h2 className="contact-title text-lg lg:text-3xl font-medium mb-8">Get in Touch</h2>
                     </div>
                     <div className="social-links flex justify-around">
-                        <a href={restData.linkedin_link} target="_blank">
+                        <a href={restData.linkedin_link} target="_blank" aria-label="Navigates to my LinkedIn profile"
+                        role="link">
                             <LinkedInIcon size={40} className="hover;" />
                         </a>
                         <CopyEmailBtn email={restData.email_link} />
-                        <a href={restData.github_link} target="_blank">
+                        <a href={restData.github_link} target="_blank" aria-label="Navigates to my GitHub profile"
+                        role="link">
                             <GitHubIcon size={40} />
                         </a>
                     </div>

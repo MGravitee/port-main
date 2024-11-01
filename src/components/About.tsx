@@ -4,7 +4,7 @@ import { aboutLink } from "../toolbelt/api";
 import { motion } from "framer-motion";
 
 
-// Define types for API data
+// define types for API data
 interface AboutData {
     acf: {
         about_content_1: string;
@@ -35,6 +35,8 @@ function About() {
         };
         fetchData();
     }, []);
+    console.log({restData});
+    
 
     return (
         <>
@@ -99,7 +101,7 @@ const ThingsList = ({
                         key={index} // Use index as key
                         className="shrink-0 w-[500px] grid grid-cols-[7rem,_1fr] rounded-lg overflow-hidden relative"
                     >
-                        <img src={t.image} className="w-full h-full object-cover" />
+                        <img src={t.image} alt={`${t.title} screenshot`}className="w-full h-full object-cover" />
                         <div className="bg-slate-900 text-slate-50 p-4">
                             <span className="block font-semibold text-lg mb-1"><h3>{t.title}</h3></span>
                             <span className="block text-sm text-slate-300"><p>{t.content}</p></span>

@@ -1,5 +1,5 @@
 import Hero from "./Hero";
-import DeskNav from "./DeskNav";
+// import DeskNav from "./DeskNav";
 import BottomNavDesk from "./BottomNavDesk";
 import { DeskFooter } from "./Footer";
 import ParticlesTest from "./Particles";
@@ -20,7 +20,6 @@ function LeftSide() {
                         </a>
                 
                 <Hero />
-                <DeskNav />
                 <BottomNavDesk />
                 <DeskFooter />  
                 <ParticlesTest />

@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { toolsLink } from "../toolbelt/api";
 import LoadingSpinner from "./LoadingSpinner";
 import switchColour from "../toolbelt/headingColours";
-import GlowingOutline from "./GlowingOutline";
 
 // Import Swiper modules
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -99,7 +98,6 @@ function ToolsCarousel() {
                                                         src={tool.acf.icon}
                                                         alt={`${tool.name} icon`}
                                                     />
-                                                    <GlowingOutline />
                                                 </li>
                                             ))}
                                     </ul>
