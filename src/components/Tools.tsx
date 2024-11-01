@@ -97,6 +97,7 @@ function ToolsCarousel() {
                                                         className="max-w-6 tool-icon"
                                                         src={tool.acf.icon}
                                                         alt={`${tool.name} icon`}
+                                                        loading="lazy"
                                                     />
                                                 </li>
                                             ))}
