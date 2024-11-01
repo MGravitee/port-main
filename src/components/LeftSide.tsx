@@ -3,6 +3,7 @@ import Hero from "./Hero";
 import BottomNavDesk from "./BottomNavDesk";
 import { DeskFooter } from "./Footer";
 import ParticlesTest from "./Particles";
+import Accordion2 from "./Accordion2";
 
 function LeftSide() {
     return (

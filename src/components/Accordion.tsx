@@ -30,7 +30,7 @@ interface AccordionProps {
 }
 
 
-const Accordion2: React.FC<AccordionProps> = ({ projects }) => {
+const Accordion: React.FC<AccordionProps> = ({ projects }) => {
     const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
     const toggleAccordion = (index: number) => {
@@ -188,4 +188,4 @@ const Accordion2: React.FC<AccordionProps> = ({ projects }) => {
     );
 };
 
-export default Accordion2;
+export default Accordion;

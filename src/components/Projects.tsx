@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react";
 import { projectsLink } from "../toolbelt/api";
 import LoadingSpinner from "./LoadingSpinner";
-import Accordion2, { Project } from "./Accordion";
+import Accordion2 from "./Accordion2";
+import Accordion from "./Accordion";
+import { Project } from "../interfaces/interfaces_types";
 
 function Projects() {
     const [restData, setData] = useState<Project[] | null>(null);
@@ -30,7 +32,8 @@ function Projects() {
                 restData && restData.length > 0 ? (
                     <section id="work-section" className="work-section">
                         <h2 className="text-lg lg:text-3xl font-medium mb-8">Featured Work:</h2>
-                        <Accordion2 projects={restData} />
+                        <Accordion2 />
+                        <Accordion projects=
                     </section>
                 ) : (
                     <section id="work-section" className="work-section">

@@ -15,6 +15,7 @@ interface AboutData {
 interface ThingsIEnjoy {
     content: string;
     image: string;
+    image_alt_text: string;
     title: string;
 }
 
@@ -66,7 +67,7 @@ const ScrollingThings = ({ things }: { things: ThingsIEnjoy[] }) => {
         <div className="p-4 overflow-x-hidden relative">
             <div className="absolute top-0 bottom-0 left-0 w-24 z-10 rounded" />
             <div className="flex items-center mb-4">
-                {/* Pass things to ThingsList */}
+                {/* passing in the things to ThingsList */}
                 <ThingsList list={things} duration={125} />
                 <ThingsList list={things} duration={125} />
                 <ThingsList list={things} duration={125} />
@@ -84,7 +85,7 @@ const ThingsList = ({
     reverse = false,
     duration = 50,
 }: {
-    list: ThingsIEnjoy[]; // Update to use ThingsIEnjoy[]
+    list: ThingsIEnjoy[]; //using the ThingsIEnjoy to build my list
     reverse?: boolean;
     duration?: number;
 }) => {
@@ -98,10 +99,10 @@ const ThingsList = ({
             {list.map((t, index) => {
                 return (
                     <article
-                        key={index} // Use index as key
+                        key={index} // using index as key, I know that's a no no, but in this case I control the data
                         className="shrink-0 w-[500px] grid grid-cols-[7rem,_1fr] rounded-lg overflow-hidden relative"
                     >
-                        <img src={t.image} alt={`${t.title} screenshot`}className="w-full h-full object-cover" />
+                        <img src={t.image} alt={`${t.image_alt_text} screenshot`}className="w-full h-full object-cover" />
                         <div className="bg-slate-900 text-slate-50 p-4">
                             <span className="block font-semibold text-lg mb-1"><h3>{t.title}</h3></span>
                             <span className="block text-sm text-slate-300"><p>{t.content}</p></span>
