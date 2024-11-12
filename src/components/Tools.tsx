@@ -52,6 +52,7 @@ function ToolsCarousel() {
                     <h2 className="text-lg lg:text-3xl font-medium mb-8">
                         Some Tricks of the Trade:
                     </h2>
+                    <p className="mb-8">AKA the tools I use:</p>
 
                     <Swiper
                         effect={"cards"}

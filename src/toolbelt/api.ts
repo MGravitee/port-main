@@ -10,7 +10,7 @@ export const aboutLink = 'https://mattgravitee.com/dfdksfjhkdsjfh//wp-json/wp/v2
 
 //project posts info
 
-export const projectsLink = 'https://mattgravitee.com/dfdksfjhkdsjfh//wp-json/wp/v2/posts?_embed&acf_format=standard&21=22';
+export const projectsLink = 'https://mattgravitee.com/dfdksfjhkdsjfh//wp-json/wp/v2/posts?_embed&acf_format=standard&22=23';
 
 //tools used info 
 

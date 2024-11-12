@@ -1,9 +1,9 @@
 import Hero from "./Hero";
-// import DeskNav from "./DeskNav";
+import DeskNav from "./DeskNav";
 import BottomNavDesk from "./BottomNavDesk";
 import { DeskFooter } from "./Footer";
 import ParticlesTest from "./Particles";
-import Accordion2 from "./Accordion2";
+
 
 function LeftSide() {
     return (
@@ -24,6 +24,7 @@ function LeftSide() {
                 <BottomNavDesk />
                 <DeskFooter />  
                 <ParticlesTest />
+                <DeskNav />
             </section>
         </div>
     );

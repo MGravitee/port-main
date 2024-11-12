@@ -75,7 +75,7 @@ const ParticlesTest = () => {
             default: OutMode.out,
           },
           random: false,
-          speed: 4,
+          speed: 5,
           straight: false,
         },
         number: {
