@@ -40,15 +40,15 @@ function About() {
         <>
             {isLoaded && restData ? (
                 <>
-                    <section id="about-section" className="about-section">
+                    <section id="about-section" className="about-section mb-[16rem] single-section">
                         <h2 className="text-lg lg:text-3xl font-medium mb-8">
                             Get to Know Me:
                         </h2>
                         <p>{restData.acf.about_content_1}</p>
-                    </section>
-                    <section className="mt-8">
-                        <h2 className="text-lg lg:text-3xl font-medium mb-8">Some Things I Enjoy: </h2>
-                        <ScrollingThings things={restData.acf.things_i_enjoy} />
+                        <aside className="mt-16">
+                            <h2 className="text-lg lg:text-3xl font-medium mb-8">Some Things I Enjoy: </h2>
+                            <ScrollingThings things={restData.acf.things_i_enjoy} />
+                        </aside>
                     </section>
                 </>
             ) : (

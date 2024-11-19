@@ -4,7 +4,7 @@ import ScrollDownBtn from "./ScrollDownBtn";
 
 function Hero() {
   return (
-        <header id="home" className="hero-section">
+        <header id="home" className="hero-section single-section">
           
         <div className="hero-text">
             <h1 className="hero-heading text-3xl sm:text-5xl xl:text-6xl">Matt Gravitee</h1>

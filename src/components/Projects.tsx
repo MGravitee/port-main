@@ -28,18 +28,19 @@ function Projects() {
         <>
             {isLoaded ? (
                 restData && restData.length > 0 ? (
-                    <section id="work-section" className="work-section">
-                        <h2 className="text-lg lg:text-3xl font-medium mb-8">Featured Work:</h2>
+                    <section id="work-section" className="work-section single-section">
+                        <h2 className="text-xl lg:text-3xl font-medium mb-8">Featured Work:</h2>
+                        <h3 className="text-l lg:text-2xl font-medium">Recent projects I've completed</h3>
                         <Accordion2 projects={restData} />
                     </section>
                 ) : (
                     <section id="work-section" className="work-section">
                         <h2 className="text-lg lg:text-3xl font-medium mb-8">Featured Work:</h2>
-                        <p>No projects to show.</p>
+                        <p>No projects to show. Womp Womp.</p>
                     </section>
                 )
             ) : (
-                <div className="h-screen flex items-center justify-center">
+                <div className="h-screen flex items-center justify-center single-section loading-section">
                     <LoadingSpinner />
                 </div>
             )}

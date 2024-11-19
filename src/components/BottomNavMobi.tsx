@@ -8,8 +8,7 @@ const BottomNavMobi = () => {
 
   return (
   
-    <nav className="fixed h-20 bottom-[3rem] flex w-[310px]  md:w-[400px] justify-center left-[50%] -translate-x-[50%] items-center gap-4 border-[1px] border-current rounded-bl-lg rounded-tr-lg p-2 text-sm z-[99] lg:hidden bg-transparent
-     text-white backdrop-blur-2xl backdrop-brightness-50 ">
+    <nav className="fixed h-20 bottom-[3rem] flex w-[310px]  md:w-[400px] justify-center left-[50%] -translate-x-[50%] items-center gap-4 border-[1px] border-inherit shadow-medium rounded-medium rounded-bl-lg rounded-tr-lg p-2 text-sm z-[99] lg:hidden text-white backdrop-blur-2xl backdrop-brightness-50 ">
         <ul className="h-fit w-[19.375rem] p-4 md:w-[25rem] flex justify-around items-center gap-2">
             <NavItem selected={selected === 0} id={0} setSelected={setSelected} href="#home">
                 <HomeIcon className="nav-item ml-2" />

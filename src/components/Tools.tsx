@@ -48,7 +48,7 @@ function ToolsCarousel() {
     return (
         <>
             {isLoaded && restData ? (
-                <section id="tools-section" className="tools-section">
+                <section id="tools-section" className="tools-section single-section mb-40">
                     <h2 className="text-lg lg:text-3xl font-medium mb-8">
                         Some Tricks of the Trade:
                     </h2>
@@ -66,7 +66,7 @@ function ToolsCarousel() {
                     >
                         {categories.map((category) => (
                             <SwiperSlide
-                                className="backdrop-blur backdrop-brightness-75 border-2 border-solid rounded-bl-lg rounded-tr-lg border-current shadow-medium rounded-medium"
+                                className="backdrop-blur backdrop-brightness-75 border-2 border-solid rounded-medium rounded-bl-lg rounded-tr-lg border-current shadow-medium"
                                 key={category.parent}
                             >
                                 <article

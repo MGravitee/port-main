@@ -22,6 +22,7 @@ export interface Project {
         design_feature_3: Feature;
         dev_feature_1: Feature;
         dev_feature_2: Feature;
+        dev_feature_3: Feature;
     };
     tools: Tool[];
 }
@@ -44,11 +45,11 @@ const Accordion2: React.FC<AccordionProps> = ({ projects }) => {
     };
 
     return (
-        <div className="accordion">
+        <div className="accordion mt-24 mb-48 flex flex-col gap-6">
             {projects.map((project, index) => (
                 <div
                     key={project.id}
-                    className="accordion-item max-w mb-4"
+                    className="accordion-item max-w"
                 >
                     <button
                         aria-expanded={activeIndex === index}
@@ -177,6 +178,12 @@ const Accordion2: React.FC<AccordionProps> = ({ projects }) => {
                                         image: project.acf.dev_feature_2.image,
                                         content:
                                             project.acf.dev_feature_2.content,
+                                    },
+                                    {
+                                        title: project.acf.dev_feature_3.title,
+                                        image: project.acf.dev_feature_3.image,
+                                        content:
+                                            project.acf.dev_feature_3.content,
                                     },
                                 ]}
                             />

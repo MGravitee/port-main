@@ -220,7 +220,6 @@ animations work for the loading spinner */
     left: 0;
     transform: translate(-50%, -50%);
     background-color: currentColor;
-    z-index: 30;
     pointer-events: none;
 }
 
@@ -236,11 +235,11 @@ animations work for the loading spinner */
     border: 2px solid currentColor;
     opacity: 0;
     transition: all 600ms ease-out;
-    z-index: 9999999999;
     pointer-events: none;
 }
 
 .circle.hovered {
+    z-index: 999999999;
     height: 2.5rem;
     width: 2.5rem;
     opacity: 1;
@@ -303,20 +302,6 @@ div.swiper-button-prev::after {
     margin: 0 auto;
 }
 
-/* To get the glowy effect I want for the border of the tools outline, I need to have these classes set for cross-browser support
- thank you @hover.dev for the help  */
-
-.mask-with-browser-support {
-    mask: linear-gradient(black, black), linear-gradient(black, black);
-    mask-clip: content-box, border-box;
-    mask-composite: exclude;
-    -webkit-mask:
-        linear-gradient(black, black) content-box,
-        linear-gradient(black, black);
-    -webkit-mask-clip: content-box, border-box;
-    -webkit-mask-composite: xor;
-}
-
 /* Colours for dev/design */
 
 .design-color {
@@ -365,4 +350,15 @@ div.swiper-button-prev::after {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: 50% 50%;
+}
+
+/* for scroll offset for all single sections */
+
+.single-section:target {
+    scroll-margin-top: 20px;
+}
+
+/* making sure loading spinner takes up 100% of viewport */
+.loading-section {
+    height: 100dvh;
 }

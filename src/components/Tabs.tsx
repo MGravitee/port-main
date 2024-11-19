@@ -96,7 +96,7 @@ const Tabs: React.FC<TabsProps> = React.memo(
                         {isVideo ? (
                             <video
                                 key={analysisData.imageUrl}
-                                className="w-full h-auto rounded-bl-lg rounded-tr-lg aspect-video"
+                                className="w-full h-auto rounded-md aspect-video"
                                 autoPlay
                                 loop
                                 muted
@@ -112,7 +112,7 @@ const Tabs: React.FC<TabsProps> = React.memo(
                             <img
                                 src={analysisData.imageUrl}
                                 alt="Analysis media"
-                                className="w-full h-auto rounded-bl-lg rounded-tr-lg max-w-[41rem] aspect-video"
+                                className="w-full h-auto rounded-md aspect-video"
                             />
                         )}
                     </div>
@@ -149,11 +149,11 @@ const Tabs: React.FC<TabsProps> = React.memo(
                                 isInitialPage ? tabVariants : pageVariants
                             }
                         >
-                            <div className="media-wrapper flex justify-center">
+                            <div className="media-wrapper flex justify-center w-full">
                                 {isVideo ? (
                                     <video
                                         key={feature.image}
-                                        className="w-full h-auto rounded-bl-lg rounded-tr-lg max-w-[41rem]"
+                                        className="w-full h-auto rounded-md]"
                                         autoPlay
                                         loop
                                         muted
@@ -170,7 +170,7 @@ const Tabs: React.FC<TabsProps> = React.memo(
                                     <img
                                         src={feature.image}
                                         alt={feature.title || "Feature image"}
-                                        className="w-full h-auto rounded-bl-lg rounded-tr-lg max-w-[41rem]"
+                                        className="w-full h-auto rounded-md"
                                     />
                                 ) : (
                                     <p>No media available</p>
@@ -221,13 +221,13 @@ const Tabs: React.FC<TabsProps> = React.memo(
         return (
             <div className="tabs-container">
                 <div
-                    className="tabs border h-16 rounded-bl-lg rounded-tr-lg gap-2 mb-4 flex justify-center md:gap-6 mt-8"
+                    className="tabs border h-16 rounded-md rounded-bl-lg rounded-tr-lg gap-2 mb-4 flex justify-center md:gap-6 mt-8"
                     role="tablist"
                     aria-label="Feature Tabs"
                 >
                     <button
                         onClick={() => handleTabChange("analysis")}
-                        className={`tab-button ${activeTab === "analysis" ? " relative font-bold underline active-tab rounded-bl-lg border rounded-tr-lg p-2" : " rounded-bl-lg rounded-tr-lg p-2"}`}
+                        className={`tab-button ${activeTab === "analysis" ? " relative font-bold underline active-tab rounded-md rounded-bl-lg border rounded-tr-lg p-2" : " rounded-md rounded-bl-lg rounded-tr-lg p-2"}`}
                         role="tab"
                         aria-selected={activeTab === "analysis"}
                         aria-controls="analysis-panel"
@@ -237,7 +237,7 @@ const Tabs: React.FC<TabsProps> = React.memo(
                     </button>
                     <button
                         onClick={() => handleTabChange("development")}
-                        className={`tab-button ${activeTab === "development" ? "relative font-bold underline active-tab rounded-bl-lg  border rounded-tr-lg p-2" : "rounded-bl-lg rounded-tr-lg p-2"}`}
+                        className={`tab-button ${activeTab === "development" ? "relative font-bold underline active-tab rounded-md rounded-bl-lg  border rounded-tr-lg p-2" : "rounded-bl-lg rounded-tr-lg p-2"}`}
                         role="tab"
                         aria-selected={activeTab === "development"}
                         aria-controls="development-panel"
@@ -247,7 +247,7 @@ const Tabs: React.FC<TabsProps> = React.memo(
                     </button>
                     <button
                         onClick={() => handleTabChange("design")}
-                        className={`tab-button ${activeTab === "design" ? "relative font-bold underline active-tab rounded-bl-lg border rounded-tr-lg p-2" : "rounded-bl-lg rounded-tr-lg p-2"}`}
+                        className={`tab-button ${activeTab === "design" ? "relative font-bold underline active-tab rounded-md rounded-bl-lg border rounded-tr-lg p-2" : "rounded-bl-lg rounded-tr-lg p-2"}`}
                         role="tab"
                         aria-selected={activeTab === "design"}
                         aria-controls="design-panel"
