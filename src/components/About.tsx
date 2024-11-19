@@ -62,7 +62,7 @@ function About() {
 const ScrollingThings = ({ things }: { things: ThingsIEnjoy[] }) => {
     return (
         <div className="p-4 overflow-x-hidden relative">
-            <div className="absolute top-0 bottom-0 left-0 w-24 z-10 rounded" />
+            <div className="absolute top-0 bottom-0 left-0 w-24 z-10 rounded"/>
             <div className="flex items-center mb-4">
                 {/* Pass things to ThingsList */}
                 <ThingsList list={things} duration={125} />
@@ -71,7 +71,7 @@ const ScrollingThings = ({ things }: { things: ThingsIEnjoy[] }) => {
                 <ThingsList list={things} duration={125} />
                 <ThingsList list={things} duration={125} />
             </div>
-            <div className="absolute top-0 bottom-0 right-0 w-24 z-10 rounded" />
+            <div className="absolute top-0 bottom-0 right-0 w-24 z-10 rounded"/>
         </div>
     );
 };
@@ -91,18 +91,18 @@ const ThingsList = ({
             initial={{ translateX: reverse ? "-100%" : "0%" }}
             animate={{ translateX: reverse ? "0%" : "-100%" }}
             transition={{ duration, repeat: Infinity, ease: "linear" }}
-            className="flex gap-4 px-2"
+            className="flex gap-4 px-2 border-content1-foreground"
         >
             {list.map((t, index) => {
                 return (
                     <article
                         key={index} // Use index as key
-                        className="shrink-0 w-[500px] grid grid-cols-[7rem,_1fr] rounded-lg overflow-hidden relative"
+                        className="shrink-0 w-[500px] grid grid-cols-[10rem,_1fr] rounded-lg overflow-hidden relative"
                     >
                         <img src={t.image} className="w-full h-full object-cover" />
-                        <div className="bg-slate-900 text-slate-50 p-4">
-                            <span className="block font-semibold text-lg mb-1"><h3>{t.title}</h3></span>
-                            <span className="block text-sm text-slate-300"><p>{t.content}</p></span>
+                        <div className="bg-content2 text-current shadow-large p-4 border-content2">
+                            <span className="block font-semibold text-lg lg:text-2xl mb-1"><h3>{t.title}</h3></span>
+                            <span className="block text-sm lg:text-medium text-current"><p>{t.content}</p></span>
                         </div>
                     </article>
                 );

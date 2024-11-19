@@ -54,7 +54,7 @@ const Accordion2: React.FC<AccordionProps> = ({ projects }) => {
                         aria-expanded={activeIndex === index}
                         aria-controls={`content-${index}`}
                         id={`accordion-title-${index}`}
-                        className=" relative flex justify-between items-center accordion-title text-left w-full p-4 text-lg font-medium border border-current rounded-bl-lg rounded-tr-lg transition-colors "
+                        className=" relative flex justify-between items-center accordion-title text-left w-full p-4 text-lg font-medium border border-current transition-colors px-4 bg-content1 shadow-medium rounded-medium"
                         onClick={() => toggleAccordion(index)}
                     >
                         {project.acf.project_title}
@@ -93,9 +93,9 @@ const Accordion2: React.FC<AccordionProps> = ({ projects }) => {
                         animate={activeIndex === index ? "open" : "collapsed"}
                         variants={accordionVariants}
                         transition={{ duration: 0.5, ease: "easeInOut" }}
-                        className="accordion-content p-4 mt-2 border border-current rounded-bl-lg  border-t-0 overflow-hidden"
+                        className="accordion-content p-4 border border-current rounded-bl-lg  border-t-0 overflow-hidden bg-content1 shadow-medium"
                     >
-                        <article className="project-details relative">
+                        <article className="project-details relative ">
                             {/* displaying overview, links and tools used */}
                             <h3 className=" mb-4 text-lg lg:text-xl font-medium">
                                 Overview:
@@ -109,14 +109,14 @@ const Accordion2: React.FC<AccordionProps> = ({ projects }) => {
                               
                             </nav>
                             <div className="tools-list mt-4">
-                                <h4 className="font-semibold text-lg">
+                                <h4 className="font-semibold text-lg mb-4">
                                     Tools Used:
                                 </h4>
                                 <ul className="tools-used flex justify-center flex-wrap gap-2 ">
                                     {project.tools.map((tool, index) => (
                                         <li
                                             key={index}
-                                            className="flex gap-1 md:text-medium justify-center text-sm items-center rounded-bl-lg rounded-tr-lg w-32 h-10 single-tool relative"
+                                            className="flex gap-1 md:text-medium justify-center text-sm items-center border-solid bg-content2 shadow-medium rounded-medium border-current rounded-bl-lg rounded-tr-lg w-32 h-10 single-tool relative"
                                         >
                                             {tool[0]}
                                             <img

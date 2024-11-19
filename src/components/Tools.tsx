@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { toolsLink } from "../toolbelt/api";
 import LoadingSpinner from "./LoadingSpinner";
 import switchColour from "../toolbelt/headingColours";
-import GlowingOutline from "./GlowingOutline";
 
 // Import Swiper modules
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -67,7 +66,7 @@ function ToolsCarousel() {
                     >
                         {categories.map((category) => (
                             <SwiperSlide
-                                className="backdrop-blur backdrop-brightness-75 border-2 border-solid rounded-bl-lg rounded-tr-lg border-current"
+                                className="backdrop-blur backdrop-brightness-75 border-2 border-solid rounded-bl-lg rounded-tr-lg border-current shadow-medium rounded-medium"
                                 key={category.parent}
                             >
                                 <article
@@ -90,7 +89,7 @@ function ToolsCarousel() {
                                             )
                                             .map((tool, index) => (
                                                 <li
-                                                    className="flex gap-1 md:text-medium text-white justify-center text-sm items-center border-solid border-inherit rounded-bl-lg rounded-tr-lg w-32 h-10 md:w-36 single-tool relative"
+                                                    className="flex gap-1 md:text-medium text-current justify-center text-sm items-center border-solid bg-content1 shadow-medium rounded-medium border-inherit rounded-bl-lg rounded-tr-lg w-32 h-10 md:w-36 single-tool relative"
                                                     key={index}
                                                 >
                                                     {tool.name}
@@ -99,7 +98,6 @@ function ToolsCarousel() {
                                                         src={tool.acf.icon}
                                                         alt={`${tool.name} icon`}
                                                     />
-                                                    <GlowingOutline />
                                                 </li>
                                             ))}
                                     </ul>

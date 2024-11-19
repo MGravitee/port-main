@@ -85,14 +85,14 @@ const Cursor: FC = () => {
             {isVisible && (
                 <>
                     <motion.div 
-                        className="cursor-dot z-50 no-motion-2" 
+                        className="cursor-dot z-[999] no-motion-2" 
                         style={{
                             translateX: cursorPosition.x,
                             translateY: cursorPosition.y,
                         }} 
                     />
                     <motion.div 
-                        className={ `circle z-50 ${isHovered ? "hovered" : ""} no-motion-2` }  
+                        className={ `circle z-[999] ${isHovered ? "hovered" : ""} no-motion-2` }  
                         style={{
                             translateX: haloPosition.x,
                             translateY: haloPosition.y,

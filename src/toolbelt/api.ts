@@ -2,7 +2,7 @@ export const restBase = 'https://mattgravitee.com/dfdksfjhkdsjfh/wp-json/wp/v2/'
 
 //options page fields
 
-export const optionsLink= 'https://mattgravitee.com/dfdksfjhkdsjfh/wp-json/options/all?&1=2';
+export const optionsLink= 'https://mattgravitee.com/dfdksfjhkdsjfh/wp-json/options/all?&2=3';
 
 //about info
 
@@ -10,7 +10,7 @@ export const aboutLink = 'https://mattgravitee.com/dfdksfjhkdsjfh//wp-json/wp/v2
 
 //project posts info
 
-export const projectsLink = 'https://mattgravitee.com/dfdksfjhkdsjfh//wp-json/wp/v2/posts?_embed&acf_format=standard&18=19';
+export const projectsLink = 'https://mattgravitee.com/dfdksfjhkdsjfh//wp-json/wp/v2/posts?_embed&acf_format=standard&23=24';
 
 //tools used info 
 
