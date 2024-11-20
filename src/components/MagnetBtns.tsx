@@ -63,7 +63,7 @@ export const MagnetButtonGit: React.FC<Props> = ({ link }) => {
             <GitHubIcon size={40} className="ml-1.5 mb-2"/>
             GitHub
 
-            <div className="pointer-events-none absolute inset-0 z-0 scale-0 rounded-full bg-white border-2 border-black transition-transform duration-700 ease-out group-hover:scale-100" />
+            <div className="pointer-events-none absolute inset-0 z-0 scale-0 rounded-full bg-content1-foreground border-2 border-content1 transition-transform duration-700 ease-out group-hover:scale-100" />
 
             <motion.svg
                 initial={{ rotate: 0 }}
@@ -93,7 +93,7 @@ export const MagnetButtonGit: React.FC<Props> = ({ link }) => {
                     <textPath
                         href="#circlePath"
                         fill="black"
-                        className="fill-black text-xl font-light uppercase opacity-0 transition-opacity duration-700 ease-out group-hover:opacity-100"
+                        className="fill-content1 text-xl font-light uppercase opacity-0 transition-opacity duration-700 ease-out group-hover:opacity-100"
                     >
                         Click to Navigate to my GitHub Profile
                     </textPath>
@@ -155,7 +155,7 @@ export const MagnetButtonLnkd: React.FC<Props> = ({ link }) => {
             <LinkedInIcon size={40} className="ml-2 mb-2" />
             LinkedIn
 
-            <div className="pointer-events-none absolute inset-0 z-0 scale-0 rounded-full bg-white border-2 border-black transition-transform duration-700 ease-out group-hover:scale-100" />
+            <div className="pointer-events-none absolute inset-0 z-0 scale-0 rounded-full bg-content1 border-2 border-content1-foreground transition-transform duration-700 ease-out group-hover:scale-100" />
 
             <motion.svg
                 initial={{ rotate: 0 }}
@@ -185,7 +185,7 @@ export const MagnetButtonLnkd: React.FC<Props> = ({ link }) => {
                     <textPath
                         href="#circlePath"
                         fill="black"
-                        className="fill-black text-xl font-light uppercase opacity-0 transition-opacity duration-700 ease-out group-hover:opacity-100"
+                        className="fill-content1-foreground text-xl font-light uppercase opacity-0 transition-opacity duration-700 ease-out group-hover:opacity-100"
                     >
                         Click to Navigate to my LinkedIn Profile
                     </textPath>

@@ -111,36 +111,13 @@ const LinkLine = ({
         }
     }, [isHovered]);
 
-    if (title === "Home") {
-        return (
-            <li ref={ref}>
-                <motion.a
-                    href="#home"
-                    className="group relative bg-current transition-colors hover:bg-neutral-500 accessibility-class accessibility-class"
-                    style={{ width: linkWidth, height: 2 }}
-                >
-                    <AnimatePresence>
-                        {isHovered && (
-                            <motion.span
-                                initial={{ opacity: 0 }}
-                                animate={{ opacity: 1 }}
-                                exit={{ opacity: 0 }}
-                                className="absolute left-0 top-0 z-10 w-full pt-2 font-bold uppercase text-current transition-colors group-hover:text-neutral-500 accessibility-class"
-                            >
-                                {title}
-                            </motion.span>
-                        )}
-                    </AnimatePresence>  
-                </motion.a>
-            </li>
-        );
-    }
     if (title === "Work") {
         return (
             <motion.li
                 ref={ref}
                 className="group relative bg-current transition-colors hover:bg-neutral-500 accessibility-class"
                 style={{ width: linkWidth, height: 2 }}
+                aria-label="Navigation Link to work section"
             >
                 <a href="#work-section">
                     <AnimatePresence>
@@ -165,6 +142,7 @@ const LinkLine = ({
                 ref={ref}
                 className="group relative bg-current transition-colors hover:bg-neutral-500 accessibility-class"
                 style={{ width: linkWidth, height: 2 }}
+                aria-label="Navigation Link to work section"
             >
                 <a href="#about-section">
                     <AnimatePresence>
@@ -189,6 +167,8 @@ const LinkLine = ({
                 ref={ref}
                 className="group relative bg-current transition-colors hover:bg-neutral-500 accessibility-class"
                 style={{ width: linkWidth, height: 2 }}
+                aria-label="Navigation Link to tricks of the trade section"
+                title="Tricks of the Trade"
             >
                 <a href="#tools-section">
                     <AnimatePresence>
