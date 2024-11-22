@@ -153,7 +153,7 @@ const Tabs: React.FC<TabsProps> = React.memo(
                                 {isVideo ? (
                                     <video
                                         key={feature.image}
-                                        className="w-full h-auto rounded-md]"
+                                        className="w-full h-auto rounded-md"
                                         autoPlay
                                         loop
                                         muted

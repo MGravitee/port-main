@@ -25,7 +25,7 @@ const shouldReduceMotion = useReducedMotion();
             rel="noopener noreferrer"
             aria-label={`Navigates to ${children}`}
             role="link"
-            className="relative overflow-hidden bg-inherit p-4 text-sm md:text-lg lg:text-xl font-black uppercase text-current  border border-inherit rounded-bl-lg rounded-tr-lg accessibility-class"
+            className="relative overflow-hidden bg-inherit p-4 text-sm md:text-lg lg:text-xl font-black uppercase text-current  border border-inherit rounded-md rounded-bl-lg rounded-tr-lg accessibility-class"
         >
             {!shouldReduceMotion ? (
                 <>

@@ -9,7 +9,7 @@ const BottomNavDesk = () => {
   return (
   
     <nav className=" hidden lg:flex flex-col fixed left-20 bottom-[30%] w-fit -translate-x-[50%] z-10 bg-transparent
-    group-hover:backdrop-brightness-20 border-current shadow-medium rounded-medium rounded-bl-lg rounded-tr-lg backdrop-blur-2xl backdrop-brightness-50">
+    group-hover:backdrop-brightness-20 border-content1 shadow-medium rounded-medium rounded-bl-lg rounded-tr-lg backdrop-blur-2xl backdrop-brightness-50">
         <ul className="h-fit w-fit p-4 flex flex-col items-center gap-12">
             <NavItem selected={selected === 1} id={1} setSelected={setSelected} href="#work-section">
                 <WorkIcon className="nav-item nav-item ml-2" />

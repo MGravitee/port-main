@@ -8,6 +8,7 @@ import { motion } from "framer-motion";
 interface AboutData {
     acf: {
         about_content_1: string;
+        about_content_2: string;
         things_i_enjoy: ThingsIEnjoy[];
     };
 }
@@ -45,6 +46,12 @@ function About() {
                             Get to Know Me:
                         </h2>
                         <p>{restData.acf.about_content_1}</p>
+                        <div
+                        className="dangerouslySetHtmlContent my-8 max-w-[37.5rem] flex flex-col justify-center"
+                        dangerouslySetInnerHTML={{
+                            __html: restData.acf.about_content_2 || "Coming Soon...",
+                        }}
+                    />
                         <aside className="mt-16">
                             <h2 className="text-lg lg:text-3xl font-medium mb-8">Some Things I Enjoy: </h2>
                             <ScrollingThings things={restData.acf.things_i_enjoy} />
