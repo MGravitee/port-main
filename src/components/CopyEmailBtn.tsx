@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { motion } from "framer-motion";
 
 //thank you for the guys at hover.dev for inspiration for this component.
@@ -19,6 +19,15 @@ const CopyEmailBtn: React.FC<Props> = ({ email }) => {
     const CYCLES_PER_LETTER = 2;
     const SHUFFLE_TIME = 50;
     const CHARS = "!@#$%^&*():{};|,.<>/?";
+
+    // cleanup function to clear interval to prevent memory leaks when/if component unmounts. Being a one page
+    // layout I don't think that will ever be an issue BUT I feel it's not bad habit to get into
+
+    useEffect(() => {
+        return () => {
+            clearInterval(intervalRef.current || undefined);
+        };
+    }, []);
 
     // function that copies email and then shows "Email Copied"
     const handleCopy = () => {
