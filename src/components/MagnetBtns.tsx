@@ -60,11 +60,9 @@ export const MagnetButtonGit: React.FC<Props> = ({ link }) => {
             aria-label="Navigates to my LinkedIn profile"
             role="link"
         >
-            <GitHubIcon size={40} className="ml-1.5 mb-2"/>
+            <GitHubIcon size={40} className="ml-1.5 mb-2" />
             GitHub
-
             <div className="pointer-events-none absolute inset-0 z-0 scale-0 rounded-full bg-content1-foreground border-2 border-content1 transition-transform duration-700 ease-out group-hover:scale-100" />
-
             <motion.svg
                 initial={{ rotate: 0 }}
                 animate={{ rotate: 360 }}
@@ -154,9 +152,7 @@ export const MagnetButtonLnkd: React.FC<Props> = ({ link }) => {
         >
             <LinkedInIcon size={40} className="ml-2 mb-2" />
             LinkedIn
-
             <div className="pointer-events-none absolute inset-0 z-0 scale-0 rounded-full bg-content1 border-2 border-content1-foreground transition-transform duration-700 ease-out group-hover:scale-100" />
-
             <motion.svg
                 initial={{ rotate: 0 }}
                 animate={{ rotate: 360 }}

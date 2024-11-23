@@ -22,21 +22,33 @@ function Projects() {
         fetchData();
     }, [projectsLink]);
 
-    console.log({restData});
-    
+    console.log({ restData });
+
     return (
         <>
             {isLoaded ? (
                 restData && restData.length > 0 ? (
-                    <section id="work-section" className="work-section single-section">
-                        <h2 className="text-xl lg:text-3xl font-medium mb-8">Featured Work:</h2>
-                        <h3 className="text-l lg:text-2xl font-medium">Recent projects I've completed</h3>
+                    <section
+                        id="work-section"
+                        className="work-section single-section"
+                    >
+                        <h2 className="text-xl lg:text-3xl font-medium mb-8">
+                            Featured Work:
+                        </h2>
+                        <h3 className="text-l lg:text-2xl font-medium">
+                            Recent projects I've completed
+                        </h3>
                         <Accordion2 projects={restData} />
                     </section>
                 ) : (
                     <section id="work-section" className="work-section">
-                        <h2 className="text-lg lg:text-3xl font-medium mb-8">Featured Work:</h2>
-                        <p>No projects to show. Womp Womp.</p>
+                        <h2 className="text-lg lg:text-3xl font-medium mb-8">
+                            Featured Work:
+                        </h2>
+                        <p>
+                            No projects to show. Womp Womp. Means my CMS is
+                            down.
+                        </p>
                     </section>
                 )
             ) : (

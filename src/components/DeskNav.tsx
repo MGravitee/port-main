@@ -19,21 +19,18 @@ const NUM_LINES = 22;
 const navItems = [
     { position: 8, title: "Work" },
     { position: 12, title: "About" },
-    { position: 16, title: "TotD" },
+    { position: 16, title: "TCOB" },
 ];
 
 const SideStaggerNavigation = () => {
     const [isHovered, setIsHovered] = useState(false);
     const mouseY = useMotionValue(Infinity);
-    
-
 
     return (
         <motion.nav
-        aria-label="Side navigation"
-        role="navigation"
-        
-        //these effect the focus/hover on the side nav
+            aria-label="Side navigation"
+            role="navigation"
+            //these effect the focus/hover on the side nav
             onMouseMove={(e) => {
                 mouseY.set(e.clientY);
                 setIsHovered(true);
@@ -90,7 +87,7 @@ const LinkLine = ({
 }) => {
     const ref = useRef<HTMLLIElement>(null);
     const distance = useTransform(mouseY, (val) => {
-    const bounds = ref.current?.getBoundingClientRect();
+        const bounds = ref.current?.getBoundingClientRect();
 
         return val - (bounds?.y || 0) - (bounds?.height || 0) / 2;
     });
@@ -161,7 +158,7 @@ const LinkLine = ({
             </motion.li>
         );
     }
-    if (title === "TotD") {
+    if (title === "TCOB") {
         return (
             <motion.li
                 ref={ref}

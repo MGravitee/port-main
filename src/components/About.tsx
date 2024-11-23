@@ -3,7 +3,6 @@ import LoadingSpinner from "./LoadingSpinner";
 import { aboutLink } from "../toolbelt/api";
 import { motion } from "framer-motion";
 
-
 // Define types for API data
 interface AboutData {
     acf: {
@@ -41,20 +40,31 @@ function About() {
         <>
             {isLoaded && restData ? (
                 <>
-                    <section id="about-section" className="about-section mb-[16rem] single-section">
+                    <section
+                        id="about-section"
+                        className="about-section mb-[8rem] single-section border border-current transition-colors shadow-medium rounded-medium p-4 bg-content1"
+                    >
                         <h2 className="text-lg lg:text-3xl font-medium mb-8">
                             Get to Know Me:
                         </h2>
-                        <p>{restData.acf.about_content_1}</p>
-                        <div
-                        className="dangerouslySetHtmlContent my-8 max-w-[37.5rem] flex flex-col justify-center"
-                        dangerouslySetInnerHTML={{
-                            __html: restData.acf.about_content_2 || "Coming Soon...",
-                        }}
-                    />
+                        <div>
+                            <p>{restData.acf.about_content_1}</p>
+                            <article
+                                className="dangerouslySetHtmlContent my-8 max-w-[37.5rem] flex flex-col justify-center"
+                                dangerouslySetInnerHTML={{
+                                    __html:
+                                        restData.acf.about_content_2 ||
+                                        "Coming Soon...",
+                                }}
+                            />
+                        </div>
                         <aside className="mt-16">
-                            <h2 className="text-lg lg:text-3xl font-medium mb-8">Some Things I Enjoy: </h2>
-                            <ScrollingThings things={restData.acf.things_i_enjoy} />
+                            <h2 className="text-lg lg:text-3xl font-medium mb-8">
+                                Some Things I Enjoy:{" "}
+                            </h2>
+                            <ScrollingThings
+                                things={restData.acf.things_i_enjoy}
+                            />
                         </aside>
                     </section>
                 </>
@@ -65,20 +75,21 @@ function About() {
     );
 }
 
-// Updated ScrollingThings component
+// scrolling things for slightly more interesting about section so it isn't just TLDR
+
 const ScrollingThings = ({ things }: { things: ThingsIEnjoy[] }) => {
     return (
         <div className="p-4 overflow-x-hidden relative">
-            <div className="absolute top-0 bottom-0 left-0 w-24 z-10 rounded"/>
+            <div className="absolute top-0 bottom-0 left-0 w-24 z-10 rounded" />
             <div className="flex items-center mb-4">
-                {/* Pass things to ThingsList */}
+                {/* passing props to things to ThingsList */}
                 <ThingsList list={things} duration={125} />
                 <ThingsList list={things} duration={125} />
                 <ThingsList list={things} duration={125} />
                 <ThingsList list={things} duration={125} />
                 <ThingsList list={things} duration={125} />
             </div>
-            <div className="absolute top-0 bottom-0 right-0 w-24 z-10 rounded"/>
+            <div className="absolute top-0 bottom-0 right-0 w-24 z-10 rounded" />
         </div>
     );
 };
@@ -106,10 +117,17 @@ const ThingsList = ({
                         key={index} // Use index as key
                         className="shrink-0 w-[500px] grid grid-cols-[10rem,_1fr] rounded-lg overflow-hidden relative"
                     >
-                        <img src={t.image} className="w-full h-full object-cover" />
+                        <img
+                            src={t.image}
+                            className="w-full h-full object-cover"
+                        />
                         <div className="bg-content2 text-current shadow-large p-4 border-content2">
-                            <span className="block font-semibold text-lg lg:text-2xl mb-1"><h3>{t.title}</h3></span>
-                            <span className="block text-sm lg:text-medium text-current"><p>{t.content}</p></span>
+                            <span className="block font-semibold text-lg lg:text-2xl mb-1">
+                                <h3>{t.title}</h3>
+                            </span>
+                            <span className="block text-sm lg:text-medium text-current">
+                                <p>{t.content}</p>
+                            </span>
                         </div>
                     </article>
                 );

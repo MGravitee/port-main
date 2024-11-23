@@ -11,6 +11,8 @@ export interface Project {
     id: string;
     acf: {
         project_title: string;
+        project_tagline: string;
+        project_icon: string;
         project_featured_image: string;
         project_overview: string;
         project_live_link: string;
@@ -30,7 +32,6 @@ interface AccordionProps {
     projects: Project[];
 }
 
-
 const Accordion2: React.FC<AccordionProps> = ({ projects }) => {
     const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
@@ -47,24 +48,40 @@ const Accordion2: React.FC<AccordionProps> = ({ projects }) => {
     return (
         <div className="accordion mt-24 mb-48 flex flex-col gap-6">
             {projects.map((project, index) => (
-                <div
-                    key={project.id}
-                    className="accordion-item max-w"
-                >
+                <div key={project.id} className="accordion-item max-w">
                     <button
                         aria-expanded={activeIndex === index}
                         aria-controls={`content-${index}`}
                         id={`accordion-title-${index}`}
-                        className=" relative flex justify-between items-center accordion-title text-left w-full p-4 text-lg font-medium border border-current transition-colors px-4 bg-content1 shadow-medium rounded-medium"
+                        className="relative grid grid-cols-[auto_1fr_auto] gap-4 items-center text-left w-full py-4 px-6 text-lg font-medium border border-current transition-colors bg-content1 shadow-medium rounded-medium"
                         onClick={() => toggleAccordion(index)}
                     >
-                        {project.acf.project_title}
-                        {/* arrow for open/close */}
+                        {/* icon */}
+                        <span className="w-10 h-10 flex items-center justify-center">
+                            <img
+                                src={project.acf.project_icon}
+                                alt="Project logo/icon"
+                                className="w-full h-full object-contain"
+                            />
+                        </span>
+
+                        {/* title and tagline */}
+                        <div>
+                            <span className="block font-bold">
+                                {project.acf.project_title}
+                            </span>
+                            <span className="block text-sm text-content3-foreground">
+                                {project.acf.project_tagline}
+                            </span>
+                        </div>
+
+                        {/* arrow for open close */}
                         <motion.span
                             animate={{
                                 rotate: activeIndex === index ? 180 : 0,
-                            }} // rotating the arrow on open/close
+                            }}
                             transition={{ duration: 0.5 }}
+                            className="flex items-center justify-center"
                         >
                             <svg
                                 className="w-5 h-5"
@@ -81,7 +98,6 @@ const Accordion2: React.FC<AccordionProps> = ({ projects }) => {
                                 ></path>
                             </svg>
                         </motion.span>
-                        
                     </button>
 
                     <motion.div
@@ -94,7 +110,7 @@ const Accordion2: React.FC<AccordionProps> = ({ projects }) => {
                         animate={activeIndex === index ? "open" : "collapsed"}
                         variants={accordionVariants}
                         transition={{ duration: 0.5, ease: "easeInOut" }}
-                        className="accordion-content p-4 border border-current rounded-bl-lg  border-t-0 overflow-hidden bg-content1 shadow-medium"
+                        className="accordion-content p-4 border border-current rounded-medium border-t-0 overflow-hidden bg-content1 shadow-medium"
                     >
                         <article className="project-details relative ">
                             {/* displaying overview, links and tools used */}
@@ -102,12 +118,23 @@ const Accordion2: React.FC<AccordionProps> = ({ projects }) => {
                                 Overview:
                             </h3>
                             <p>{project.acf.project_overview}</p>
-                            <nav className="flex justify-center gap-2
-                            mt-6">
-                                <ScrollingLink link={project.acf.project_live_link}><GlobeIcon className='inline' size={24}/> Live Site</ScrollingLink>
-                              
-                                <ScrollingLink link={project.acf.project_github_link}><GitHubIcon className='inline' size={24}/> GitHub</ScrollingLink>
-                              
+                            <nav
+                                className="flex justify-center gap-2
+                            mt-6"
+                            >
+                                <ScrollingLink
+                                    link={project.acf.project_live_link}
+                                >
+                                    <GlobeIcon className="inline" size={24} />{" "}
+                                    Live Site
+                                </ScrollingLink>
+
+                                <ScrollingLink
+                                    link={project.acf.project_github_link}
+                                >
+                                    <GitHubIcon className="inline" size={24} />{" "}
+                                    GitHub
+                                </ScrollingLink>
                             </nav>
                             <div className="tools-list mt-4">
                                 <h4 className="font-semibold text-lg mb-4">
@@ -126,7 +153,6 @@ const Accordion2: React.FC<AccordionProps> = ({ projects }) => {
                                                 alt={`${tool[0]} icon`}
                                             />
                                         </li>
-                                        
                                     ))}
                                 </ul>
                             </div>

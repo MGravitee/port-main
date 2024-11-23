@@ -56,10 +56,12 @@ const Tabs: React.FC<TabsProps> = React.memo(
             setIsInitialPage(true); // Mark this as an initial page load
         };
 
+        //for infinite page switching
+
         const handleNextPage = (features: Feature[]) => {
             setCurrentPage((prevPage) => (prevPage + 1) % features.length);
             setIsInitialPage(false);
-            // goes to the next page, and loops back to 0 if it's the last page
+            //goes to the next page, and loops back to 0 if it's the last page
         };
 
         const handlePreviousPage = (features: Feature[]) => {
@@ -92,6 +94,7 @@ const Tabs: React.FC<TabsProps> = React.memo(
                     transition={{ duration: 0.3 }}
                     exit="exit"
                 >
+                    {/* conditional rendering incase the source is an image, video, or not there at all */}
                     <div className="media-wrapper flex justify-center w-full">
                         {isVideo ? (
                             <video
@@ -149,6 +152,7 @@ const Tabs: React.FC<TabsProps> = React.memo(
                                 isInitialPage ? tabVariants : pageVariants
                             }
                         >
+                            {/* conditional rendering incase the source is an image, video, or not there at all */}
                             <div className="media-wrapper flex justify-center w-full">
                                 {isVideo ? (
                                     <video

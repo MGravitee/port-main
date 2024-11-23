@@ -34,10 +34,7 @@ export function DeskFooter() {
     return (
         <>
             {isLoaded && !!restData ? (
-                <footer
-                    
-                    className="mb-14 hidden lg:flex flex-col gap-5 z-10 "
-                >
+                <footer className="mb-14 hidden lg:flex flex-col gap-5 z-10 ">
                     <div className="social-links flex flex-col w-fit absolute bottom-[24rem] left-[65%] -translate-x-[50%]">
                         <MagnetButtonLnkd link={restData.linkedin_link} />
                     </div>
@@ -92,7 +89,9 @@ export function FooterMobi() {
                     className=" flex flex-col justify-center gap-5 lg:hidden"
                 >
                     <div className="contact-heading">
-                        <h2 className="contact-title text-lg lg:text-3xl font-medium mb-8">Get in Touch</h2>
+                        <h2 className="contact-title text-lg lg:text-3xl font-medium mb-8">
+                            Get in Touch
+                        </h2>
                     </div>
                     <div className="social-links flex justify-around">
                         <a href={restData.linkedin_link} target="_blank">

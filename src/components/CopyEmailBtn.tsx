@@ -1,8 +1,7 @@
 import React, { useRef, useState } from "react";
 import { motion } from "framer-motion";
 
-//thank you for the guys at hover.dev for inspiration for this component. 
-
+//thank you for the guys at hover.dev for inspiration for this component.
 
 // Email to be copied
 const TARGET_TEXT = "Copy Email";

@@ -2,27 +2,26 @@
 @tailwind components;
 @tailwind utilities;
 
-/* hardcoded CSS for things tailwind can't deal with */
+/* hardcoded CSS for things tailwind has no classes for */
 
 html {
     scroll-behavior: smooth;
     cursor: none;
     /* for some reason setting cursor-none on html wasn't enough to do it */
-    button, a {
+    button,
+    a {
         cursor: none;
     }
 }
 
-
 /* Classes added for Accessibility ------------------------------------------------- */
 
 .accessibility-class:focus-visible {
-        outline: #007acc solid 3px; /* Example color for focus outline */
-        z-index: 9999;
+    outline: #007acc solid 3px; /* Example color for focus outline */
+    z-index: 9999;
 }
 
 @media (prefers-reduced-motion: reduce) {
-
     html {
         cursor: default;
         scroll-behavior: auto;
@@ -40,9 +39,9 @@ html {
     .no-motion-2 {
         display: none !important;
     }
-
 }
 
+/* sitewrapper styling for splitscreen layout on desktop */
 
 #site-wrapper {
     @apply relative mx-auto max-w-[118.75rem] overflow-hidden px-2  sm:px-12 md:px-24 lg:flex lg:px-0;
@@ -69,9 +68,8 @@ html {
     list-style: none;
 
     main {
-        font-size: clamp(1rem, 0.36vi + 0.93rem, 1.10rem);
-     }
-    
+        font-size: clamp(1rem, 0.36vi + 0.93rem, 1.1rem);
+    }
 }
 
 /* styles for dangerously set HTML from API */
@@ -92,8 +90,8 @@ html {
 }
 
 .analysis-list {
-    margin-left: 2rem;
-    margin-bottom: 2rem;
+    margin: 3rem;
+    margin-top: 2rem;
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
@@ -193,15 +191,13 @@ animations work for the loading spinner */
     }
 }
 
-
-
 /* Browser Scrollbar styles */
 *::-webkit-scrollbar {
     width: 12px;
 }
 
 *::-webkit-scrollbar-track {
-    background: #171717;
+    background: content1;
 }
 
 *::-webkit-scrollbar-thumb {
@@ -341,8 +337,7 @@ div.swiper-button-prev::after {
     }
 }
 
-
- /* ---- tsparticles container  ---- */
+/* ---- tsparticles container  ---- */
 
 #tsparticles {
     position: absolute;

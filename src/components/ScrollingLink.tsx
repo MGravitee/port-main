@@ -7,10 +7,8 @@ interface Props {
 }
 
 const ScrollingLink: React.FC<Props> = ({ link, children }) => {
-
-
-//for reduced animation
-const shouldReduceMotion = useReducedMotion();
+    //for reduced animation
+    const shouldReduceMotion = useReducedMotion();
 
     return (
         <motion.a
@@ -91,7 +89,9 @@ const shouldReduceMotion = useReducedMotion();
                         {children} •
                     </motion.span>
                 </>
-            ) : <span>{children}</span>}
+            ) : (
+                <span>{children}</span>
+            )}
         </motion.a>
     );
 };

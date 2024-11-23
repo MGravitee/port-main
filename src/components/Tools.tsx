@@ -12,12 +12,12 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 
 interface Tool {
-  acf: {
-      icon: string;
-  };
-  id: number;
-  name: string;
-  parent: number;
+    acf: {
+        icon: string;
+    };
+    id: number;
+    name: string;
+    parent: number;
 }
 
 function ToolsCarousel() {
@@ -48,9 +48,12 @@ function ToolsCarousel() {
     return (
         <>
             {isLoaded && restData ? (
-                <section id="tools-section" className="tools-section single-section mb-40">
-                    <h2 className="text-lg lg:text-3xl font-medium mb-8">
-                        Some Tricks of the Trade:
+                <section
+                    id="tools-section"
+                    className="tools-section single-section mb-40"
+                >
+                    <h2 className="text-lg font-medium mb-8 lg:text-3xl lg:mb-16">
+                        How I TCOB (take care of business):
                     </h2>
 
                     <Swiper
@@ -94,7 +97,7 @@ function ToolsCarousel() {
                                                 >
                                                     {tool.name}
                                                     <img
-                                                        className="max-w-6 tool-icon"
+                                                        className="max-w-6 tool-icon object-contain"
                                                         src={tool.acf.icon}
                                                         alt={`${tool.name} icon`}
                                                     />

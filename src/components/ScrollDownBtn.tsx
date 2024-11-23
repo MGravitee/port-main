@@ -1,9 +1,8 @@
 import { FC } from "react";
 
-const scrollOffset:number = 20;
+const scrollOffset: number = 20;
 
 const ScrollDownBtn: FC = () => {
-
     const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
         e.preventDefault();
 
@@ -11,22 +10,29 @@ const ScrollDownBtn: FC = () => {
         const projectSection = document.getElementById("work-section");
 
         if (projectSection) {
-            const sectionPosition = projectSection.getBoundingClientRect().top + window.scrollY - scrollOffset;
+            const sectionPosition =
+                projectSection.getBoundingClientRect().top +
+                window.scrollY -
+                scrollOffset;
 
             window.scrollTo({
                 top: sectionPosition,
             });
         }
-    }
+    };
 
     return (
-        <button className="p-3 absolute bottom-[50%] left-[50%] -translate-x-[50%] lg:hidden z-10"  aria-label="Scroll down" onClick={ handleClick }>
+        <button
+            className="p-3 absolute bottom-[50%] left-[50%] -translate-x-[50%] lg:hidden z-10"
+            aria-label="Scroll down"
+            onClick={handleClick}
+        >
             <span className="scroll-indicator no-motion"></span>
             <span className="scroll-indicator no-motion"></span>
             <span className="scroll-indicator no-motion"></span>
             <p className="scroll-text mt-7">Scroll Down</p>
         </button>
-    )
-}
+    );
+};
 
 export default ScrollDownBtn;
