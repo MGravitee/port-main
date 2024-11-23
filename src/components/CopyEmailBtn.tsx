@@ -6,7 +6,6 @@ import { motion } from "framer-motion";
 // Email to be copied
 const TARGET_TEXT = "Copy Email";
 
-//thank you Gabbie for helping me hunt down how to properly pass props via components in typescript, my hero
 interface Props {
     email: string;
 }
@@ -21,7 +20,7 @@ const CopyEmailBtn: React.FC<Props> = ({ email }) => {
     const SHUFFLE_TIME = 50;
     const CHARS = "!@#$%^&*():{};|,.<>/?";
 
-    // function that copies email and show "Email Copied"
+    // function that copies email and then shows "Email Copied"
     const handleCopy = () => {
         navigator.clipboard.writeText(email).then(() => {
             setCopied(true);
@@ -72,7 +71,7 @@ const CopyEmailBtn: React.FC<Props> = ({ email }) => {
         <motion.button
             whileHover={{ scale: 1.025 }}
             whileTap={{ scale: 0.975 }}
-            onMouseEnter={!copied ? scramble : undefined} // scramble only if not copied
+            onMouseEnter={!copied ? scramble : undefined}
             onMouseLeave={!copied ? stopScramble : undefined}
             onFocus={!copied ? scramble : undefined}
             onBlur={!copied ? stopScramble : undefined}
