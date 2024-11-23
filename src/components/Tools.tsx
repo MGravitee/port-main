@@ -39,9 +39,9 @@ function ToolsCarousel() {
     }, [toolsLink]);
 
     const categories = [
-        { name: "Design Tricks", parent: 3 },
-        { name: "Development Tricks", parent: 4 },
-        { name: "Other Tricks", parent: 5 },
+        { name: "Design Tools", parent: 3 },
+        { name: "Development Tools", parent: 4 },
+        { name: "Other Tools", parent: 5 },
     ];
 
     console.log(restData);
@@ -53,7 +53,7 @@ function ToolsCarousel() {
                     className="tools-section single-section mb-40"
                 >
                     <h2 className="text-lg font-medium mb-8 lg:text-3xl lg:mb-16">
-                        How I TCOB (take care of business):
+                        TCOB - Taking Care of Business:
                     </h2>
 
                     <Swiper

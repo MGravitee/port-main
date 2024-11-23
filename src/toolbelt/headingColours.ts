@@ -2,11 +2,11 @@
 
 const switchColour = (title: string) => {
     switch (title) {
-      case "Development Tricks":
+      case "Development Tools":
         return "dev-color";
-      case "Design Tricks":
+      case "Design Tools":
         return "design-color";
-      case "Other Tricks":
+      case "Other Tools":
         return "other-color";
       default:
         return "";

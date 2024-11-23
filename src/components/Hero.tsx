@@ -22,7 +22,7 @@ function Hero() {
                     <AnimatedText
                         el="h2"
                         text={["Front-End Developer"]}
-                        className="text-2xl sm:text-3xl md:text-4xl dev-color"
+                        className="text-2xl sm:text-3xl md:text-4xl mt-2 dev-color"
                         repeatDelay={10000}
                     />
                 </div>
