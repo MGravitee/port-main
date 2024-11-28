@@ -52,7 +52,7 @@ function ToolsCarousel() {
                     id="tools-section"
                     className="tools-section single-section mb-40"
                 >
-                    <h2 className="text-lg font-medium mb-8 lg:text-3xl lg:mb-16">
+                    <h2 className="text-2xl md:text-3xl xl:text-4xl font-medium mb-8 lg:mb-16">
                         TCOB - Taking Care of Business:
                     </h2>
 

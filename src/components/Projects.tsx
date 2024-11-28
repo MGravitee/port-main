@@ -32,10 +32,10 @@ function Projects() {
                         id="work-section"
                         className="work-section single-section"
                     >
-                        <h2 className="text-xl lg:text-3xl font-medium mb-8">
+                        <h2 className="text-2xl md:text-3xl xl:text-4xl font-medium mb-8">
                             Featured Work:
                         </h2>
-                        <h3 className="text-l lg:text-2xl font-medium">
+                        <h3 className="text-lg lg:text-2xl font-medium">
                             Recent projects I've completed
                         </h3>
                         <Accordion2 projects={restData} />

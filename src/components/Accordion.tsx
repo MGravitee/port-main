@@ -53,7 +53,11 @@ const Accordion2: React.FC<AccordionProps> = ({ projects }) => {
                         aria-expanded={activeIndex === index}
                         aria-controls={`content-${index}`}
                         id={`accordion-title-${index}`}
-                        className="relative grid grid-cols-[auto_1fr_auto] gap-4 items-center text-left w-full py-4 px-6 text-lg font-medium transition-colors bg-content1 shadow-medium rounded-medium"
+                        className={`relative grid grid-cols-[auto_1fr_auto] gap-4 items-center text-left w-full py-4 px-6 text-lg font-medium transition-colors bg-content1 shadow-medium rounded-medium ${
+                            activeIndex === index
+                                ? "rounded-bl-none rounded-br-none shadow-small"
+                                : ""
+                        }`}
                         onClick={() => toggleAccordion(index)}
                     >
                         {/* icon */}
@@ -67,12 +71,12 @@ const Accordion2: React.FC<AccordionProps> = ({ projects }) => {
 
                         {/* title and tagline */}
                         <div>
-                            <span className="block font-bold">
+                            <h3 className="block font-bold">
                                 {project.acf.project_title}
-                            </span>
-                            <span className="block text-sm text-content3-foreground">
+                            </h3>
+                            <p className="block text-sm text-content3-foreground">
                                 {project.acf.project_tagline}
-                            </span>
+                            </p>
                         </div>
 
                         {/* arrow for open close */}
@@ -110,17 +114,17 @@ const Accordion2: React.FC<AccordionProps> = ({ projects }) => {
                         animate={activeIndex === index ? "open" : "collapsed"}
                         variants={accordionVariants}
                         transition={{ duration: 0.5, ease: "easeInOut" }}
-                        className="accordion-content p-4  rounded-medium overflow-hidden bg-content1 shadow-medium"
+                        className="accordion-content p-4 rounded-medium overflow-hidden bg-content1 shadow-medium rounded-tl-none rounded-tr-none transition-colors"
                     >
                         <article className="project-details relative ">
                             {/* displaying overview, links and tools used */}
-                            <h3 className=" mb-4 text-lg lg:text-xl font-medium">
+                            <h4 className=" mb-6 text-lg lg:text-2xl font-medium">
                                 Overview:
-                            </h3>
+                            </h4>
                             <p>{project.acf.project_overview}</p>
                             <nav
                                 className="flex justify-center gap-2
-                            mt-6"
+                            my-12 lg:gap-4 xl:gap-9"
                             >
                                 <ScrollingLink
                                     link={project.acf.project_live_link}
@@ -137,7 +141,7 @@ const Accordion2: React.FC<AccordionProps> = ({ projects }) => {
                                 </ScrollingLink>
                             </nav>
                             <div className="tools-list mt-4">
-                                <h4 className="font-semibold text-lg mb-4">
+                                <h4 className="font-semibold text-lg lg:text-2xl my-8">
                                     Tools Used:
                                 </h4>
                                 <ul className="tools-used flex justify-center flex-wrap gap-2 ">

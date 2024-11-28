@@ -75,27 +75,38 @@ html {
 /* styles for dangerously set HTML from API */
 
 .analysis-text {
-    margin-bottom: 1rem;
+    @apply mb-8;
 }
 
 .analysis-link {
     text-transform: uppercase;
     font-style: italic;
     text-decoration: underline;
-    text-shadow: 1px 1px 1px #000000;
+    transition: all 0.5s ease;
 
     &:hover {
-        color: #c636d9;
+        color: #ff8f1f;
     }
 }
 
 .analysis-list {
+    list-style-type: "➾ ";
     margin: 3rem;
-    margin-top: 2rem;
+    margin-top: 1rem;
+    display: flex;
+    flex-wrap:wrap;
+    justify-content: space-around;
+    gap: 1.5rem;
+}
+
+.analysis-list-code {
+    margin: 3rem;
+    margin-top: 1rem;
     display: flex;
     flex-wrap: wrap;
-    gap: 1rem;
+    gap: 1.75rem;
 }
+
 
 /* loading spinner that loads incase the API is slow/down
 all of the divs and pseudo selectors are needed to make the CSS

@@ -44,13 +44,16 @@ function About() {
                         id="about-section"
                         className="about-section mb-[8rem] single-section border border-current transition-colors shadow-medium rounded-medium p-4 bg-content1"
                     >
-                        <h2 className="text-lg lg:text-3xl font-medium mb-8">
+                        <h2
+                            className="text-2xl md:text-3xl xl:text-4xl font-medium my-8">
                             Who Dis?
                         </h2>
                         <div>
-                            <p>{restData.acf.about_content_1}</p>
+                            <p className="mb-8">
+                                {restData.acf.about_content_1}
+                            </p>
                             <article
-                                className="dangerouslySetHtmlContent my-8 max-w-[37.5rem] flex flex-col justify-center"
+                                className="dangerouslySetHtmlContent max-w-[37.5rem] flex flex-col justify-center"
                                 dangerouslySetInnerHTML={{
                                     __html:
                                         restData.acf.about_content_2 ||

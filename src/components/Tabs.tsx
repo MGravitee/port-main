@@ -180,9 +180,10 @@ const Tabs: React.FC<TabsProps> = React.memo(
                                     <p>No media available</p>
                                 )}
                             </div>
-                            <h4 className="font-semibold my-6">
+                            <h5 className="font-semibold my-8
+                            text-lg lg:text-xl">
                                 {feature.title || "Coming Soon"}
-                            </h4>
+                            </h5>
                             <p className="mb-2">
                                 {feature.content ||
                                     "Content will be available soon."}
