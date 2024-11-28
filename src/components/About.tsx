@@ -45,7 +45,7 @@ function About() {
                         className="about-section mb-[8rem] single-section border border-current transition-colors shadow-medium rounded-medium p-4 bg-content1"
                     >
                         <h2 className="text-lg lg:text-3xl font-medium mb-8">
-                            Get to Know Me:
+                            Who Dis?
                         </h2>
                         <div>
                             <p>{restData.acf.about_content_1}</p>

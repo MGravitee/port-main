@@ -53,7 +53,7 @@ const Accordion2: React.FC<AccordionProps> = ({ projects }) => {
                         aria-expanded={activeIndex === index}
                         aria-controls={`content-${index}`}
                         id={`accordion-title-${index}`}
-                        className="relative grid grid-cols-[auto_1fr_auto] gap-4 items-center text-left w-full py-4 px-6 text-lg font-medium border border-current transition-colors bg-content1 shadow-medium rounded-medium"
+                        className="relative grid grid-cols-[auto_1fr_auto] gap-4 items-center text-left w-full py-4 px-6 text-lg font-medium transition-colors bg-content1 shadow-medium rounded-medium"
                         onClick={() => toggleAccordion(index)}
                     >
                         {/* icon */}
@@ -110,7 +110,7 @@ const Accordion2: React.FC<AccordionProps> = ({ projects }) => {
                         animate={activeIndex === index ? "open" : "collapsed"}
                         variants={accordionVariants}
                         transition={{ duration: 0.5, ease: "easeInOut" }}
-                        className="accordion-content p-4 border border-current rounded-medium border-t-0 overflow-hidden bg-content1 shadow-medium"
+                        className="accordion-content p-4  rounded-medium overflow-hidden bg-content1 shadow-medium"
                     >
                         <article className="project-details relative ">
                             {/* displaying overview, links and tools used */}
