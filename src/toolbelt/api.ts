@@ -6,11 +6,11 @@ export const optionsLink= 'https://mattgravitee.com/dfdksfjhkdsjfh/wp-json/optio
 
 //about info
 
-export const aboutLink = 'https://mattgravitee.com/dfdksfjhkdsjfh//wp-json/wp/v2/pages/196?&acf_format=standard&23=24';
+export const aboutLink = 'https://mattgravitee.com/dfdksfjhkdsjfh//wp-json/wp/v2/pages/196?&acf_format=standard&24=25';
 
 //project posts info
 
-export const projectsLink = 'https://mattgravitee.com/dfdksfjhkdsjfh//wp-json/wp/v2/posts?_embed&acf_format=standard&25=26';
+export const projectsLink = 'https://mattgravitee.com/dfdksfjhkdsjfh//wp-json/wp/v2/posts?_embed&acf_format=standard&26=27';
 
 //tools used info 
 
