@@ -42,7 +42,7 @@ function About() {
                 <>
                     <section
                         id="about-section"
-                        className="about-section mb-[8rem] single-section border border-current transition-colors shadow-medium rounded-medium p-4 bg-content1"
+                        className="about-section mb-[8rem] single-section transition-colors shadow-medium rounded-md p-4 bg-content1 backdrop-opacity-50"
                     >
                         <h2
                             className="text-2xl md:text-3xl xl:text-4xl font-medium my-8">

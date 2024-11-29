@@ -9,7 +9,7 @@ const BottomNavDesk = () => {
     return (
         <nav
             className=" hidden lg:flex flex-col fixed left-20 bottom-[30%] w-fit -translate-x-[50%] z-10 bg-transparent
-    group-hover:backdrop-brightness-20 border-content1 shadow-medium rounded-medium backdrop-blur-2xl backdrop-brightness-50 hover:bg-content1 hover:bg-opacity-75 transition-all"
+    group-hover:backdrop-brightness-20 border-content1 shadow-medium rounded-medium backdrop-blur-xl backdrop-opacity-20 hover:bg-content1 hover:bg-opacity-75 transition-all"
         >
             <ul className="h-fit w-fit p-4 flex flex-col items-center gap-12">
                 <NavItem
