@@ -38,7 +38,7 @@ export const ThemeSwitch: FC<ThemeSwitchProps> = ({
         setIsMounted(true);
     }, [isMounted]);
 
-    // Prevent Hydration Mismatch
+    // posts I was reading mentioned including this to prevent a hydration mismatch
     if (!isMounted) return <div className="w-6 h-6" />;
 
     return (

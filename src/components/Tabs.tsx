@@ -205,8 +205,8 @@ const Tabs: React.FC<TabsProps> = React.memo(
                                     onClick={() => handlePageClick(index)}
                                     className={`h-3 w-3 rounded-full ${
                                         index === currentPage
-                                            ? "bg-[#c636d9]"
-                                            : "bg-current"
+                                            ? "bg-current"
+                                            : "bg-content4"
                                     }`}
                                 />
                             ))}
@@ -226,13 +226,13 @@ const Tabs: React.FC<TabsProps> = React.memo(
         return (
             <div className="tabs-container">
                 <div
-                    className="tabs border h-16 rounded-md rounded-bl-lg rounded-tr-lg gap-2 mb-4 flex justify-center md:gap-6 mt-8"
+                    className="tabs h-16 rounded-md rounded-bl-lg rounded-tr-lg gap-2 mb-4 flex justify-center md:gap-6 mt-8 bg-content2"
                     role="tablist"
                     aria-label="Feature Tabs"
                 >
                     <button
                         onClick={() => handleTabChange("analysis")}
-                        className={`tab-button ${activeTab === "analysis" ? " relative font-bold underline active-tab rounded-md rounded-bl-lg border rounded-tr-lg p-2" : " rounded-md rounded-bl-lg rounded-tr-lg p-2"}`}
+                        className={`tab-button hover:bg-content3 transition-all ${activeTab === "analysis" ? " relative font-bold underline active-tab rounded-md p-2 bg-content3" : "rounded-md p-2"}`}
                         role="tab"
                         aria-selected={activeTab === "analysis"}
                         aria-controls="analysis-panel"
@@ -242,7 +242,7 @@ const Tabs: React.FC<TabsProps> = React.memo(
                     </button>
                     <button
                         onClick={() => handleTabChange("development")}
-                        className={`tab-button ${activeTab === "development" ? "relative font-bold underline active-tab rounded-md rounded-bl-lg  border rounded-tr-lg p-2" : "rounded-bl-lg rounded-tr-lg p-2"}`}
+                        className={`tab-button hover:bg-content3 transition-all ${activeTab === "development" ? "relative font-bold underline active-tab rounded-md bg-content3 p-2" : "rounded-md p-2"}`}
                         role="tab"
                         aria-selected={activeTab === "development"}
                         aria-controls="development-panel"
@@ -252,7 +252,7 @@ const Tabs: React.FC<TabsProps> = React.memo(
                     </button>
                     <button
                         onClick={() => handleTabChange("design")}
-                        className={`tab-button ${activeTab === "design" ? "relative font-bold underline active-tab rounded-md rounded-bl-lg border rounded-tr-lg p-2" : "rounded-bl-lg rounded-tr-lg p-2"}`}
+                        className={`tab-button hover:bg-content3 transition-all ${activeTab === "design" ? "relative font-bold underline active-tab rounded-md bg-content3 p-2" : "rounded-md p-2"}`}
                         role="tab"
                         aria-selected={activeTab === "design"}
                         aria-controls="design-panel"

@@ -23,7 +23,7 @@ const ScrollDownBtn: FC = () => {
 
     return (
         <button
-            className="p-3 absolute bottom-[50%] left-[50%] -translate-x-[50%] lg:hidden z-10"
+            className="p-3 absolute bottom-[30%] left-[50%] -translate-x-[50%] lg:hidden z-10"
             aria-label="Scroll down"
             onClick={handleClick}
         >

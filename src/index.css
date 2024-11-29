@@ -90,7 +90,7 @@ html {
 }
 
 .analysis-list {
-    list-style-type: "➾ ";
+    list-style:circle;
     margin: 3rem;
     margin-top: 1rem;
     display: flex;

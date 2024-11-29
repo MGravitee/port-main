@@ -92,7 +92,7 @@ function ToolsCarousel() {
                                             )
                                             .map((tool, index) => (
                                                 <li
-                                                    className="flex gap-1 md:text-medium text-current justify-center text-sm items-center border-solid bg-content1 shadow-medium rounded-medium border-inherit rounded-bl-lg rounded-tr-lg w-32 h-10 md:w-36 single-tool relative"
+                                                    className="flex gap-1 md:text-medium text-current justify-center text-sm items-center border-solid bg-content2 shadow-medium rounded-medium border-inherit rounded-bl-lg rounded-tr-lg w-32 h-10 md:w-36 single-tool relative hover:bg-content1 transition-all"
                                                     key={index}
                                                 >
                                                     {tool.name}

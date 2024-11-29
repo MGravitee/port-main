@@ -165,7 +165,7 @@ const LinkLine = ({
                 className="group relative bg-current transition-colors hover:bg-neutral-500 accessibility-class"
                 style={{ width: linkWidth, height: 2 }}
                 aria-label="Navigation Link to tricks of the trade section"
-                title="Tricks of the Trade"
+                title="Taking Care of Business"
             >
                 <a href="#tools-section">
                     <AnimatePresence>

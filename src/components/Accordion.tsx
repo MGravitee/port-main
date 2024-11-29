@@ -53,7 +53,7 @@ const Accordion2: React.FC<AccordionProps> = ({ projects }) => {
                         aria-expanded={activeIndex === index}
                         aria-controls={`content-${index}`}
                         id={`accordion-title-${index}`}
-                        className={`relative grid grid-cols-[auto_1fr_auto] gap-4 items-center text-left w-full py-4 px-6 text-lg font-medium transition-colors bg-content1 shadow-medium rounded-medium ${
+                        className={`relative grid grid-cols-[auto_1fr_auto] gap-4 items-center text-left w-full py-4 px-6 text-lg font-medium transition-colors bg-content1 shadow-medium rounded-[1rem] hover:bg-content2 ${
                             activeIndex === index
                                 ? "rounded-bl-none rounded-br-none shadow-small"
                                 : ""
@@ -114,7 +114,7 @@ const Accordion2: React.FC<AccordionProps> = ({ projects }) => {
                         animate={activeIndex === index ? "open" : "collapsed"}
                         variants={accordionVariants}
                         transition={{ duration: 0.5, ease: "easeInOut" }}
-                        className="accordion-content p-4 rounded-medium overflow-hidden bg-content1 shadow-medium rounded-tl-none rounded-tr-none transition-colors"
+                        className="accordion-content p-4 rounded-large overflow-hidden bg-content1 shadow-medium rounded-tl-none rounded-tr-none transition-colors"
                     >
                         <article className="project-details relative ">
                             {/* displaying overview, links and tools used */}
@@ -148,7 +148,7 @@ const Accordion2: React.FC<AccordionProps> = ({ projects }) => {
                                     {project.tools.map((tool, index) => (
                                         <li
                                             key={index}
-                                            className="flex gap-1 md:text-medium justify-center text-sm items-center border-solid bg-content2 shadow-medium rounded-medium border-current rounded-bl-lg rounded-tr-lg w-32 h-10 md:w-36 single-tool relative"
+                                            className="flex gap-1 md:text-medium justify-center text-sm items-center border-solid bg-content2 shadow-medium rounded-medium border-current rounded-bl-lg rounded-tr-lg w-32 h-10 md:w-36 single-tool relative hover:bg-content3 transition-all"
                                         >
                                             {tool[0]}
                                             <img

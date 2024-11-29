@@ -16,7 +16,9 @@ export const themeSwitch = (defaultTheme?: Theme) => {
             ThemeProps.key
         ) as Theme | null;
 
-        return storedTheme || (defaultTheme ?? ThemeProps.light);
+        //if no previous theme is stored in local storage, default to dark
+
+        return storedTheme || (defaultTheme ?? ThemeProps.dark);
     });
 
     const isDark = useMemo(() => {
@@ -48,6 +50,8 @@ export const themeSwitch = (defaultTheme?: Theme) => {
     useEffect(() => {
         _setTheme(theme);
     });
+
+    //having these accessible to use in the actual "theme switch button"
 
     return { theme, isDark, isLight, setLightTheme, setDarkTheme, toggleTheme };
 };
