@@ -49,7 +49,7 @@ const BottomNavMobi = () => {
                     selected={selected === 4}
                     id={4}
                     setSelected={setSelected}
-                    href=""
+                    href="#current"
                 >
                     <ThemeSwitch className="ml-2.5"/>
                     Theme

@@ -34,7 +34,7 @@ const BottomNavDesk = () => {
                     selected={selected === 4}
                     id={4}
                     setSelected={setSelected}
-                    href=""
+                    href="#current"
                 >
                     <ThemeSwitch className="nav-item ml-3"/>
                     Theme
