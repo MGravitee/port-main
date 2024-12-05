@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { projectsLink } from "../toolbelt/api";
 import LoadingSpinner from "./LoadingSpinner";
 import Accordion2, { Project } from "./Accordion";
+import UXModal from "./UXModal";
 
 function Projects() {
     const [restData, setData] = useState<Project[] | null>(null);
@@ -39,6 +40,7 @@ function Projects() {
                             Recent projects I've completed
                         </h3>
                         <Accordion2 projects={restData} />
+                        <UXModal />
                     </section>
                 ) : (
                     <section id="work-section" className="work-section">
