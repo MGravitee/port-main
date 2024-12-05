@@ -51,7 +51,8 @@ const BottomNavMobi = () => {
                     setSelected={setSelected}
                     href=""
                 >
-                    <ThemeSwitch />
+                    <ThemeSwitch className="ml-2.5"/>
+                    Theme
                 </NavItem>
             </ul>
         </nav>
@@ -79,7 +80,7 @@ const NavItem = ({
             whileTap={{ scale: 0.95 }}
             className="p-3 text-md w-12 border-current flex justify-center rounded-md text-center content-center transition-colors relative"
         >
-            <a href={href} className="relative z-10">
+            <a href={href} className="relative z-10 flex flex-col justify-center text-center content-center">
                 {children}
             </a>
             <AnimatePresence>

@@ -60,6 +60,7 @@ export default function UXModal() {
                                     <Tabs
                                         aria-label="Dynamic tabs"
                                         items={tabs}
+                                        variant="bordered"
                                     >
                                         {(item) => (
                                             <Tab
@@ -84,8 +85,8 @@ export default function UXModal() {
                                 >
                                     Close
                                 </Button>
-                                <Button color="primary" onPress={onClose}>
-                                    Action
+                                <Button color="warning" onPress={onClose}>
+                                    View Project
                                 </Button>
                             </ModalFooter>
                         </>

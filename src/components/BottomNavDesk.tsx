@@ -34,9 +34,10 @@ const BottomNavDesk = () => {
                     selected={selected === 4}
                     id={4}
                     setSelected={setSelected}
-                    href="#"
+                    href=""
                 >
-                    <ThemeSwitch />
+                    <ThemeSwitch className="nav-item ml-3"/>
+                    Theme
                 </NavItem>
             </ul>
         </nav>
@@ -64,7 +65,7 @@ const NavItem = ({
             whileTap={{ scale: 0.95 }}
             className="p-3 text-md w-fit border-current rounded-md transition-colors relative"
         >
-            <a href={href} className="relative justify-center z-10">
+            <a href={href} className="relative flex flex-col justify-center z-10">
                 {children}
             </a>
             <AnimatePresence>
