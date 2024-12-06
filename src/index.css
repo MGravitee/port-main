@@ -47,7 +47,7 @@ html {
     @apply relative mx-auto max-w-[118.75rem] overflow-hidden px-2  sm:px-12 md:px-24 lg:flex lg:px-0;
 
     font-family:
-        "nunito sans",
+        "Jost",
         system-ui,
         -apple-system,
         BlinkMacSystemFont,
@@ -259,7 +259,7 @@ classes are hidden inside the carousel component so there's
 nothing to tailwind */
 
 span.swiper-pagination-bullet {
-    background: currentColor;
+    @apply bg-content2-foreground;
 }
 
 span.swiper-pagination-bullet-active {
@@ -267,17 +267,17 @@ span.swiper-pagination-bullet-active {
 }
 
 div.swiper-button-next::after {
-    color: currentColor;
+    @apply text-content1-foreground;
 }
 div.swiper-button-prev::after {
-    color: currentColor;
+    @apply text-content1-foreground;
 }
 
 /* Animation/transitions for scroll down arrow */
 
 /* Scroll down indicator */
 .scroll-indicator {
-    @apply block w-4 h-4 md:w-5 md:h-5 border-b-2 border-r-2 border-current transform rotate-45 -my-2.5  ml-9 animate-scrollDown;
+    @apply block w-4 h-4 md:w-5 md:h-5 border-b-2 border-r-2 border-current transform rotate-45 -my-2.5  ml-7 animate-scrollDown;
 }
 
 .scroll-indicator:nth-child(2) {
