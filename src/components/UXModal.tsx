@@ -6,36 +6,10 @@ import {
     ModalFooter,
     Button,
     useDisclosure,
-    Tabs,
-    Tab,
-    Card,
-    CardBody,
-    CardHeader,
 } from "@nextui-org/react";
 
 export default function UXModal() {
     const { isOpen, onOpen, onOpenChange } = useDisclosure();
-
-    let tabs = [
-        {
-            id: "photos",
-            label: "Photos",
-            content:
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-        },
-        {
-            id: "music",
-            label: "Music",
-            content:
-                "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
-        },
-        {
-            id: "videos",
-            label: "Videos",
-            content:
-                "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-        },
-    ];
 
     return (
         <>
@@ -43,6 +17,28 @@ export default function UXModal() {
             <Modal
                 backdrop="opaque"
                 isOpen={isOpen}
+                motionProps={{
+                    variants: {
+                        enter: {
+                            y: 0,
+                            opacity: 1,
+                            transition: {
+                                duration: 0.5,
+                                ease: "easeOut",
+                            },
+                        },
+                        exit: {
+                            y: -20,
+                            opacity: 0,
+                            transition: {
+                                duration: 0.4,
+                                ease: "easeIn",
+                            },
+                        },
+                    },
+                }}
+                size={"5xl"}
+                scrollBehavior={"inside"}
                 onOpenChange={onOpenChange}
                 classNames={{
                     backdrop:
@@ -56,26 +52,105 @@ export default function UXModal() {
                                 Modal Title
                             </ModalHeader>
                             <ModalBody>
-                                <div className="flex w-full flex-col">
-                                    <Tabs
-                                        aria-label="Dynamic tabs"
-                                        items={tabs}
-                                        variant="bordered"
-                                    >
-                                        {(item) => (
-                                            <Tab
-                                                key={item.id}
-                                                title={item.label}
-                                            >
-                                                <Card>
-                                                    <CardBody>
-                                                        {item.content}
-                                                    </CardBody>
-                                                </Card>
-                                            </Tab>
-                                        )}
-                                    </Tabs>
-                                </div>
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetur
+                                    adipiscing elit. Nullam pulvinar risus non
+                                    risus hendrerit venenatis. Pellentesque sit
+                                    amet hendrerit risus, sed porttitor quam.
+                                </p>
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetur
+                                    adipiscing elit. Nullam pulvinar risus non
+                                    risus hendrerit venenatis. Pellentesque sit
+                                    amet hendrerit risus, sed porttitor quam.
+                                </p>
+                                <p>
+                                    Magna exercitation reprehenderit magna aute
+                                    tempor cupidatat consequat elit dolor
+                                    adipisicing. Mollit dolor eiusmod sunt ex
+                                    incididunt cillum quis. Velit duis sit
+                                    officia eiusmod Lorem aliqua enim laboris do
+                                    dolor eiusmod. Et mollit incididunt nisi
+                                    consectetur esse laborum eiusmod pariatur
+                                    proident Lorem eiusmod et. Culpa deserunt
+                                    nostrud ad veniam.
+                                </p>
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetur
+                                    adipiscing elit. Nullam pulvinar risus non
+                                    risus hendrerit venenatis. Pellentesque sit
+                                    amet hendrerit risus, sed porttitor quam.
+                                    Magna exercitation reprehenderit magna aute
+                                    tempor cupidatat consequat elit dolor
+                                    adipisicing. Mollit dolor eiusmod sunt ex
+                                    incididunt cillum quis. Velit duis sit
+                                    officia eiusmod Lorem aliqua enim laboris do
+                                    dolor eiusmod. Et mollit incididunt nisi
+                                    consectetur esse laborum eiusmod pariatur
+                                    proident Lorem eiusmod et. Culpa deserunt
+                                    nostrud ad veniam.
+                                </p>
+                                <p>
+                                    Mollit dolor eiusmod sunt ex incididunt
+                                    cillum quis. Velit duis sit officia eiusmod
+                                    Lorem aliqua enim laboris do dolor eiusmod.
+                                    Et mollit incididunt nisi consectetur esse
+                                    laborum eiusmod pariatur proident Lorem
+                                    eiusmod et. Culpa deserunt nostrud ad
+                                    veniam. Lorem ipsum dolor sit amet,
+                                    consectetur adipiscing elit. Nullam pulvinar
+                                    risus non risus hendrerit venenatis.
+                                    Pellentesque sit amet hendrerit risus, sed
+                                    porttitor quam. Magna exercitation
+                                    reprehenderit magna aute tempor cupidatat
+                                    consequat elit dolor adipisicing. Mollit
+                                    dolor eiusmod sunt ex incididunt cillum
+                                    quis. Velit duis sit officia eiusmod Lorem
+                                    aliqua enim laboris do dolor eiusmod. Et
+                                    mollit incididunt nisi consectetur esse
+                                    laborum eiusmod pariatur proident Lorem
+                                    eiusmod et. Culpa deserunt nostrud ad
+                                    veniam.
+                                </p>
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetur
+                                    adipiscing elit. Nullam pulvinar risus non
+                                    risus hendrerit venenatis. Pellentesque sit
+                                    amet hendrerit risus, sed porttitor quam.
+                                </p>
+                                <p>
+                                    Magna exercitation reprehenderit magna aute
+                                    tempor cupidatat consequat elit dolor
+                                    adipisicing. Mollit dolor eiusmod sunt ex
+                                    incididunt cillum quis. Velit duis sit
+                                    officia eiusmod Lorem aliqua enim laboris do
+                                    dolor eiusmod. Et mollit incididunt nisi
+                                    consectetur esse laborum eiusmod pariatur
+                                    proident Lorem eiusmod et. Culpa deserunt
+                                    nostrud ad veniam.
+                                </p>
+                                <p>
+                                    Mollit dolor eiusmod sunt ex incididunt
+                                    cillum quis. Velit duis sit officia eiusmod
+                                    Lorem aliqua enim laboris do dolor eiusmod.
+                                    Et mollit incididunt nisi consectetur esse
+                                    laborum eiusmod pariatur proident Lorem
+                                    eiusmod et. Culpa deserunt nostrud ad
+                                    veniam. Lorem ipsum dolor sit amet,
+                                    consectetur adipiscing elit. Nullam pulvinar
+                                    risus non risus hendrerit venenatis.
+                                    Pellentesque sit amet hendrerit risus, sed
+                                    porttitor quam. Magna exercitation
+                                    reprehenderit magna aute tempor cupidatat
+                                    consequat elit dolor adipisicing. Mollit
+                                    dolor eiusmod sunt ex incididunt cillum
+                                    quis. Velit duis sit officia eiusmod Lorem
+                                    aliqua enim laboris do dolor eiusmod. Et
+                                    mollit incididunt nisi consectetur esse
+                                    laborum eiusmod pariatur proident Lorem
+                                    eiusmod et. Culpa deserunt nostrud ad
+                                    veniam.
+                                </p>
                             </ModalBody>
                             <ModalFooter>
                                 <Button
