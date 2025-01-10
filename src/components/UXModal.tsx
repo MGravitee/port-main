@@ -7,6 +7,19 @@ import {
     Button,
     useDisclosure,
 } from "@nextui-org/react";
+import { uxLink } from "../toolbelt/api";
+import { useState, useEffect } from "react";
+import LoadingSpinner from "./LoadingSpinner";
+import { motion } from "framer-motion";
+
+interface UXData {
+        title: string;
+        icon: string;
+        video: string;
+        content: string;
+    }
+
+
 
 export default function UXModal() {
     const { isOpen, onOpen, onOpenChange } = useDisclosure();
