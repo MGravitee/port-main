@@ -37,9 +37,12 @@ function Projects() {
                             Featured Work:
                         </h2>
                         <h3 className="text-lg lg:text-2xl font-medium">
-                            Recent projects I've completed
+                            Development + UX:
                         </h3>
                         <Accordion2 projects={restData} />
+                        <h3 className="text-lg lg:text-2xl font-medium">
+                            Pure UX:
+                        </h3>
                         <UXModal />
                     </section>
                 ) : (

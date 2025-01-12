@@ -16,9 +16,9 @@ interface UXData {
     id: string;
     acf: {
         title: string;
-        icon: {
-            url: string;
-        };
+        tagline: string;
+        title_long:string;
+        icon: string;
         video: string;
         content_1: string;
     };
@@ -45,18 +45,26 @@ export default function UXModal() {
 
     console.log({ restData });
 
+    const viewProjectClick = () => {
+        // Replace with your desired link
+        const url = 'https://mattgravitee.com/007/';
+        window.open(url, '_blank'); // Opens the link in a new tab
+      };
+
+
+
     return (
         <>
             {isLoaded && restData ? (
                 <>
                     <section>
-                        {restData.map((UXData, index) => (
+                        {restData.map((UXData) => (
                             <div key={UXData.id} className="modal-item max-w">
-                                <Button onPress={onOpen}>
+                                <Button className="ux-button h-20 shadow-md grid grid-cols-[auto_1fr_auto] gap-4 items-center text-left w-fit py-4 px-6 text-lg font-medium" onPress={onOpen}>
                                     {/* icon */}
                                     <span className="w-10 h-10 flex items-center justify-center">
                                         <img
-                                            src={UXData.acf.icon.url}
+                                            src={UXData.acf.icon}
                                             alt="Project logo/icon"
                                             className="w-full h-full object-contain"
                                         />
@@ -68,7 +76,7 @@ export default function UXModal() {
                                             {UXData.acf.title}
                                         </h3>
                                         <p className="block text-sm text-content3-foreground">
-                                            this
+                                        {UXData.acf.tagline}
                                         </p>
                                     </div>
                                 </Button>
@@ -98,6 +106,7 @@ export default function UXModal() {
                                     size={"5xl"}
                                     scrollBehavior={"inside"}
                                     onOpenChange={onOpenChange}
+                                    placement={"top"}
                                     classNames={{
                                         backdrop:
                                             "bg-gradient-to-t from-zinc-900 to-zinc-900/10 backdrop-opacity-20",
@@ -107,7 +116,7 @@ export default function UXModal() {
                                         {(onClose) => (
                                             <>
                                                 <ModalHeader className="flex flex-col gap-1">
-                                                    {UXData.acf.title}
+                                                    {UXData.acf.title_long}
                                                 </ModalHeader>
                                                 <ModalBody>
                                                     <div className="media-wrapper flex justify-center w-full">
@@ -152,7 +161,8 @@ export default function UXModal() {
                                                     </Button>
                                                     <Button
                                                         color="warning"
-                                                        onPress={onClose}
+                                                        //want it to close the modal and open the link to project
+                                                        onPress={() => { viewProjectClick(); onClose(); }}
                                                     >
                                                         View Project
                                                     </Button>
