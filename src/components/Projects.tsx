@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
 import { projectsLink } from "../toolbelt/api";
 import LoadingSpinner from "./LoadingSpinner";
-import Accordion2, { Project } from "./Accordion";
+import Accordion2 from "./Accordion";
 import UXModal from "./UXModal";
+import { Project } from "../types/Interfaces";
 
 function Projects() {
     const [restData, setData] = useState<Project[] | null>(null);
