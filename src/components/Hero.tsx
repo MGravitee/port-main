@@ -6,7 +6,7 @@ function Hero() {
         <header id="home" className="hero-section single-section">
             <div className="hero-text text-center sm:text-left pt-20 sm:pt-10 lg:pt-0">
                 <h1 className="hero-heading text-4xl sm:text-5xl md:text-6xl">
-                    Matt Gravitee
+                    Matt Garvey
                 </h1>
                 <div className="animated-text mt-8">
                     <AnimatedText
