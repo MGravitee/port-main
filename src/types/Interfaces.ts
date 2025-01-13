@@ -73,5 +73,11 @@ export interface UXData {
         icon: string;
         video: string;
         content_1: string;
+        tool_text_1:string;
+        tool_img_1:string;
+        tool_text_2:string;
+        tool_img_2:string;
+        tool_text_3:string;
+        tool_img_3:string;
     };
 }

@@ -12,7 +12,6 @@ import { useState, useEffect } from "react";
 import LoadingSpinner from "./LoadingSpinner";
 import { UXData } from "../types/Interfaces";
 
-
 export default function UXModal() {
     const { isOpen, onOpen, onOpenChange } = useDisclosure();
     const [restData, setData] = useState<UXData[] | null>(null);
@@ -34,10 +33,10 @@ export default function UXModal() {
 
     console.log({ restData });
 
+    //function to travel to project when clicking view project button on modal
     const viewProjectClick = () => {
-        // Replace with your desired link
         const url = "https://mattgravitee.com/007/";
-        window.open(url, "_blank"); // Opens the link in a new tab
+        window.open(url, "_blank"); // Wow this is way less annoying than having to contantly be using noopener norefer
     };
 
     return (
@@ -102,15 +101,109 @@ export default function UXModal() {
                                             "bg-gradient-to-t from-zinc-900 to-zinc-900/10 backdrop-opacity-20",
                                     }}
                                 >
-                                    <ModalContent>
+                                    <ModalContent className="transition-all">
                                         {(onClose) => (
                                             <>
-                                                <ModalHeader className="flex flex-col gap-1">
-                                                    {UXData.acf.title_long}
+                                                <ModalHeader className="grid grid-cols-[auto_1fr_auto] gap-4 items-center text-left">
+                                                    {/* icon */}
+                                                    <span className="w-12 h-12 flex items-center justify-center">
+                                                        <img
+                                                            src={
+                                                                UXData.acf.icon
+                                                            }
+                                                            alt="Project logo/icon"
+                                                            className="w-full h-full object-contain"
+                                                        />
+                                                    </span>
+
+                                                    {/* title and tagline */}
+                                                    <div>
+                                                        <h3 className="block font-bold text-lg lg:text-xl">
+                                                            {
+                                                                UXData.acf
+                                                                    .title_long
+                                                            }
+                                                        </h3>
+                                                    </div>
                                                 </ModalHeader>
                                                 <ModalBody>
                                                     <article>
-                                                        <div className="media-wrapper flex justify-center w-full">
+                                                        <div
+                                                            dangerouslySetInnerHTML={{
+                                                                __html:
+                                                                    UXData.acf
+                                                                        .overview ||
+                                                                    "Coming Soon...",
+                                                            }}
+                                                        />
+                                                        <div className="tools-list mt-4 mb-8">
+                                                            <h4 className="font-semibold text-lg lg:text-xl my-8">
+                                                                Tools Used:
+                                                            </h4>
+                                                            <ul className="tools-used flex justify-center flex-wrap gap-2 ">
+                                                                <li className="flex gap-1 md:text-medium justify-center text-sm items-center border-solid bg-content2 shadow-medium rounded-medium border-current rounded-bl-lg rounded-tr-lg w-32 h-10 md:w-36 single-tool relative hover:bg-content3 transition-all">
+                                                                    {
+                                                                        UXData
+                                                                            .acf
+                                                                            .tool_text_1
+                                                                    }
+                                                                    <img
+                                                                        className="max-w-[24px] tool-icon"
+                                                                        src={
+                                                                            UXData
+                                                                                .acf
+                                                                                .tool_img_1
+                                                                        }
+                                                                        alt={`${
+                                                                            UXData
+                                                                                .acf
+                                                                                .tool_text_1
+                                                                        } icon`}
+                                                                    />
+                                                                </li>
+                                                                <li className="flex gap-1 md:text-medium justify-center text-sm items-center border-solid bg-content2 shadow-medium rounded-medium border-current rounded-bl-lg rounded-tr-lg w-32 h-10 md:w-36 single-tool relative hover:bg-content3 transition-all">
+                                                                    {
+                                                                        UXData
+                                                                            .acf
+                                                                            .tool_text_2
+                                                                    }
+                                                                    <img
+                                                                        className="max-w-[24px] tool-icon"
+                                                                        src={
+                                                                            UXData
+                                                                                .acf
+                                                                                .tool_img_2
+                                                                        }
+                                                                        alt={`${
+                                                                            UXData
+                                                                                .acf
+                                                                                .tool_text_2
+                                                                        } icon`}
+                                                                    />
+                                                                </li>
+                                                                <li className="flex gap-1 md:text-medium justify-center text-sm items-center border-solid bg-content2 shadow-medium rounded-medium border-current rounded-bl-lg rounded-tr-lg w-32 h-10 md:w-36 single-tool relative hover:bg-content3 transition-all">
+                                                                    {
+                                                                        UXData
+                                                                            .acf
+                                                                            .tool_text_3
+                                                                    }
+                                                                    <img
+                                                                        className="max-w-[24px] tool-icon"
+                                                                        src={
+                                                                            UXData
+                                                                                .acf
+                                                                                .tool_img_3
+                                                                        }
+                                                                        alt={`${
+                                                                            UXData
+                                                                                .acf
+                                                                                .tool_text_3
+                                                                        } icon`}
+                                                                    />
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                        <div className="media-wrapper flex justify-center w-full mb-8">
                                                             <video
                                                                 key={
                                                                     UXData.acf
