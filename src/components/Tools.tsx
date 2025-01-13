@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { toolsLink } from "../toolbelt/api";
 import LoadingSpinner from "./LoadingSpinner";
 import switchColour from "../toolbelt/headingColours";
+import { Tools } from "../types/Interfaces";
 
 // Import Swiper modules
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -11,17 +12,9 @@ import "swiper/css/effect-cards";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 
-interface Tool {
-    acf: {
-        icon: string;
-    };
-    id: number;
-    name: string;
-    parent: number;
-}
 
 function ToolsCarousel() {
-    const [restData, setData] = useState<Tool[] | null>(null);
+    const [restData, setData] = useState<Tools[] | null>(null);
     const [isLoaded, setLoadStatus] = useState(false);
 
     useEffect(() => {

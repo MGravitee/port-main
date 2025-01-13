@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react";
 import { projectsLink } from "../toolbelt/api";
 import LoadingSpinner from "./LoadingSpinner";
-import Accordion2, { Project } from "./Accordion";
+import Accordion2 from "./Accordion";
+import UXModal from "./UXModal";
+import { Project } from "../types/Interfaces";
 
 function Projects() {
     const [restData, setData] = useState<Project[] | null>(null);
@@ -30,15 +32,16 @@ function Projects() {
                 restData && restData.length > 0 ? (
                     <section
                         id="work-section"
-                        className="work-section single-section"
+                        className="work-section single-section mb-24"
                     >
                         <h2 className="text-2xl md:text-3xl xl:text-4xl font-medium mb-8">
                             Featured Work:
                         </h2>
                         <h3 className="text-lg lg:text-2xl font-medium">
-                            Recent projects I've completed
+                            Recently Completed Projects:
                         </h3>
                         <Accordion2 projects={restData} />
+                        <UXModal />
                     </section>
                 ) : (
                     <section id="work-section" className="work-section">

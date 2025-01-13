@@ -2,32 +2,10 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import Tabs from "./Tabs";
 import { GitHubIcon, GlobeIcon } from "../icons/Icons";
-import { Feature } from "./Tabs";
 import ScrollingLink from "./ScrollingLink";
+import { Project } from "../types/Interfaces";
 
-type Tool = [string, string];
 
-export interface Project {
-    id: string;
-    acf: {
-        project_title: string;
-        project_tagline: string;
-        project_icon: string;
-        project_featured_image: string;
-        project_overview: string;
-        project_live_link: string;
-        project_github_link: string;
-        analysis_content: string;
-        analysis_image: string;
-        design_feature_1: Feature;
-        design_feature_2: Feature;
-        design_feature_3: Feature;
-        dev_feature_1: Feature;
-        dev_feature_2: Feature;
-        dev_feature_3: Feature;
-    };
-    tools: Tool[];
-}
 interface AccordionProps {
     projects: Project[];
 }
@@ -46,7 +24,7 @@ const Accordion2: React.FC<AccordionProps> = ({ projects }) => {
     };
 
     return (
-        <div className="accordion mt-24 mb-48 flex flex-col gap-6">
+        <div className="accordion mt-12 mb-6 flex flex-col gap-6">
             {projects.map((project, index) => (
                 <div key={project.id} className="accordion-item max-w">
                     <button

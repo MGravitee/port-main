@@ -9,7 +9,7 @@ const BottomNavDesk = () => {
     return (
         <nav
             className=" hidden lg:flex flex-col fixed left-20 bottom-[30%] w-fit -translate-x-[50%] z-10 bg-transparent
-    group-hover:backdrop-brightness-20 border-content1 shadow-medium rounded-medium backdrop-blur-xl backdrop-opacity-20 hover:bg-content1 hover:bg-opacity-75 transition-all"
+    group-hover:backdrop-brightness-20 border-content1 shadow-medium rounded-medium backdrop-blur-xl backdrop-opacity-20 hover:bg-content1 hover:bg-opacity-75 hover:shadow-2xl transition-all"
         >
             <ul className="h-fit w-fit p-4 flex flex-col items-center gap-12">
                 <NavItem
@@ -34,9 +34,10 @@ const BottomNavDesk = () => {
                     selected={selected === 4}
                     id={4}
                     setSelected={setSelected}
-                    href="#"
+                    href="#current"
                 >
-                    <ThemeSwitch />
+                    <ThemeSwitch className="nav-item ml-3"/>
+                    Theme
                 </NavItem>
             </ul>
         </nav>
@@ -64,7 +65,7 @@ const NavItem = ({
             whileTap={{ scale: 0.95 }}
             className="p-3 text-md w-fit border-current rounded-md transition-colors relative"
         >
-            <a href={href} className="relative justify-center z-10">
+            <a href={href} className="relative flex flex-col justify-center z-10">
                 {children}
             </a>
             <AnimatePresence>

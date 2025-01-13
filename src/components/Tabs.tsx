@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowLeft, ArrowRight } from "../icons/Icons";
+import { Feature } from "../types/Interfaces";
 
 //Why oh why did I not just use a library for this.... oh my god react functional components in my sleep.
 //Honestly making this tabs component with pagination and everything was incredibly hard, I had alot of
@@ -12,13 +13,7 @@ interface TabsProps {
     developmentFeatures: Feature[];
 }
 
-export interface Feature {
-    title: string;
-    image: string;
-    content: string;
-}
-
-export interface AnalysisContent {
+interface AnalysisContent {
     content: string;
     imageUrl: string; // actually a video URL (mp4)
 }

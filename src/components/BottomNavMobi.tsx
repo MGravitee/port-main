@@ -15,7 +15,7 @@ const BottomNavMobi = () => {
                     setSelected={setSelected}
                     href="#home"
                 >
-                    <HomeIcon className="nav-item ml-2" />
+                    <HomeIcon className="nav-item ml-[.45rem]" />
                     Home
                 </NavItem>
                 <NavItem
@@ -24,7 +24,7 @@ const BottomNavMobi = () => {
                     setSelected={setSelected}
                     href="#work-section"
                 >
-                    <WorkIcon className="nav-item nav-item ml-1.5" />
+                    <WorkIcon className="nav-item nav-item ml-[.325rem]" />
                     Work
                 </NavItem>
                 <NavItem
@@ -33,7 +33,7 @@ const BottomNavMobi = () => {
                     setSelected={setSelected}
                     href="#about-section"
                 >
-                    <AboutIcon className="nav-item ml-2" />
+                    <AboutIcon className="nav-item ml-[.5rem]" />
                     About
                 </NavItem>
                 <NavItem
@@ -49,9 +49,10 @@ const BottomNavMobi = () => {
                     selected={selected === 4}
                     id={4}
                     setSelected={setSelected}
-                    href=""
+                    href="#current"
                 >
-                    <ThemeSwitch />
+                    <ThemeSwitch className="ml-2.5"/>
+                    Theme
                 </NavItem>
             </ul>
         </nav>
@@ -79,7 +80,7 @@ const NavItem = ({
             whileTap={{ scale: 0.95 }}
             className="p-3 text-md w-12 border-current flex justify-center rounded-md text-center content-center transition-colors relative"
         >
-            <a href={href} className="relative z-10">
+            <a href={href} className="relative z-10 flex flex-col justify-center text-center content-center">
                 {children}
             </a>
             <AnimatePresence>
