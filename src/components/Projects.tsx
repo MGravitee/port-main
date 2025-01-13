@@ -32,18 +32,15 @@ function Projects() {
                 restData && restData.length > 0 ? (
                     <section
                         id="work-section"
-                        className="work-section single-section"
+                        className="work-section single-section mb-24"
                     >
                         <h2 className="text-2xl md:text-3xl xl:text-4xl font-medium mb-8">
                             Featured Work:
                         </h2>
                         <h3 className="text-lg lg:text-2xl font-medium">
-                            Development + UX:
+                            Recently Completed Projects:
                         </h3>
                         <Accordion2 projects={restData} />
-                        <h3 className="text-lg lg:text-2xl font-medium">
-                            Pure UX:
-                        </h3>
                         <UXModal />
                     </section>
                 ) : (

@@ -43,11 +43,11 @@ export default function UXModal() {
         <>
             {isLoaded && restData ? (
                 <>
-                    <section>
+                    
                         {restData.map((UXData) => (
                             <div key={UXData.id} className="modal-item max-w">
                                 <Button
-                                    className="ux-button h-20 shadow-md grid grid-cols-[auto_1fr_auto] gap-4 items-center text-left w-fit py-4 px-6 text-lg font-medium"
+                                    className="ux-button h-20 relative grid grid-cols-[auto_1fr_auto] gap-4 items-center text-left w-full py-4 px-6 text-lg font-medium transition-colors bg-content1 shadow-medium rounded-[1rem] hover:bg-content2"
                                     onPress={onOpen}
                                 >
                                     {/* icon */}
@@ -263,7 +263,7 @@ export default function UXModal() {
                                 </Modal>
                             </div>
                         ))}
-                    </section>
+                  
                 </>
             ) : (
                 <LoadingSpinner />

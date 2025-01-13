@@ -24,7 +24,7 @@ const Accordion2: React.FC<AccordionProps> = ({ projects }) => {
     };
 
     return (
-        <div className="accordion mt-24 mb-48 flex flex-col gap-6">
+        <div className="accordion mt-12 mb-6 flex flex-col gap-6">
             {projects.map((project, index) => (
                 <div key={project.id} className="accordion-item max-w">
                     <button

@@ -27,7 +27,7 @@ const BottomNavDesk = () => {
                     setSelected={setSelected}
                     href="#about-section"
                 >
-                    <AboutIcon className="nav-item ml-2.5" />
+                    <AboutIcon className="nav-item ml-3" />
                     About
                 </NavItem>
                 <NavItem
