@@ -18,7 +18,7 @@ const BottomNavDesk = () => {
                     setSelected={setSelected}
                     href="#work-section"
                 >
-                    <WorkIcon className="nav-item nav-item ml-2" />
+                    <WorkIcon className="nav-item nav-item ml-2.5" />
                     Work
                 </NavItem>
                 <NavItem
@@ -36,7 +36,7 @@ const BottomNavDesk = () => {
                     setSelected={setSelected}
                     href="#current"
                 >
-                    <ThemeSwitch className="nav-item ml-3"/>
+                    <ThemeSwitch className="nav-item ml-3.5"/>
                     Theme
                 </NavItem>
             </ul>
