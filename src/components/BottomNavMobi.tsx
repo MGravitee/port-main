@@ -15,7 +15,7 @@ const BottomNavMobi = () => {
                     setSelected={setSelected}
                     href="#home"
                 >
-                    <HomeIcon className="nav-item ml-[.45rem]" />
+                    <HomeIcon className="nav-item ml-[.5rem]" />
                     Home
                 </NavItem>
                 <NavItem
@@ -24,7 +24,7 @@ const BottomNavMobi = () => {
                     setSelected={setSelected}
                     href="#work-section"
                 >
-                    <WorkIcon className="nav-item nav-item ml-[.325rem]" />
+                    <WorkIcon className="nav-item nav-item ml-[.4rem]" />
                     Work
                 </NavItem>
                 <NavItem
@@ -33,7 +33,7 @@ const BottomNavMobi = () => {
                     setSelected={setSelected}
                     href="#about-section"
                 >
-                    <AboutIcon className="nav-item ml-[.5rem]" />
+                    <AboutIcon className="nav-item ml-[.6rem]" />
                     About
                 </NavItem>
                 <NavItem
@@ -42,7 +42,7 @@ const BottomNavMobi = () => {
                     setSelected={setSelected}
                     href="#contact-section"
                 >
-                    <ContactIcon className="nav-item ml-3.5" />
+                    <ContactIcon className="nav-item ml-4" />
                     Contact
                 </NavItem>
                 <NavItem
@@ -51,7 +51,7 @@ const BottomNavMobi = () => {
                     setSelected={setSelected}
                     href="#current"
                 >
-                    <ThemeSwitch className="ml-2.5"/>
+                    <ThemeSwitch className="ml-3"/>
                     Theme
                 </NavItem>
             </ul>

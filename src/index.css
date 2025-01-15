@@ -41,13 +41,13 @@ html {
     }
 }
 
-/* sitewrapper styling for splitscreen layout on desktop */
+/* sitewrapper styling for splitscreen layout on desktop weirdly 120rem (1920px exactly) gives horizontal overflo   */
 
 #site-wrapper {
     @apply relative mx-auto max-w-[118.75rem] overflow-hidden px-2  sm:px-12 md:px-24 lg:flex lg:px-0;
 
     font-family:
-        "Roboto",
+        "Inter",
         system-ui,
         -apple-system,
         BlinkMacSystemFont,
