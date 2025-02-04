@@ -1,6 +1,6 @@
 import { FC, useState, useEffect } from "react";
-import { VisuallyHidden } from "@nextui-org/react";
-import { SwitchProps, useSwitch } from "@nextui-org/react";
+import { VisuallyHidden } from "@heroui/react";
+import { SwitchProps, useSwitch } from "@heroui/react";
 import { clsx } from "clsx";
 
 import { themeSwitch } from "./ThemeSwitch";

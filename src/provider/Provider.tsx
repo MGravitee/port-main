@@ -1,11 +1,11 @@
-import {NextUIProvider} from '@nextui-org/system';
+import {HeroUIProvider} from "@heroui/system";
 
 
 
 function Provider() {
   
   
-  return <NextUIProvider> </NextUIProvider>;
+  return <HeroUIProvider> </HeroUIProvider>;
 }
 
 export default Provider
