@@ -5,7 +5,6 @@ import {
     ModalBody,
     ModalFooter,
     Button,
-    useDisclosure,
 } from "@heroui/react";
 import { uxLink } from "../toolbelt/api";
 import { useState, useEffect } from "react";
@@ -13,9 +12,9 @@ import LoadingSpinner from "./LoadingSpinner";
 import { UXData } from "../types/Interfaces";
 
 export default function UXModal() {
-    const { isOpen, onOpen, onOpenChange } = useDisclosure();
     const [restData, setData] = useState<UXData[] | null>(null);
     const [isLoaded, setLoadStatus] = useState(false);
+    const [openModalId, setOpenModalId] = useState<string | null>(null); // Track open modal by ID
 
     useEffect(() => {
         const fetchData = async () => {
@@ -29,30 +28,34 @@ export default function UXModal() {
             }
         };
         fetchData();
-    }, [uxLink]);
+    }, []);
 
     console.log({ restData });
 
-    //function to travel to project when clicking view project button on modal
-    const viewProjectClick = () => {
-        const url = "https://mattgravitee.com/007/";
-        window.open(url, "_blank"); // Wow this is way less annoying than having to contantly be using noopener norefer
+    // Open specific modal
+    const openModal = (id: string) => setOpenModalId(id);
+    const closeModal = () => setOpenModalId(null);
+
+    // Function to travel to project when clicking "View Project" button
+    const viewProjectClick = (url: string) => {
+        window.open(url, "_blank");
+        closeModal(); // Close modal after opening the link
     };
 
     return (
         <>
             {isLoaded && restData ? (
                 <>
-                    {restData.map((UXData) => (
-                        <div key={UXData.id} className="modal-item max-w">
+                    {restData.map((uxItem) => (
+                        <div key={uxItem.id} className="modal-item max-w mb-8 mt-12">
                             <Button
                                 className="ux-button h-20 relative grid grid-cols-[auto_1fr_auto] gap-4 items-center text-left w-full py-4 px-6 text-lg font-medium transition-colors bg-content1 shadow-medium rounded-[1rem] hover:bg-content2"
-                                onPress={onOpen}
+                                onPress={() => openModal(uxItem.id)}
                             >
                                 {/* icon */}
                                 <span className="w-12 h-12 flex items-center justify-center">
                                     <img
-                                        src={UXData.acf.icon}
+                                        src={uxItem.acf.icon}
                                         alt="Project logo/icon"
                                         className="w-full h-full object-contain"
                                     />
@@ -61,196 +64,103 @@ export default function UXModal() {
                                 {/* title and tagline */}
                                 <div>
                                     <h3 className="block font-bold">
-                                        {UXData.acf.title}
+                                        {uxItem.acf.title}
                                     </h3>
                                     <p className="block text-sm text-content3-foreground">
-                                        {UXData.acf.tagline}
+                                        {uxItem.acf.tagline}
                                     </p>
                                 </div>
                             </Button>
+
+                            {/* Modal */}
                             <Modal
                                 backdrop="opaque"
-                                isOpen={isOpen}
+                                isOpen={openModalId === uxItem.id}
+                                onOpenChange={closeModal}
                                 motionProps={{
                                     variants: {
-                                        enter: {
-                                            y: 0,
-                                            opacity: 1,
-                                            transition: {
-                                                duration: 0.5,
-                                                ease: "easeOut",
-                                            },
-                                        },
-                                        exit: {
-                                            y: -20,
-                                            opacity: 0,
-                                            transition: {
-                                                duration: 0.4,
-                                                ease: "easeIn",
-                                            },
-                                        },
+                                        enter: { y: 0, opacity: 1, transition: { duration: 0.5, ease: "easeOut" } },
+                                        exit: { y: -20, opacity: 0, transition: { duration: 0.4, ease: "easeIn" } },
                                     },
                                 }}
                                 size={"5xl"}
                                 scrollBehavior={"inside"}
-                                onOpenChange={onOpenChange}
                                 placement={"top"}
                                 classNames={{
-                                    backdrop:
-                                        "bg-gradient-to-t from-zinc-900 to-zinc-900/10 backdrop-opacity-20",
+                                    backdrop: "bg-gradient-to-t from-zinc-900 to-zinc-900/10 backdrop-opacity-20",
                                 }}
                             >
                                 <ModalContent className="transition-all">
-                                    {(onClose) => (
                                         <>
                                             <ModalHeader className="grid grid-cols-[auto_1fr_auto] gap-4 items-center text-left">
-                                                {/* icon */}
                                                 <span className="w-12 h-12 flex items-center justify-center">
                                                     <img
-                                                        src={UXData.acf.icon}
+                                                        src={uxItem.acf.icon}
                                                         alt="Project logo/icon"
                                                         className="w-full h-full object-contain"
                                                     />
                                                 </span>
 
-                                                {/* title and tagline */}
                                                 <div>
                                                     <h3 className="block font-bold text-lg lg:text-xl">
-                                                        {UXData.acf.title_long}
+                                                        {uxItem.acf.title_long}
                                                     </h3>
                                                 </div>
                                             </ModalHeader>
                                             <ModalBody>
                                                 <article>
-                                                    <h4 className="font-semibold text-lg lg:text-xl my-8">
-                                                        Overview:
-                                                    </h4>
+                                                    <h4 className="font-semibold text-lg lg:text-xl my-8">Overview:</h4>
                                                     <div
                                                         dangerouslySetInnerHTML={{
-                                                            __html:
-                                                                UXData.acf
-                                                                    .overview ||
-                                                                "Coming Soon...",
+                                                            __html: uxItem.acf.overview || "Coming Soon...",
                                                         }}
                                                     />
                                                     <div className="tools-list mt-4 mb-8">
-                                                        <h4 className="font-semibold text-lg lg:text-xl my-8">
-                                                            Tools Used:
-                                                        </h4>
-                                                        <ul className="tools-used flex justify-center flex-wrap gap-2 ">
-                                                            <li className="flex gap-1 md:text-medium justify-center text-sm items-center border-solid bg-content2 shadow-medium rounded-medium border-current rounded-bl-lg rounded-tr-lg w-32 h-10 md:w-36 single-tool relative hover:bg-content3 transition-all">
-                                                                {
-                                                                    UXData.acf
-                                                                        .tool_text_1
-                                                                }
-                                                                <img
-                                                                    className="max-w-[24px] tool-icon"
-                                                                    src={
-                                                                        UXData
-                                                                            .acf
-                                                                            .tool_img_1
-                                                                    }
-                                                                    alt={`${
-                                                                        UXData
-                                                                            .acf
-                                                                            .tool_text_1
-                                                                    } icon`}
-                                                                />
-                                                            </li>
-                                                            <li className="flex gap-1 md:text-medium justify-center text-sm items-center border-solid bg-content2 shadow-medium rounded-medium border-current rounded-bl-lg rounded-tr-lg w-32 h-10 md:w-36 single-tool relative hover:bg-content3 transition-all">
-                                                                {
-                                                                    UXData.acf
-                                                                        .tool_text_2
-                                                                }
-                                                                <img
-                                                                    className="max-w-[24px] tool-icon"
-                                                                    src={
-                                                                        UXData
-                                                                            .acf
-                                                                            .tool_img_2
-                                                                    }
-                                                                    alt={`${
-                                                                        UXData
-                                                                            .acf
-                                                                            .tool_text_2
-                                                                    } icon`}
-                                                                />
-                                                            </li>
-                                                            <li className="flex gap-1 md:text-medium justify-center text-sm items-center border-solid bg-content2 shadow-medium rounded-medium border-current rounded-bl-lg rounded-tr-lg w-32 h-10 md:w-36 single-tool relative hover:bg-content3 transition-all">
-                                                                {
-                                                                    UXData.acf
-                                                                        .tool_text_3
-                                                                }
-                                                                <img
-                                                                    className="max-w-[24px] tool-icon"
-                                                                    src={
-                                                                        UXData
-                                                                            .acf
-                                                                            .tool_img_3
-                                                                    }
-                                                                    alt={`${
-                                                                        UXData
-                                                                            .acf
-                                                                            .tool_text_3
-                                                                    } icon`}
-                                                                />
-                                                            </li>
+                                                        <h4 className="font-semibold text-lg lg:text-xl my-8">Tools Used:</h4>
+                                                        <ul className="tools-used flex justify-center flex-wrap gap-2">
+                                                            {[1, 2, 3].map((i) => (
+                                                                <li
+                                                                    key={i}
+                                                                    className="flex gap-1 md:text-medium justify-center text-sm items-center border-solid bg-content2 shadow-medium rounded-medium border-current rounded-bl-lg rounded-tr-lg w-32 h-10 md:w-36 single-tool relative hover:bg-content3 transition-all"
+                                                                >
+                                                                    {uxItem.acf[`tool_text_${i}` as keyof typeof uxItem.acf]}
+                                                                    <img
+                                                                        className="max-w-[24px] tool-icon"
+                                                                        src={uxItem.acf[`tool_img_${i}` as keyof typeof uxItem.acf]}
+                                                                        alt={`${uxItem.acf[`tool_text_${i}` as keyof typeof uxItem.acf]} icon`}
+                                                                    />
+                                                                </li>
+                                                            ))}
                                                         </ul>
                                                     </div>
                                                     <div className="media-wrapper flex justify-center w-full mb-8">
                                                         <video
-                                                            key={
-                                                                UXData.acf.video
-                                                            }
                                                             className="w-full h-auto rounded-md aspect-video"
                                                             autoPlay
                                                             loop
                                                             muted
                                                             preload="auto"
                                                         >
-                                                            <source
-                                                                src={
-                                                                    UXData.acf
-                                                                        .video
-                                                                }
-                                                                type="video/mp4"
-                                                            />
-                                                            Your browser does
-                                                            not support the
-                                                            video tag.
+                                                            <source src={uxItem.acf.video} type="video/mp4" />
+                                                            Your browser does not support the video tag.
                                                         </video>
                                                     </div>
                                                     <div
                                                         dangerouslySetInnerHTML={{
-                                                            __html:
-                                                                UXData.acf
-                                                                    .content_1 ||
-                                                                "Coming Soon...",
+                                                            __html: uxItem.acf.content_1 || "Coming Soon...",
                                                         }}
                                                     />
                                                 </article>
                                             </ModalBody>
                                             <ModalFooter>
-                                                <Button
-                                                    color="danger"
-                                                    variant="light"
-                                                    onPress={onClose}
-                                                >
+                                                <Button color="danger" variant="light" onPress={closeModal}>
                                                     Close
                                                 </Button>
-                                                <Button
-                                                    color="warning"
-                                                    //want it to close the modal and open the link to project
-                                                    onPress={() => {
-                                                        viewProjectClick();
-                                                        onClose();
-                                                    }}
-                                                >
+                                                <Button color="warning" onPress={() => viewProjectClick("https://mattgravitee.com/007/")}>
                                                     View Project
                                                 </Button>
                                             </ModalFooter>
                                         </>
-                                    )}
                                 </ModalContent>
                             </Modal>
                         </div>
