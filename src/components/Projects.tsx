@@ -35,7 +35,7 @@ function Projects() {
                         className="work-section single-section mb-32"
                     >
                         <h2 className="text-2xl md:text-3xl xl:text-4xl font-medium mb-8">
-                            Featured Work:
+                            Featured Work
                         </h2>
                         <h3 className="text-lg lg:text-2xl font-medium">
                             Recently Completed Projects:

@@ -18,4 +18,4 @@ export const toolsLink = 'https://mattgravitee.com/dfdksfjhkdsjfh//wp-json/wp/v2
 
 //UX links
 
-export const uxLink = 'https://mattgravitee.com/dfdksfjhkdsjfh//wp-json/wp/v2/ux?_embed&acf_format=standard&6=7';
+export const uxLink = 'https://mattgravitee.com/dfdksfjhkdsjfh//wp-json/wp/v2/ux?_embed&acf_format=standard&9=10';
