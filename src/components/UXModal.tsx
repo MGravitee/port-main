@@ -36,7 +36,7 @@ export default function UXModal() {
     const openModal = (id: string) => setOpenModalId(id);
     const closeModal = () => setOpenModalId(null);
 
-    // Function to travel to project when clicking "View Project" button
+    // Function to navigate to project when clicking "View Project" button
     const viewProjectClick = (url: string) => {
         window.open(url, "_blank");
         closeModal(); // Close modal after opening the link
@@ -46,8 +46,9 @@ export default function UXModal() {
         <>
             {isLoaded && restData ? (
                 <>
+                <div className="mb-6 flex flex-col gap-12">
                     {restData.map((uxItem) => (
-                        <div key={uxItem.id} className="modal-item max-w mb-8 mt-12">
+                        <div key={uxItem.id} className="modal-item flex flex-col self-center w-[98%] lg:max-w">
                             <Button
                                 className="ux-button h-20 relative grid grid-cols-[auto_1fr_auto] gap-4 items-center text-left w-full py-4 px-6 text-lg font-medium transition-colors bg-content1 shadow-medium rounded-[1rem] hover:bg-content2"
                                 onPress={() => openModal(uxItem.id)}
@@ -156,7 +157,7 @@ export default function UXModal() {
                                                 <Button color="danger" variant="light" onPress={closeModal}>
                                                     Close
                                                 </Button>
-                                                <Button color="warning" onPress={() => viewProjectClick("https://mattgravitee.com/007/")}>
+                                                <Button color="warning" onPress={() => viewProjectClick(uxItem.acf.project_link)}>
                                                     View Project
                                                 </Button>
                                             </ModalFooter>
@@ -165,6 +166,7 @@ export default function UXModal() {
                             </Modal>
                         </div>
                     ))}
+                </div>
                 </>
             ) : (
                 <LoadingSpinner />

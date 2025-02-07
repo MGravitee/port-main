@@ -79,5 +79,6 @@ export interface UXData {
         tool_img_2:string;
         tool_text_3:string;
         tool_img_3:string;
+        project_link:string;
     };
 }
