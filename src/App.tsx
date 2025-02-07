@@ -58,7 +58,7 @@ function App() {
             ) : isLoaded ? (
                 <div
                     id="site-wrapper"
-                    className= "site-wrapper"
+                    className= "site-wrapper transition-all"
                 >
                     <LeftSide />
                     <RightSide />

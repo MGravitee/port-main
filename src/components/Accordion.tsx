@@ -31,7 +31,7 @@ const Accordion2: React.FC<AccordionProps> = ({ projects }) => {
                         aria-expanded={activeIndex === index}
                         aria-controls={`content-${index}`}
                         id={`accordion-title-${index}`}
-                        className={`relative grid grid-cols-[auto_1fr_auto] gap-4 items-center text-left w-full py-4 px-6 text-lg font-medium transition-colors bg-content1 shadow-medium rounded-[1rem] hover:bg-content2 ${
+                        className={`relative grid grid-cols-[auto_1fr_auto] gap-4 items-center text-left w-full py-4 px-6 text-lg font-medium transition-all bg-content1 shadow-medium rounded-[1rem] hover:bg-content2 ${
                             activeIndex === index
                                 ? "rounded-bl-none rounded-br-none shadow-small"
                                 : ""
