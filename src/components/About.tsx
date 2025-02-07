@@ -48,8 +48,8 @@ function About() {
                                 }}
                             />
                         </div>
-                        <aside className="mt-16">
-                            <h2 className="text-lg lg:text-3xl font-medium mb-8">
+                        <aside className="mt-4">
+                            <h2 className="text-xl lg:text-3xl font-bold mb-10">
                                 Some Things I Enjoy:{" "}
                             </h2>
                             <ScrollingThings
