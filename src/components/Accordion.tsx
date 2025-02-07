@@ -24,9 +24,9 @@ const Accordion2: React.FC<AccordionProps> = ({ projects }) => {
     };
 
     return (
-        <div className="accordion mt-12 mb-6 flex flex-col gap-6">
+        <div className="accordion mt-12 mb-1 flex flex-col">
             {projects.map((project, index) => (
-                <div key={project.id} className="accordion-item flex flex-col self-center w-[98%] lg:max-w">
+                <div key={project.id} className="accordion-item flex flex-col self-center gap-4 w-[98%] lg:max-w">
                     <button
                         aria-expanded={activeIndex === index}
                         aria-controls={`content-${index}`}
