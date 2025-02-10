@@ -46,7 +46,7 @@ function ToolsCarousel() {
                     className="tools-section single-section mb-40"
                 >
                     <h2 className="text-2xl md:text-3xl xl:text-4xl font-medium mb-8 lg:mb-16">
-                        TCOB - Taking Care of Business:
+                        TCOB - Taking Care of Business
                     </h2>
 
                     <Swiper
