@@ -53,11 +53,11 @@ export const MagnetButtonGit: React.FC<Props> = ({ link }) => {
             onMouseLeave={handleMouseLeave}
             style={{ transform }}
             transition={{ type: "spring", stiffness: 200, damping: 20 }}
-            className="group relative grid h-[220px] w-[220px] place-content-center rounded-full  transition-colors duration-700 ease-out"
+            className="group relative grid h-[220px] w-[220px] place-content-center rounded-full transition-colors duration-700 ease-out"
             href={link} // setting link here
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="Navigates to my LinkedIn profile"
+            aria-label="Navigates to my GitHub profile"
             role="link"
         >
             <GitHubIcon size={40} className="ml-1.5 mb-2" />
@@ -93,7 +93,7 @@ export const MagnetButtonGit: React.FC<Props> = ({ link }) => {
                         fill="black"
                         className="fill-content1 text-xl font-light uppercase opacity-0 transition-opacity duration-700 ease-out group-hover:opacity-100"
                     >
-                        Click to Navigate to my GitHub Profile
+                        GitHub Profile_____ GitHub Profile_____ GitHub Profile_____      
                     </textPath>
                 </text>
             </motion.svg>
@@ -150,7 +150,7 @@ export const MagnetButtonLnkd: React.FC<Props> = ({ link }) => {
             aria-label="Navigates to my LinkedIn profile"
             role="link"
         >
-            <LinkedInIcon size={40} className="ml-2 mb-2" />
+            <LinkedInIcon size={40} className="ml-3 mb-2" />
             LinkedIn
             <div className="pointer-events-none absolute inset-0 z-0 scale-0 rounded-full bg-content1 border-2 border-content1-foreground transition-transform duration-700 ease-out group-hover:scale-100" />
             <motion.svg
@@ -183,7 +183,7 @@ export const MagnetButtonLnkd: React.FC<Props> = ({ link }) => {
                         fill="black"
                         className="fill-content1-foreground text-xl font-light uppercase opacity-0 transition-opacity duration-700 ease-out group-hover:opacity-100"
                     >
-                        Click to Navigate to my LinkedIn Profile
+                        LinkedIn Profile___ LinkedIn Profile___ LinkedIn Profile____ 
                     </textPath>
                 </text>
             </motion.svg>

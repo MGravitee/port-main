@@ -89,7 +89,7 @@ export function FooterMobi() {
                     className=" flex flex-col justify-center gap-5 lg:hidden"
                 >
                     <div className="contact-heading">
-                        <h2 className="contact-title text-lg lg:text-3xl font-medium mb-8">
+                        <h2 className="contact-title text-2xl md:text-3xl xl:text-4xl font-medium mb-8">
                             Get in Touch
                         </h2>
                     </div>

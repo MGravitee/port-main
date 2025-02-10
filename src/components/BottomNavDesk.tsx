@@ -8,17 +8,17 @@ const BottomNavDesk = () => {
 
     return (
         <nav
-            className="nav-text hidden lg:flex flex-col fixed left-20 bottom-[30%] w-fit -translate-x-[50%] z-10 bg-content1
-    group-hover:backdrop-brightness-20 border-content1 shadow-medium rounded-medium backdrop-blur-xl backdrop-opacity-75 hover:bg-content1 hover:bg-opacity-75 hover:shadow-2xl transition-all"
+            className="nav-text hidden lg:flex flex-col fixed left-20 bottom-[33%] w-fit -translate-x-[50%] z-10 bg-content1
+    group-hover:backdrop-brightness-20 border-content1-foreground shadow-medium rounded-medium backdrop-blur-xl backdrop-opacity-75 hover:bg-content1 hover:bg-opacity-75 hover:shadow-2xl transition-all"
         >
-            <ul className="h-fit w-fit p-4 flex flex-col items-center gap-12">
+            <ul className="h-fit w-fit p-2 flex flex-col items-center gap-6">
                 <NavItem
                     selected={selected === 1}
                     id={1}
                     setSelected={setSelected}
                     href="#work-section"
                 >
-                    <WorkIcon className="nav-item nav-item ml-2.5" />
+                    <WorkIcon className="nav-item nav-item ml-2" />
                     Work
                 </NavItem>
                 <NavItem
@@ -63,7 +63,7 @@ const NavItem = ({
             whileHover={{ scale: 1.05 }}
             whileFocus={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="p-3 text-md w-fit border-current rounded-md transition-colors relative"
+            className="p-3 text-md w-fit border-current rounded-md transition-colors relative flex"
         >
             <a href={href} className="relative flex flex-col justify-center z-10">
                 {children}
@@ -71,7 +71,7 @@ const NavItem = ({
             <AnimatePresence>
                 {selected && (
                     <motion.a
-                        className="absolute inset-0  rounded-md bg-invert z-0"
+                        className="absolute inset-0 rounded-md bg-invert z-0"
                         initial={{ scale: 0 }}
                         animate={{ scale: 1 }}
                         exit={{ scale: 0 }}
