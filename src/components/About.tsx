@@ -33,14 +33,14 @@ function About() {
                     >
                         <h2
                             className="text-2xl md:text-3xl xl:text-4xl font-medium my-8">
-                            Who Dis?
+                            About Me
                         </h2>
                         <div>
                             <p className="mb-8">
                                 {restData.acf.about_content_1}
                             </p>
                             <article
-                                className="dangerouslySetHtmlContent max-w-[37.5rem] flex flex-col justify-center"
+                                className="dangerouslySetHtmlContent max-w flex flex-col justify-center"
                                 dangerouslySetInnerHTML={{
                                     __html:
                                         restData.acf.about_content_2 ||

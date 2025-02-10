@@ -20,7 +20,7 @@ export default {
           extend: "dark", // <- inheriting default values from dark theme
           colors: {
             background: "#020205",
-            foreground: "#FAFAFA",
+            foreground: "#f3f2ee",
             primary: {
               50: "#3B096C",
               100: "#520F83",
