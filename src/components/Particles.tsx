@@ -7,7 +7,7 @@ import {
   OutMode,
 } from "@tsparticles/engine";
 
-import { loadSlim } from "@tsparticles/slim"; // if you are going to use `loadSlim`, install the "@tsparticles/slim" package too.
+import { loadSlim } from "@tsparticles/slim"; // `loadSlim`, from minified "@tsparticles/slim" p
 
 
 const ParticlesTest = () => {

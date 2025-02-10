@@ -115,7 +115,7 @@ const Tabs: React.FC<TabsProps> = React.memo(
                         )}
                     </div>
                     <div
-                        className="dangerouslySetHtmlContent my-8 max-w-[37.5rem] flex flex-col justify-center"
+                        className="dangerouslySetHtmlContent my-8 max-w flex flex-col justify-center"
                         dangerouslySetInnerHTML={{
                             __html: analysisData.content || "Coming Soon...",
                         }}

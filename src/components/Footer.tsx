@@ -45,7 +45,7 @@ export function DeskFooter() {
                         <CopyEmailBtn email={restData.email_link} />
                     </div>
                     <div className="copyright-text">
-                        <p className="footer-txt text-center text-sm md:text-medium">
+                        <p className="footer-txt text-center text-sm">
                             © Matt Garvey 2024 | All Rights Reserved
                         </p>
                     </div>
@@ -103,7 +103,7 @@ export function FooterMobi() {
                         </a>
                     </div>
                     <div className="copyright-text">
-                        <p className="footer-txt text-center mt-28 mb-2">
+                        <p className="footer-txt text-center text-sm mt-28 mb-2">
                             © Matt Garvey 2024 | All Rights Reserved
                         </p>
                     </div>
