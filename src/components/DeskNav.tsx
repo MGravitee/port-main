@@ -45,9 +45,9 @@ const SideStaggerNavigation = () => {
             onBlur={() => {
                 setIsHovered(false);
             }}
-            className="fixed hidden lg:flex right-1 top-0 h-screen flex-col items-end justify-between py-4 pl-8 cursor-none"
+            className="fixed hidden lg:flex right-0 top-0 h-screen flex-col items-end justify-between py-4 pl-8 cursor-none xl:right-1"
         >
-            <ul className="fixed hidden lg:flex right-1 top-0 h-screen flex-col items-end justify-between py-4 pl-8">
+            <ul className="fixed hidden lg:flex right-0 top-0 h-screen flex-col items-end justify-between py-4 pl-8 xl:right-1">
                 {Array.from(Array(NUM_LINES).keys()).map((i) => {
                     const linkContent = navItems.find(
                         (item) => item.position === i + 1

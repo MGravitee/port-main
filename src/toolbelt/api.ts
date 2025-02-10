@@ -10,12 +10,12 @@ export const aboutLink = 'https://mattgravitee.com/dfdksfjhkdsjfh//wp-json/wp/v2
 
 //project posts info
 
-export const projectsLink = 'https://mattgravitee.com/dfdksfjhkdsjfh//wp-json/wp/v2/posts?_embed&acf_format=standard&28=29';
+export const projectsLink = 'https://mattgravitee.com/dfdksfjhkdsjfh//wp-json/wp/v2/posts?_embed&acf_format=standard&30=31';
 
 //tools used info 
 
-export const toolsLink = 'https://mattgravitee.com/dfdksfjhkdsjfh//wp-json/wp/v2/categories?_embed&acf_format=standard&per_page=50&1=2';
+export const toolsLink = 'https://mattgravitee.com/dfdksfjhkdsjfh//wp-json/wp/v2/categories?_embed&acf_format=standard&per_page=50&2=3';
 
 //UX links
 
-export const uxLink = 'https://mattgravitee.com/dfdksfjhkdsjfh//wp-json/wp/v2/ux?_embed&acf_format=standard&16=17';
+export const uxLink = 'https://mattgravitee.com/dfdksfjhkdsjfh//wp-json/wp/v2/ux?_embed&acf_format=standard&17=18';
