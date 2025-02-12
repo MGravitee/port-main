@@ -60,8 +60,8 @@ const NavItem = ({
     return (
         <motion.li
             onClick={() => setSelected(id)}
-            whileHover={{ scale: 1.05 }}
-            whileFocus={{ scale: 1.05 }}
+            whileHover={{ scale: 1.10 }}
+            whileFocus={{ scale: 1.10 }}
             whileTap={{ scale: 0.95 }}
             className="p-3 text-md w-fit border-current rounded-md transition-colors relative flex"
         >
