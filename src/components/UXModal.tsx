@@ -46,7 +46,7 @@ export default function UXModal() {
         <>
             {isLoaded && restData ? (
                 <>
-                <div className="mb-6 flex flex-col gap-12">
+                <div className="mb-4 flex flex-col gap-9">
                     {restData.map((uxItem) => (
                         <div key={uxItem.id} className="modal-item flex flex-col self-center w-[98%] lg:max-w">
                             <Button

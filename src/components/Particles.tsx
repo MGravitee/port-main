@@ -66,7 +66,7 @@ const ParticlesTest = () => {
           distance: 200,
           enable: true,
           opacity: 0.5,
-          width: 3,
+          width: 2.5,
         },
         move: {
           direction: MoveDirection.none,
