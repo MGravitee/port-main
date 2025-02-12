@@ -41,7 +41,7 @@ export function DeskFooter() {
                             <a
                                 href={restData.linkedin_link}
                                 target="_blank"
-                                className="hover:scale-110 transition-all"
+                                className="hover:scale-[115%] transition-all"
                                 aria-label="Navigate to my LinkedIn Profile"
                             >
                                 <LinkedInIcon size={40} />
@@ -49,7 +49,7 @@ export function DeskFooter() {
                             <a
                                 href={restData.github_link}
                                 target="_blank"
-                                className="hover:scale-110 transition-all"
+                                className="hover:scale-[115%] transition-all"
                                 aria-label="Navigate to my GitHub Profile"
                             >
                                 <GitHubIcon size={40} />
