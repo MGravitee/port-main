@@ -38,10 +38,20 @@ export function DeskFooter() {
                     <div className="social-links flex justify-between">
                         <CopyEmailBtn email={restData.email_link} />
                         <nav className="flex gap-10">
-                            <a href={restData.linkedin_link} target="_blank" className="hover:scale-110 transition-all">
+                            <a
+                                href={restData.linkedin_link}
+                                target="_blank"
+                                className="hover:scale-110 transition-all"
+                                aria-label="Navigate to my LinkedIn Profile"
+                            >
                                 <LinkedInIcon size={40} />
                             </a>
-                            <a href={restData.github_link} target="_blank" className="hover:scale-110 transition-all">
+                            <a
+                                href={restData.github_link}
+                                target="_blank"
+                                className="hover:scale-110 transition-all"
+                                aria-label="Navigate to my GitHub Profile"
+                            >
                                 <GitHubIcon size={40} />
                             </a>
                         </nav>
@@ -96,11 +106,19 @@ export function FooterMobi() {
                         </h2>
                     </div>
                     <div className="social-links flex justify-around">
-                        <a href={restData.linkedin_link} target="_blank">
-                            <LinkedInIcon size={40} className="hover;" />
+                        <a
+                            href={restData.linkedin_link}
+                            target="_blank"
+                            aria-label="Navigate to my LinkedIn Profile"
+                        >
+                            <LinkedInIcon size={40} />
                         </a>
                         <CopyEmailBtn email={restData.email_link} />
-                        <a href={restData.github_link} target="_blank">
+                        <a
+                            href={restData.github_link}
+                            target="_blank"
+                            aria-label="Navigate to my GitHub Profile"
+                        >
                             <GitHubIcon size={40} />
                         </a>
                     </div>

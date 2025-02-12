@@ -8,6 +8,8 @@ import {
     useTransform,
 } from "framer-motion";
 
+//I was trying this out to really try and dig into framer motion,
+
 const DeskNav = () => {
     return <SideStaggerNavigation />;
 };
@@ -19,7 +21,7 @@ const NUM_LINES = 22;
 const navItems = [
     { position: 8, title: "Work" },
     { position: 12, title: "About" },
-    { position: 16, title: "TCOB" },
+    { position: 16, title: "Tools" },
 ];
 
 const SideStaggerNavigation = () => {
@@ -114,7 +116,7 @@ const LinkLine = ({
                 ref={ref}
                 className="group relative bg-current transition-colors hover:bg-neutral-500 accessibility-class"
                 style={{ width: linkWidth, height: 2 }}
-                aria-label="Navigation Link to work section"
+                aria-label="in-page navigation to work section"
             >
                 <a href="#work-section">
                     <AnimatePresence>
@@ -139,7 +141,7 @@ const LinkLine = ({
                 ref={ref}
                 className="group relative bg-current transition-colors hover:bg-neutral-500 accessibility-class"
                 style={{ width: linkWidth, height: 2 }}
-                aria-label="Navigation Link to work section"
+                aria-label="in-page navigation to about me section"
             >
                 <a href="#about-section">
                     <AnimatePresence>
@@ -158,14 +160,13 @@ const LinkLine = ({
             </motion.li>
         );
     }
-    if (title === "TCOB") {
+    if (title === "Tools") {
         return (
             <motion.li
                 ref={ref}
                 className="group relative bg-current transition-colors hover:bg-neutral-500 accessibility-class"
                 style={{ width: linkWidth, height: 2 }}
-                aria-label="Navigation Link to tricks of the trade section"
-                title="Taking Care of Business"
+                aria-label="in-page navigation to tools section"
             >
                 <a href="#tools-section">
                     <AnimatePresence>
