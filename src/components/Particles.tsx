@@ -63,10 +63,10 @@ const ParticlesTest = () => {
         },
         links: {
           color: "#ff8f1f",
-          distance: 150,
+          distance: 200,
           enable: true,
           opacity: 0.5,
-          width: 1,
+          width: 3,
         },
         move: {
           direction: MoveDirection.none,
@@ -74,7 +74,7 @@ const ParticlesTest = () => {
           outModes: {
             default: OutMode.out,
           },
-          random: false,
+          random: true,
           speed: 4,
           straight: false,
         },

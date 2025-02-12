@@ -3,7 +3,6 @@ import { optionsLink } from "../toolbelt/api";
 import { LinkedInIcon, GitHubIcon } from "../icons/Icons";
 import LoadingSpinner from "./LoadingSpinner";
 import CopyEmailBtn from "./CopyEmailBtn";
-import { MagnetButtonLnkd, MagnetButtonGit } from "./MagnetBtns";
 
 export function DeskFooter() {
     interface contactData {
@@ -41,7 +40,7 @@ export function DeskFooter() {
                             <a
                                 href={restData.linkedin_link}
                                 target="_blank"
-                                className="hover:scale-[115%] transition-all"
+                                className="opacity-80 hover:scale-[115%] hover:opacity-100 transition-all"
                                 aria-label="Navigate to my LinkedIn Profile"
                             >
                                 <LinkedInIcon size={40} />
@@ -49,7 +48,7 @@ export function DeskFooter() {
                             <a
                                 href={restData.github_link}
                                 target="_blank"
-                                className="hover:scale-[115%] transition-all"
+                                className="opacity-80 hover:scale-[115%] hover:opacity-100 transition-all"
                                 aria-label="Navigate to my GitHub Profile"
                             >
                                 <GitHubIcon size={40} />
