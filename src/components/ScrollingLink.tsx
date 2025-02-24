@@ -23,12 +23,12 @@ const ScrollingLink: React.FC<Props> = ({ link, children }) => {
             rel="noopener noreferrer"
             aria-label={`Navigates to ${children}`}
             role="link"
-            className="relative overflow-hidden bg-inherit p-4 text-sm md:text-lg lg:text-xl font-black uppercase text-current  border border-inherit rounded-md rounded-bl-lg rounded-tr-lg accessibility-class"
+            className="relative overflow-hidden bg-inherit p-4 text-sm md:text-lg lg:text-xl font-black uppercase text-current border border-inherit rounded-md rounded-bl-lg rounded-tr-lg flex content-center self-center justify-center align-middle accessibility-class no-motion"
         >
             {!shouldReduceMotion ? (
                 <>
                     <motion.span
-                        className="flex content-center accessibility-class"
+                        className="flex content-center self-center justify-center align-middle accessibility-class no-motion"
                         initial={{ x: "0%" }}
                         animate={{
                             x: "calc(-100% - 6px)",
@@ -54,7 +54,7 @@ const ScrollingLink: React.FC<Props> = ({ link, children }) => {
                             repeat: Infinity,
                             repeatType: "loop",
                         }}
-                        className="absolute left-4 top-4 flex content-center justify-center align-middle accessibility-class"
+                        className="absolute left-4 top-4 flex content-center justify-center align-middle accessibility-class no-motion"
                     >
                         {children} •
                     </motion.span>
@@ -84,7 +84,7 @@ const ScrollingLink: React.FC<Props> = ({ link, children }) => {
                             repeat: Infinity,
                             repeatType: "loop",
                         }}
-                        className="absolute left-4 top-4 flex content-center justify-center align-middle accessibility-class"
+                        className="absolute left-4 top-4 flex content-center self-center justify-center align-middle accessibility-class no-motion"
                     >
                         {children} •
                     </motion.span>

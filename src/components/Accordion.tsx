@@ -109,14 +109,14 @@ const Accordion2: React.FC<AccordionProps> = ({ projects }) => {
                                 <ScrollingLink
                                     link={project.acf.project_live_link}
                                 >
-                                    <GlobeIcon className="inline" size={24} />{" "}
+                                    <GlobeIcon className="inline pt-[0.2rem] pr-1" size={24} />{" "}
                                     Live Site
                                 </ScrollingLink>
 
                                 <ScrollingLink
                                     link={project.acf.project_github_link}
                                 >
-                                    <GitHubIcon className="inline" size={24} />{" "}
+                                    <GitHubIcon className="inline pt-1 pr-1" size={24} />{" "}
                                     GitHub
                                 </ScrollingLink>
                             </nav>

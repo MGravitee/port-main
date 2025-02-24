@@ -14,7 +14,7 @@ export const projectsLink = 'https://mattgravitee.com/dfdksfjhkdsjfh//wp-json/wp
 
 //tools used info 
 
-export const toolsLink = 'https://mattgravitee.com/dfdksfjhkdsjfh//wp-json/wp/v2/categories?_embed&acf_format=standard&per_page=50&2=3';
+export const toolsLink = 'https://mattgravitee.com/dfdksfjhkdsjfh//wp-json/wp/v2/categories?_embed&acf_format=standard&per_page=50&6=7';
 
 //UX links
 
