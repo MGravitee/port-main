@@ -58,7 +58,7 @@ function ToolsCarousel() {
                         }}
                         navigation={true}
                         modules={[EffectCards, Pagination, Navigation]}
-                        className="mySwiper w-[19rem] h-[36rem] md:w-[25rem] md:h-[35rem] mb-12"
+                        className="mySwiper w-[19rem] h-[36rem] md:w-[25rem] md:h-[35rem] xl:w-[28rem] mb-12"
                     >
                         {categories.map((category) => (
                             <SwiperSlide

@@ -90,7 +90,7 @@ const ThingsList = ({
     reverse = false,
     duration = 50,
 }: {
-    list: ThingsIEnjoy[]; // Update to use ThingsIEnjoy[]
+    list: ThingsIEnjoy[]; // imported from interfaces 
     reverse?: boolean;
     duration?: number;
 }) => {
@@ -104,7 +104,7 @@ const ThingsList = ({
             {list.map((t, index) => {
                 return (
                     <article
-                        key={index} // Use index as key
+                        key={index} // Using index as key, I know this is a no-no, but in this case as I'm controlling it I know what each is
                         className="shrink-0 w-[500px] grid grid-cols-[10rem,_1fr] rounded-lg overflow-hidden relative"
                     >
                         <img
