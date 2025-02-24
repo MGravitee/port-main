@@ -58,7 +58,7 @@ function ToolsCarousel() {
                         }}
                         navigation={true}
                         modules={[EffectCards, Pagination, Navigation]}
-                        className="mySwiper w-[19rem] h-[36rem] md:w-[25rem] md:h-[33rem] mb-12"
+                        className="mySwiper w-[19rem] h-[36rem] md:w-[25rem] md:h-[35rem] xl:w-[28rem] mb-12"
                     >
                         {categories.map((category) => (
                             <SwiperSlide
@@ -76,7 +76,7 @@ function ToolsCarousel() {
                                     >
                                         {category.name}
                                     </h3>
-                                    <ul className=" border-current flex gap-2 flex-wrap justify-center tool-list">
+                                    <ul className=" border-current flex gap-2 md:gap-3 flex-wrap justify-center tool-list">
                                         {restData
                                             .filter(
                                                 (tool) =>
@@ -85,7 +85,7 @@ function ToolsCarousel() {
                                             )
                                             .map((tool, index) => (
                                                 <li
-                                                    className="flex gap-1 md:text-medium text-current justify-center text-sm items-center border-solid bg-content2 shadow-medium rounded-medium border-inherit rounded-bl-lg rounded-tr-lg w-32 h-10 md:w-36 single-tool relative hover:bg-content1 transition-all"
+                                                    className="flex flex-wrap gap-1 text-current justify-center text-sm items-center border-solid bg-content2 shadow-medium rounded-medium border-inherit rounded-bl-lg rounded-tr-lg w-32 h-12 md:text-medium md:w-44 md:h-10 single-tool relative hover:bg-content1 transition-all"
                                                     key={index}
                                                 >
                                                     {tool.name}
