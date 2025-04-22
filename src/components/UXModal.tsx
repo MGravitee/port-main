@@ -10,11 +10,14 @@ import { uxLink } from "../toolbelt/api";
 import { useState, useEffect } from "react";
 import LoadingSpinner from "./LoadingSpinner";
 import { UXData } from "../types/Interfaces";
+import shortenNames from "../toolbelt/shortenNames";
+import useIsMobile from "../toolbelt/detectScreen";
 
 export default function UXModal() {
     const [restData, setData] = useState<UXData[] | null>(null);
     const [isLoaded, setLoadStatus] = useState(false);
     const [openModalId, setOpenModalId] = useState<string | null>(null); // Track open modal by ID
+    const isMobile = useIsMobile();
 
     useEffect(() => {
         const fetchData = async () => {
@@ -124,7 +127,7 @@ export default function UXModal() {
                                                                     key={i}
                                                                     className="flex gap-1 md:text-medium justify-center text-sm items-center border-solid bg-content2 shadow-medium rounded-medium border-current rounded-bl-lg rounded-tr-lg w-32 h-12 md:w-44 md:h-10 single-tool relative hover:bg-content3 transition-all"
                                                                 >
-                                                                    {uxItem.acf[`tool_text_${i}` as keyof typeof uxItem.acf]}
+                                                                    {shortenNames(uxItem.acf[`tool_text_${i}` as keyof typeof uxItem.acf], isMobile)}
                                                                     <img
                                                                         className="max-w-[24px] tool-icon"
                                                                         src={uxItem.acf[`tool_img_${i}` as keyof typeof uxItem.acf]}

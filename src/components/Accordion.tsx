@@ -3,6 +3,8 @@ import { motion } from "framer-motion";
 import Tabs from "./Tabs";
 import { GitHubIcon, GlobeIcon } from "../icons/Icons";
 import ScrollingLink from "./ScrollingLink";
+import shortenNames from "../toolbelt/shortenNames";
+import useIsMobile from "../toolbelt/detectScreen";
 import { Project } from "../types/Interfaces";
 
 interface AccordionProps {
@@ -11,7 +13,7 @@ interface AccordionProps {
 
 const Accordion2: React.FC<AccordionProps> = ({ projects }) => {
     const [activeIndex, setActiveIndex] = useState<number | null>(null);
-
+    const isMobile = useIsMobile();
     const toggleAccordion = (index: number) => {
         setActiveIndex(activeIndex === index ? null : index);
     };
@@ -136,7 +138,7 @@ const Accordion2: React.FC<AccordionProps> = ({ projects }) => {
                                             key={index}
                                             className="flex flex-wrap gap-1 md:text-medium justify-center text-sm items-center border-solid bg-content2 shadow-medium rounded-medium border-current rounded-bl-lg rounded-tr-lg w-32 h-12 md:w-44 md:h-10 single-tool relative hover:bg-content3 transition-all"
                                         >
-                                            {tool[0]}
+                                            {shortenNames(tool[0], isMobile)}
                                             <img
                                                 className="max-w-[24px] tool-icon"
                                                 src={tool[1]}

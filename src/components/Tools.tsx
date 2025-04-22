@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import { toolsLink } from "../toolbelt/api";
 import LoadingSpinner from "./LoadingSpinner";
 import switchColour from "../toolbelt/headingColours";
+import shortenNames from "../toolbelt/shortenNames";
+import useIsMobile from "../toolbelt/detectScreen";
 import { Tools } from "../types/Interfaces";
 
 // Import Swiper modules
@@ -16,7 +18,7 @@ import "swiper/css/navigation";
 function ToolsCarousel() {
     const [restData, setData] = useState<Tools[] | null>(null);
     const [isLoaded, setLoadStatus] = useState(false);
-
+    const isMobile = useIsMobile();
     useEffect(() => {
         const fetchData = async () => {
             const response = await fetch(toolsLink);
@@ -58,7 +60,7 @@ function ToolsCarousel() {
                         }}
                         navigation={true}
                         modules={[EffectCards, Pagination, Navigation]}
-                        className="mySwiper w-[19rem] h-[38rem] md:w-[28rem] md:h-[35rem] xl:w-[28rem] mb-12"
+                        className="mySwiper w-[19rem] h-[38rem] md:w-[28rem] md:h-[36rem] xl:w-[30rem] mb-12"
                     >
                         {categories.map((category) => (
                             <SwiperSlide
@@ -88,7 +90,7 @@ function ToolsCarousel() {
                                                     className="flex flex-wrap gap-1 text-current justify-center text-sm items-center border-solid bg-content2 shadow-medium rounded-medium border-inherit rounded-bl-lg rounded-tr-lg w-32 h-12 md:text-medium md:w-44 md:h-10 single-tool relative hover:bg-content1 transition-all"
                                                     key={index}
                                                 >
-                                                    {tool.name}
+                                                    {shortenNames(tool.name, isMobile)}
                                                     <img
                                                         className="max-w-6 tool-icon object-contain"
                                                         src={tool.acf.icon}
