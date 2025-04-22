@@ -122,7 +122,7 @@ export default function UXModal() {
                                                             {[1, 2, 3].map((i) => (
                                                                 <li
                                                                     key={i}
-                                                                    className="flex gap-1 md:text-medium justify-center text-sm items-center border-solid bg-content2 shadow-medium rounded-medium border-current rounded-bl-lg rounded-tr-lg w-32 h-10 md:w-36 single-tool relative hover:bg-content3 transition-all"
+                                                                    className="flex gap-1 md:text-medium justify-center text-sm items-center border-solid bg-content2 shadow-medium rounded-medium border-current rounded-bl-lg rounded-tr-lg w-32 h-12 md:w-44 md:h-10 single-tool relative hover:bg-content3 transition-all"
                                                                 >
                                                                     {uxItem.acf[`tool_text_${i}` as keyof typeof uxItem.acf]}
                                                                     <img

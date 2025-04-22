@@ -109,14 +109,20 @@ const Accordion2: React.FC<AccordionProps> = ({ projects }) => {
                                 <ScrollingLink
                                     link={project.acf.project_live_link}
                                 >
-                                    <GlobeIcon className="inline pt-[0.2rem] pr-1" size={24} />{" "}
+                                    <GlobeIcon
+                                        className="inline pt-[0.2rem] pr-1"
+                                        size={24}
+                                    />{" "}
                                     Live Site
                                 </ScrollingLink>
 
                                 <ScrollingLink
                                     link={project.acf.project_github_link}
                                 >
-                                    <GitHubIcon className="inline pt-1 pr-1" size={24} />{" "}
+                                    <GitHubIcon
+                                        className="inline pt-1 pr-1"
+                                        size={24}
+                                    />{" "}
                                     GitHub
                                 </ScrollingLink>
                             </nav>
@@ -128,7 +134,7 @@ const Accordion2: React.FC<AccordionProps> = ({ projects }) => {
                                     {project.tools.map((tool, index) => (
                                         <li
                                             key={index}
-                                            className="flex gap-1 md:text-medium justify-center text-sm items-center border-solid bg-content2 shadow-medium rounded-medium border-current rounded-bl-lg rounded-tr-lg w-32 h-10 md:w-36 single-tool relative hover:bg-content3 transition-all"
+                                            className="flex flex-wrap gap-1 md:text-medium justify-center text-sm items-center border-solid bg-content2 shadow-medium rounded-medium border-current rounded-bl-lg rounded-tr-lg w-32 h-12 md:w-44 md:h-10 single-tool relative hover:bg-content3 transition-all"
                                         >
                                             {tool[0]}
                                             <img
